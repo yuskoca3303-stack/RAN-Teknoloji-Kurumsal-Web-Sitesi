@@ -3,632 +3,433 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RAN Teknoloji | Kurumsal IT & QR Sistemleri</title>
-  <meta name="description" content="RAN Teknoloji; QR sistemleri, kurumsal IT, yazılım ve dijital dönüşüm çözümleri sunar." />
+  <title>RAN Teknoloji | Kurumsal IT & Sistem Çözümleri</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#050914;
-      --bg2:#070c1e;
-      --card:rgba(255,255,255,.05);
-      --stroke:rgba(255,255,255,.08);
-      --text:#e5e7eb;
-      --muted:#cbd5f5;
-      --muted2:#94a3b8;
-      --brand:#38bdf8;
-      --brand2:#22d3ee;
-      --shadow: 0 24px 60px rgba(0,0,0,.45);
+      --bg: #070a14;
+      --bg2:#0a0f22;
+      --text:#eaf0ff;
+      --muted: rgba(234,240,255,.78);
+      --muted2: rgba(234,240,255,.55);
+      --line: rgba(255,255,255,.10);
+      --brand: #17c7ff;
+      --brand2:#7a5cff;
+      --glass: rgba(20,30,60,.45);
+      --glass2: rgba(20,30,60,.28);
+      --shadow: 0 18px 55px rgba(0,0,0,.55);
       --radius: 18px;
+      --radius2: 14px;
+      --headerH: 76px;
     }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;
-      background: radial-gradient(ellipse at top, #0b1b3a 0%, var(--bg) 60%);
-      color:var(--text);
-      line-height:1.7;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 700px at 65% 25%, rgba(122,92,255,.18), transparent 55%),
+                  radial-gradient(900px 650px at 20% 35%, rgba(23,199,255,.12), transparent 55%),
+                  linear-gradient(180deg, var(--bg), var(--bg2));
+      color: var(--text);
+      overflow-x:hidden;
     }
-    a{color:inherit}
 
-    /* Header */
-    header{
-      position:sticky;
-      top:0;
-      z-index:999;
-      background:rgba(5,9,20,.85);
-      backdrop-filter: blur(10px);
-      border-bottom:1px solid var(--stroke);
+    /* HEADER */
+    .header{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      height: var(--headerH);
+      display:flex;
+      align-items:center;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      background: rgba(7,10,20,.55);
+      backdrop-filter: blur(14px);
     }
-    .nav-wrap{
-      max-width:1200px;
-      margin:auto;
-      padding:16px 22px;
+    .container{
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+    .header .wrap{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:18px;
+      gap: 18px;
     }
-    .brand{
+
+    .logo{
       display:flex;
       align-items:center;
       gap:10px;
-      text-decoration:none;
-      letter-spacing:.4px;
       font-weight:800;
+      letter-spacing:.5px;
+      text-decoration:none;
+      color: var(--text);
       white-space:nowrap;
     }
-    .brand .dot{
-      width:10px;height:10px;border-radius:99px;
-      background: linear-gradient(135deg, var(--brand), #a855f7);
-      box-shadow: 0 0 0 6px rgba(56,189,248,.12);
+    .logo-dot{
+      width:10px;height:10px;border-radius:999px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: 0 0 0 6px rgba(23,199,255,.10);
     }
-    .brand span{
-      color:var(--brand);
-      font-weight:800;
-    }
+    .logo span b{color: var(--brand); font-weight:800}
 
-    nav{
+    .nav{
       display:flex;
       align-items:center;
-      gap:22px;
+      gap: 6px;
       flex-wrap:wrap;
       justify-content:flex-end;
     }
-    nav a{
+    .nav a{
+      color: rgba(234,240,255,.85);
       text-decoration:none;
-      color:rgba(229,231,235,.92);
-      font-weight:500;
-      font-size:14px;
-      padding:8px 10px;
-      border-radius:10px;
-      transition:.2s;
+      font-weight:600;
+      font-size: 14px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      transition: .18s ease;
     }
-    nav a:hover{
-      color:#0b1220;
-      background:rgba(56,189,248,.92);
+    .nav a:hover{
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.08);
+      color: var(--text);
     }
-    .nav-cta{
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      color:#06101f !important;
-      font-weight:700;
-      box-shadow: 0 10px 28px rgba(56,189,248,.18);
+    /* İletişim artık mavi değil. Diğerleriyle aynı. */
+    .nav a.cta{
+      background: transparent;
+      border-color: transparent;
+      color: rgba(234,240,255,.85);
+      box-shadow:none;
     }
-    .nav-cta:hover{filter:brightness(1.02)}
 
-    /* Layout */
-    .container{max-width:1200px;margin:auto;padding:0 22px;}
-    section{padding:88px 0;}
-
-    /* Hero */
+    /* HERO (tam ekran) */
     .hero{
-      padding:86px 0 70px;
-      position:relative;
-      overflow:hidden;
+      position: relative;
+      min-height: calc(100vh - var(--headerH)); /* header hariç tam ekran */
+      display:flex;
+      align-items:center;
+      padding: 44px 0 56px;
     }
     .hero::before{
       content:"";
       position:absolute; inset:0;
       background:
-        linear-gradient(90deg, rgba(5,9,20,.92) 0%, rgba(5,9,20,.72) 45%, rgba(5,9,20,.35) 75%, rgba(5,9,20,.15) 100%),
-        url("hero.jpg");
-      background-size:cover;
-      background-position:center;
-      filter:saturate(1.05);
-      transform:scale(1.02);
-    }
-    .hero::after{
-      content:"";
-      position:absolute; inset:-120px -120px auto auto;
-      width:420px;height:420px;border-radius:999px;
-      background: radial-gradient(circle at 30% 30%, rgba(168,85,247,.35), rgba(34,211,238,.06) 55%, transparent 70%);
+        linear-gradient(90deg, rgba(7,10,20,.92) 0%, rgba(7,10,20,.72) 55%, rgba(7,10,20,.55) 100%);
       pointer-events:none;
+    }
+    .hero-bg{
+      position:absolute; inset:0;
+      background: url("hero.jpg") center/cover no-repeat;
+      filter: saturate(1.05) contrast(1.05);
+      opacity: .95;
     }
     .hero-inner{
       position:relative;
       display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:34px;
+      grid-template-columns: 1.2fr .85fr;
+      gap: 26px;
       align-items:center;
-      min-height:420px;
     }
-    .kicker{
-      display:inline-flex;
+
+    .badge-row{
+      display:flex;
       gap:10px;
       align-items:center;
-      font-weight:600;
-      font-size:13px;
-      color:rgba(229,231,235,.9);
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-      padding:8px 12px;
-      border-radius:999px;
-      backdrop-filter: blur(8px);
+      flex-wrap:wrap;
+      margin-bottom: 14px;
     }
-    .kicker b{color:var(--brand)}
+    .badge{
+      font-size: 12px;
+      font-weight:700;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: rgba(234,240,255,.88);
+      backdrop-filter: blur(10px);
+    }
+    .badge b{color: var(--brand); font-weight:800}
+
     h1{
-      margin:16px 0 14px;
-      font-size:56px;
-      line-height:1.05;
-      letter-spacing:-.5px;
+      margin: 0 0 10px;
+      font-size: clamp(34px, 4.2vw, 56px);
+      line-height: 1.08;
+      letter-spacing: -0.6px;
+      text-shadow: 0 18px 60px rgba(0,0,0,.55);
     }
     .lead{
-      margin:0;
-      max-width:640px;
-      color:rgba(203,213,245,.95);
-      font-size:18px;
+      margin: 0 0 22px;
+      max-width: 58ch;
+      color: var(--muted);
+      font-size: 15.5px;
+      line-height: 1.6;
     }
-    .hero-actions{
+
+    .btn-row{
       display:flex;
-      gap:14px;
-      align-items:center;
-      margin-top:22px;
+      gap:12px;
       flex-wrap:wrap;
+      align-items:center;
     }
     .btn{
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      padding: 12px 16px;
+      border-radius: 14px;
+      font-weight:800;
+      text-decoration:none;
+      font-size: 14px;
+      transition: .18s ease;
       display:inline-flex;
       align-items:center;
-      justify-content:center;
       gap:10px;
-      padding:12px 18px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.06);
-      color:var(--text);
-      text-decoration:none;
-      font-weight:700;
-      transition:.2s;
-      cursor:pointer;
-    }
-    .btn:hover{transform:translateY(-1px); box-shadow: var(--shadow)}
-    .btn.primary{
-      border:none;
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      color:#06101f;
-    }
-    .btn.ghost:hover{
-      background:rgba(255,255,255,.10);
-      box-shadow:none;
-      transform:translateY(-1px);
-    }
-    .hero-side{
-      display:flex;
-      justify-content:flex-end;
-    }
-    .stat-card{
-      width:min(420px, 100%);
-      background:rgba(11,27,58,.55);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:var(--radius);
-      padding:18px;
       backdrop-filter: blur(10px);
-      box-shadow: 0 22px 60px rgba(0,0,0,.45);
     }
-    .stat-grid{
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.09);
+      border-color: rgba(255,255,255,.14);
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(23,199,255,.95), rgba(122,92,255,.9));
+      border-color: rgba(255,255,255,.08);
+      box-shadow: 0 14px 40px rgba(23,199,255,.18);
+      color: #07101a;
+    }
+    .btn.primary:hover{
+      box-shadow: 0 18px 50px rgba(23,199,255,.22);
+    }
+
+    .glass-card{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.14);
+      background: linear-gradient(180deg, rgba(20,30,60,.55), rgba(20,30,60,.28));
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+    .glass-title{
+      font-weight:800;
+      margin: 0 0 6px;
+      font-size: 14px;
+      color: rgba(234,240,255,.94);
+    }
+    .glass-sub{
+      margin: 0 0 14px;
+      font-size: 13px;
+      color: var(--muted2);
+      line-height: 1.5;
+    }
+    .mini-grid{
       display:grid;
       grid-template-columns: 1fr 1fr;
-      gap:12px;
-      margin-top:10px;
+      gap: 12px;
     }
     .mini{
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:14px;
-      padding:14px;
+      border-radius: var(--radius2);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      padding: 12px;
     }
-    .mini .n{
-      font-size:18px;font-weight:800;color:var(--brand);
-      letter-spacing:-.2px;
+    .mini h3{
+      margin:0 0 4px;
+      font-size: 13px;
+      font-weight:800;
+      color: rgba(23,199,255,.95);
     }
-    .mini .t{
-      font-size:12px;color:rgba(203,213,245,.88);
-      margin-top:4px;
-    }
-
-    /* Sections */
-    .section-title{
-      font-size:36px;
-      margin:0 0 10px;
-      letter-spacing:-.2px;
-    }
-    .section-desc{
+    .mini p{
       margin:0;
-      max-width:860px;
-      color:rgba(203,213,245,.92);
+      font-size: 12px;
+      color: var(--muted2);
+      line-height: 1.45;
     }
 
-    .alt{background:var(--bg2); border-top:1px solid rgba(255,255,255,.06); border-bottom:1px solid rgba(255,255,255,.06);}
+    /* SECTION */
+    section{
+      padding: 70px 0;
+    }
+    .section-title{
+      font-size: 34px;
+      margin: 0 0 10px;
+      letter-spacing: -0.4px;
+    }
+    .section-sub{
+      margin: 0 0 28px;
+      color: var(--muted);
+      max-width: 70ch;
+      line-height: 1.6;
+      font-size: 15px;
+    }
 
-    .grid{
+    .cards{
       display:grid;
-      grid-template-columns:repeat(3, minmax(0,1fr));
-      gap:18px;
-      margin-top:28px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
     }
     .card{
-      background:var(--card);
-      border:1px solid var(--stroke);
-      border-radius:var(--radius);
-      padding:22px;
-      transition:.2s;
-      min-height:160px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      padding: 18px;
+      transition: .18s ease;
     }
     .card:hover{
-      transform:translateY(-3px);
-      border-color:rgba(56,189,248,.55);
-      box-shadow: 0 20px 50px rgba(0,0,0,.35);
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
     }
     .card h3{
-      margin:0 0 10px;
-      color:var(--brand);
-      letter-spacing:-.1px;
+      margin:0 0 8px;
+      font-size: 15px;
+      font-weight:900;
+      color: rgba(234,240,255,.95);
     }
     .card p{
       margin:0;
-      color:rgba(203,213,245,.92);
-      font-size:14px;
+      color: var(--muted2);
+      font-size: 13px;
+      line-height: 1.55;
     }
 
-    /* Process */
-    .steps{
+    /* Robot buton */
+    .bot{
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 54px;
+      height: 54px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.08);
+      backdrop-filter: blur(14px);
       display:grid;
-      grid-template-columns: repeat(4, minmax(0,1fr));
-      gap:14px;
-      margin-top:26px;
-    }
-    .step{
-      padding:18px;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.08);
-      background:rgba(255,255,255,.04);
-    }
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:30px;height:30px;
-      border-radius:10px;
-      background:rgba(56,189,248,.16);
-      border:1px solid rgba(56,189,248,.22);
-      color:var(--brand);
-      font-weight:800;
-      margin-bottom:10px;
-    }
-    .step b{display:block; margin-bottom:6px;}
-    .step span{display:block; color:rgba(203,213,245,.92); font-size:13px;}
-
-    /* CTA */
-    .cta{
-      padding:34px;
-      border-radius:22px;
-      border:1px solid rgba(255,255,255,.10);
-      background: linear-gradient(135deg, rgba(56,189,248,.12), rgba(168,85,247,.10));
-      box-shadow: 0 30px 80px rgba(0,0,0,.35);
-      margin-top:30px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:18px;
-      flex-wrap:wrap;
-    }
-    .cta p{margin:0;color:rgba(203,213,245,.95)}
-    .cta .btn{box-shadow:none}
-
-    /* Footer */
-    footer{
-      padding:46px 0;
-      border-top:1px solid rgba(255,255,255,.08);
-      color:var(--muted2);
-    }
-    .footer-row{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      flex-wrap:wrap;
-    }
-    .footer-links{
-      display:flex; gap:14px; flex-wrap:wrap;
-    }
-    .footer-links a{
-      text-decoration:none;
-      color:rgba(148,163,184,.95);
-      padding:6px 10px;border-radius:10px;
-      border:1px solid rgba(255,255,255,.06);
-      background:rgba(255,255,255,.03);
-    }
-    .footer-links a:hover{border-color:rgba(56,189,248,.35); color:rgba(229,231,235,.95)}
-
-    /* AI Assistant */
-    #aiBtn{
-      position:fixed;
-      right:18px;
-      bottom:18px;
-      width:58px;height:58px;
-      border-radius:50%;
-      border:none;
+      place-items:center;
+      box-shadow: 0 14px 45px rgba(0,0,0,.45);
       cursor:pointer;
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      color:#06101f;
-      font-size:22px;
-      font-weight:900;
-      box-shadow: 0 18px 50px rgba(56,189,248,.25);
-      z-index:1000;
+      user-select:none;
     }
-    #aiPanel{
-      position:fixed;
-      right:18px;
-      bottom:86px;
-      width:340px;
-      max-width: calc(100vw - 36px);
-      display:none;
-      z-index:1000;
-      background:rgba(11,27,58,.92);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:20px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 24px 70px rgba(0,0,0,.55);
-      overflow:hidden;
-    }
-    .aiHead{
-      padding:14px 14px 10px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
-    .aiHead b{color:var(--brand)}
-    .aiClose{
-      border:none;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.08);
-      color:rgba(229,231,235,.9);
-      border-radius:12px;
-      padding:6px 10px;
-      cursor:pointer;
-    }
-    .aiBody{padding:14px;}
-    .aiBody p{margin:0 0 12px;color:rgba(203,213,245,.95); font-size:13px;}
-    .aiActions{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:10px;
-    }
-    .aiActions a, .aiActions button{
-      text-decoration:none;
-      padding:10px 12px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.06);
-      color:rgba(229,231,235,.95);
-      font-weight:700;
-      cursor:pointer;
-      text-align:center;
-    }
-    .aiActions a:hover, .aiActions button:hover{
-      border-color:rgba(56,189,248,.55);
-      background:rgba(255,255,255,.08);
+    .bot:hover{
+      background: rgba(255,255,255,.10);
+      transform: translateY(-1px);
     }
 
     /* Responsive */
     @media (max-width: 980px){
-      .hero-inner{grid-template-columns:1fr; min-height:auto;}
-      .hero-side{justify-content:flex-start;}
-      h1{font-size:44px}
-      .grid{grid-template-columns:1fr}
-      .steps{grid-template-columns:1fr 1fr}
-    }
-    @media (max-width: 520px){
-      h1{font-size:36px}
-      .steps{grid-template-columns:1fr}
+      .hero-inner{grid-template-columns: 1fr; gap: 18px;}
+      .glass-card{max-width: 560px;}
+      .cards{grid-template-columns: 1fr; }
+      .header{height:auto}
+      :root{ --headerH: 76px; }
     }
   </style>
 </head>
 
 <body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <div class="wrap">
+        <a class="logo" href="index.html">
+          <span class="logo-dot"></span>
+          <span>RAN <b>TEKNOLOJİ</b></span>
+        </a>
 
-<header>
-  <div class="nav-wrap">
-    <a class="brand" href="index.html">
-      <span class="dot"></span>
-      RAN <span>TEKNOLOJİ</span>
-    </a>
+        <nav class="nav" aria-label="Ana Menü">
+          <a href="index.html">Ana Sayfa</a>
+          <a href="hizmetler.html" target="_blank" rel="noopener">Hizmetler</a>
+          <a href="projeler.html" target="_blank" rel="noopener">Projeler</a>
+          <a href="kurumsal.html" target="_blank" rel="noopener">Kurumsal</a>
+          <a class="cta" href="iletisim.html" target="_blank" rel="noopener">İletişim</a>
+        </nav>
+      </div>
+    </div>
+  </header>
 
-    <nav>
-      <a href="index.html">Ana Sayfa</a>
-      <a href="faaliyet.html" target="_blank" rel="noopener">Hizmetler</a>
-      <a href="projeler.html" target="_blank" rel="noopener">Projeler</a>
-      <a href="kurumsal.html" target="_blank" rel="noopener">Kurumsal</a>
-      <a class="nav-cta" href="iletisim.html" target="_blank" rel="noopener">İletişim</a>
-    </nav>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="container">
-    <div class="hero-inner">
+  <!-- HERO -->
+  <main class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container hero-inner">
       <div>
-        <div class="kicker"><b>Kurumsal</b> QR & Sistem Çözümleri</div>
-        <h1>QR Kod ve Akıllı Sistem Çözümleri</h1>
+        <div class="badge-row">
+          <span class="badge"><b>Kurumsal</b> yaklaşım</span>
+          <span class="badge">QR & Sistem Çözümleri</span>
+        </div>
+
+        <h1>QR Kod ve Akıllı<br/>Sistem Çözümleri</h1>
         <p class="lead">
-          Dijital dönüşümde yenilikçi, güvenli ve ölçeklenebilir teknolojilerle işletmenizi
-          geleceğe taşıyoruz. Kurulumdan desteğe kadar uçtan uca hizmet.
+          Dijital dönüşümde yenilikçi, güvenli ve ölçeklenebilir teknolojilerle işletmenizi geleceğe taşıyoruz.
+          Kurulumdan desteğe kadar uçtan uca hizmet.
         </p>
 
-        <div class="hero-actions">
+        <div class="btn-row">
           <a class="btn primary" href="iletisim.html" target="_blank" rel="noopener">Teklif Al</a>
-          <a class="btn ghost" href="projeler.html" target="_blank" rel="noopener">Projeleri İncele</a>
+          <a class="btn" href="projeler.html" target="_blank" rel="noopener">Projeleri İncele</a>
         </div>
       </div>
 
-      <div class="hero-side">
-        <div class="stat-card">
-          <div style="font-weight:800; letter-spacing:-.2px;">Kurumsal yaklaşım. Net teslimat.</div>
-          <div style="color:rgba(203,213,245,.92); font-size:13px; margin-top:6px;">
-            Proje planı, güvenlik, performans ve sürdürülebilirlik odaklı çalışırız.
-          </div>
+      <aside class="glass-card">
+        <p class="glass-title">Kurumsal yaklaşım. Net teslimat.</p>
+        <p class="glass-sub">Proje planı, güvenlik, performans ve sürdürülebilirlik odaklı çalışırız.</p>
 
-          <div class="stat-grid">
-            <div class="mini">
-              <div class="n">Hızlı</div>
-              <div class="t">Kurulum ve devreye alma</div>
-            </div>
-            <div class="mini">
-              <div class="n">Güvenli</div>
-              <div class="t">Kurumsal standartlar</div>
-            </div>
-            <div class="mini">
-              <div class="n">Ölçekli</div>
-              <div class="t">Büyüyen işletmelere uygun</div>
-            </div>
-            <div class="mini">
-              <div class="n">Destek</div>
-              <div class="t">Bakım ve teknik destek</div>
-            </div>
+        <div class="mini-grid">
+          <div class="mini">
+            <h3>Hızlı</h3>
+            <p>Kurulum ve devreye alma</p>
+          </div>
+          <div class="mini">
+            <h3>Güvenli</h3>
+            <p>Kurumsal standartlar</p>
+          </div>
+          <div class="mini">
+            <h3>Ölçekli</h3>
+            <p>Büyüyen işletmelere uygun</p>
+          </div>
+          <div class="mini">
+            <h3>Destek</h3>
+            <p>Bakım ve teknik destek</p>
           </div>
         </div>
-      </div>
-
+      </aside>
     </div>
+  </main>
+
+  <!-- “Neden RAN Teknoloji?” artık hero'yu sıkıştırmıyor, aşağıda tam bölüm -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Neden RAN Teknoloji?</h2>
+      <p class="section-sub">
+        Kurumsal iş disiplinini, modern tasarım ve sağlam teknik altyapıyla birleştiririz.
+        Az konuşur, çok teslim ederiz.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Kurumsal Standart</h3>
+          <p>Dokümantasyon, süreç ve sürdürülebilir yapı. İş büyüdükçe sistem dağılmaz.</p>
+        </div>
+        <div class="card">
+          <h3>Performans Odaklı</h3>
+          <p>Hız, güvenlik ve temiz mimari. Görsel şov değil, sağlam iş.</p>
+        </div>
+        <div class="card">
+          <h3>Uçtan Uca Destek</h3>
+          <p>Kurulumdan bakıma, revizyondan geliştirmeye kadar her adımda yanınızdayız.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Robot -->
+  <div class="bot" title="Yapay Zeka Asistan">
+    🤖
   </div>
-</section>
-
-<section class="alt">
-  <div class="container">
-    <h2 class="section-title">Neden RAN Teknoloji?</h2>
-    <p class="section-desc">
-      Kurumsal iş disiplinini, modern tasarım ve sağlam teknik altyapıyla birleştiririz.
-      Az konuşur, çok teslim ederiz (keşke herkes böyle olsa).
-    </p>
-
-    <div class="grid">
-      <div class="card">
-        <h3>Kurumsal Standart</h3>
-        <p>Dokümantasyon, süreç yönetimi ve sürdürülebilir altyapı.</p>
-      </div>
-      <div class="card">
-        <h3>Performans Odaklı</h3>
-        <p>Hız, güvenlik ve erişilebilirlik kriterleriyle optimize edilmiş çözümler.</p>
-      </div>
-      <div class="card">
-        <h3>Uçtan Uca Destek</h3>
-        <p>Kurulum, eğitim, bakım ve sürekli iyileştirme desteği.</p>
-      </div>
-    </div>
-
-    <div class="cta">
-      <div>
-        <div style="font-weight:800; font-size:18px; letter-spacing:-.2px;">Projenizi baştan doğru kuralım.</div>
-        <p>İhtiyacınızı anlatın, size en doğru çözümü ve yol haritasını çıkaralım.</p>
-      </div>
-      <a class="btn primary" href="iletisim.html" target="_blank" rel="noopener">Hemen İletişime Geç</a>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <h2 class="section-title">Çözüm Alanlarımız</h2>
-    <p class="section-desc">
-      İhtiyaca göre modüler ilerleriz: QR altyapısı, web panel, entegrasyon, kurumsal IT ve destek.
-    </p>
-
-    <div class="grid">
-      <div class="card">
-        <h3>QR Sistemleri</h3>
-        <p>Menü, yönlendirme, doğrulama, kampanya ve takip amaçlı QR çözümleri.</p>
-      </div>
-      <div class="card">
-        <h3>Kurumsal IT</h3>
-        <p>Ağ, güvenlik, sistem kurulumu, cihaz yönetimi ve teknik destek.</p>
-      </div>
-      <div class="card">
-        <h3>Yazılım & Panel</h3>
-        <p>Özel yönetim paneli, otomasyon, entegrasyon ve raporlama çözümleri.</p>
-      </div>
-    </div>
-
-    <div class="steps">
-      <div class="step">
-        <div class="badge">1</div>
-        <b>Analiz</b>
-        <span>İhtiyaçları netleştirir, hedefi belirleriz.</span>
-      </div>
-      <div class="step">
-        <div class="badge">2</div>
-        <b>Tasarım & Plan</b>
-        <span>Yol haritası, ekranlar ve altyapı planlanır.</span>
-      </div>
-      <div class="step">
-        <div class="badge">3</div>
-        <b>Uygulama</b>
-        <span>Geliştirme, kurulum, test ve devreye alma.</span>
-      </div>
-      <div class="step">
-        <div class="badge">4</div>
-        <b>Destek</b>
-        <span>Bakım, iyileştirme ve teknik destek süreçleri.</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="container">
-    <div class="footer-row">
-      <div style="display:flex; align-items:center; gap:10px; font-weight:800;">
-        <span style="width:9px;height:9px;border-radius:99px;background:linear-gradient(135deg,var(--brand),#a855f7)"></span>
-        RAN Teknoloji
-      </div>
-
-      <div class="footer-links">
-        <a href="faaliyet.html" target="_blank" rel="noopener">Hizmetler</a>
-        <a href="projeler.html" target="_blank" rel="noopener">Projeler</a>
-        <a href="kurumsal.html" target="_blank" rel="noopener">Kurumsal</a>
-        <a href="iletisim.html" target="_blank" rel="noopener">İletişim</a>
-      </div>
-    </div>
-
-    <div style="margin-top:14px; font-size:13px;">
-      © 2026 RAN Teknoloji. Tüm hakları saklıdır.
-    </div>
-  </div>
-</footer>
-
-<!-- AI ASSISTANT -->
-<div id="aiPanel" aria-hidden="true">
-  <div class="aiHead">
-    <div><b>RAN</b> Dijital Asistan</div>
-    <button class="aiClose" onclick="toggleAI()">Kapat</button>
-  </div>
-  <div class="aiBody">
-    <p>Hızlı erişim: hizmetler, projeler veya iletişim. İnsanlar bazen kayboluyor, normal.</p>
-    <div class="aiActions">
-      <a href="faaliyet.html" target="_blank" rel="noopener">Hizmetler</a>
-      <a href="projeler.html" target="_blank" rel="noopener">Projeler</a>
-      <a href="kurumsal.html" target="_blank" rel="noopener">Kurumsal</a>
-      <a href="iletisim.html" target="_blank" rel="noopener">İletişim</a>
-      <a href="https://wa.me/905439594404" target="_blank" rel="noopener">WhatsApp</a>
-      <a href="mailto:info@ranteknoloji.com" target="_blank" rel="noopener">E-posta</a>
-    </div>
-  </div>
-</div>
-
-<button id="aiBtn" title="Dijital Asistan" onclick="toggleAI()">🤖</button>
-
-<script>
-  function toggleAI(){
-    const panel = document.getElementById('aiPanel');
-    const isOpen = panel.style.display === 'block';
-    panel.style.display = isOpen ? 'none' : 'block';
-    panel.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
-  }
-</script>
-
 </body>
 </html>
