@@ -4,52 +4,218 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RAN Teknoloji</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
-body{background:#050028;color:#fff;}
-header{position:fixed;width:100%;top:0;background:rgba(0,0,0,0.4);backdrop-filter:blur(8px);padding:20px 0;}
+html,body{height:100%;}
+body{background:#050028;color:#fff;overflow-x:hidden;}
+
 .container{width:90%;max-width:1200px;margin:auto;}
-.header-inner{display:flex;justify-content:space-between;align-items:center;}
-.logo{font-weight:800;font-size:22px;}
-nav a{color:#fff;text-decoration:none;margin-left:25px;font-weight:600;}
-nav a:hover{color:#00d4ff;}
-.hero{height:100vh;background:url("hero.jpg") center/cover no-repeat;display:flex;align-items:center;}
-.overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,0,40,.95),rgba(5,0,40,.6));}
-.hero-content{position:relative;z-index:2;max-width:600px;}
-.hero h1{font-size:58px;margin-bottom:20px;}
-.hero p{margin-bottom:30px;}
-.btn{background:#00d4ff;color:#000;padding:14px 30px;border-radius:6px;text-decoration:none;font-weight:600;}
-section{padding:120px 0;text-align:center;}
-footer{background:#04001f;padding:40px 0;text-align:center;}
+
+/* HEADER */
+header{
+  position:fixed;
+  top:0;left:0;
+  width:100%;
+  z-index:2000;
+  padding:18px 0;
+  background:rgba(0,0,0,0.35);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.header-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+}
+.logo{
+  font-weight:800;
+  font-size:20px;
+  letter-spacing:1px;
+  white-space:nowrap;
+}
+nav{display:flex;align-items:center;gap:22px;flex-wrap:wrap;justify-content:flex-end;}
+nav a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  opacity:0.9;
+  transition:0.25s;
+}
+nav a:hover{color:#00d4ff;opacity:1;}
+
+/* HERO */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding-top:90px; /* header boşluğu */
+  background:url("hero.jpg") center/cover no-repeat;
+}
+.overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    90deg,
+    rgba(5,0,40,0.92) 0%,
+    rgba(5,0,40,0.72) 45%,
+    rgba(5,0,40,0.35) 75%,
+    rgba(5,0,40,0.15) 100%
+  );
+  pointer-events:none; /* TIKLAMA ENGELİ YOK */
+}
+.hero-content{
+  position:relative;
+  z-index:5;
+  max-width:720px;
+}
+.hero h1{
+  font-size:56px;
+  line-height:1.15;
+  font-weight:800;
+  margin-bottom:18px;
+  text-shadow:0 10px 30px rgba(0,0,0,0.55);
+}
+.hero p{
+  font-size:18px;
+  line-height:1.7;
+  max-width:620px;
+  opacity:0.92;
+  margin-bottom:26px;
+}
+.btn{
+  display:inline-block;
+  padding:14px 30px;
+  background:#00d4ff;
+  color:#001018;
+  border-radius:8px;
+  font-weight:700;
+  text-decoration:none;
+  transition:0.25s;
+  box-shadow:0 14px 40px rgba(0,212,255,0.25);
+}
+.btn:hover{
+  transform:translateY(-2px);
+  background:#00b7de;
+}
+
+/* SECTIONS */
+section{padding:110px 0;}
+.services{
+  background:linear-gradient(180deg, rgba(10,0,61,1) 0%, rgba(6,0,35,1) 100%);
+  border-top:1px solid rgba(255,255,255,0.06);
+}
+.section-title{
+  font-size:36px;
+  font-weight:800;
+  margin-bottom:12px;
+  text-align:center;
+}
+.section-desc{
+  text-align:center;
+  opacity:0.85;
+  max-width:820px;
+  margin:0 auto 50px;
+  line-height:1.7;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:26px;
+}
+.card{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:14px;
+  padding:28px;
+  transition:0.25s;
+}
+.card:hover{
+  transform:translateY(-8px);
+  border-color:rgba(0,212,255,0.45);
+}
+.card h3{
+  font-size:18px;
+  margin-bottom:10px;
+  color:#cfefff;
+}
+.card p{opacity:0.86;line-height:1.7;}
+
+/* FOOTER */
+footer{
+  background:#04001f;
+  border-top:1px solid rgba(255,255,255,0.06);
+  padding:40px 0;
+  text-align:center;
+  opacity:0.8;
+  font-size:14px;
+}
+
+/* MOBILE */
+@media (max-width:768px){
+  .hero h1{font-size:38px;}
+  nav{gap:14px;}
+}
 </style>
 </head>
+
 <body>
 
 <header>
-<div class="container header-inner">
-<div class="logo">RAN TEKNOLOJİ</div>
-<nav>
-<a href="index.html">Ana Sayfa</a>
-<a href="faaliyet.html" target="_blank">Hizmetler</a>
-<a href="projeler.html" target="_blank">Projeler</a>
-<a href="kurumsal.html" target="_blank">Kurumsal</a>
-<a href="iletisim.html" target="_blank">İletişim</a>
-</nav>
-</div>
+  <div class="container header-inner">
+    <div class="logo">RAN TEKNOLOJİ</div>
+
+    <nav>
+      <a href="index.html">Ana Sayfa</a>
+      <a href="faaliyet.html" target="_blank" rel="noopener noreferrer">Hizmetler</a>
+      <a href="projeler.html" target="_blank" rel="noopener noreferrer">Projeler</a>
+      <a href="kurumsal.html" target="_blank" rel="noopener noreferrer">Kurumsal</a>
+      <a href="iletisim.html" target="_blank" rel="noopener noreferrer">İletişim</a>
+    </nav>
+  </div>
 </header>
 
 <section class="hero">
-<div class="overlay"></div>
-<div class="container hero-content">
-<h1>QR Kod ve Akıllı Sistem Çözümleri</h1>
-<p>Dijital dönüşümde yenilikçi ve güvenli teknolojiler.</p>
-<a href="iletisim.html" target="_blank" class="btn">Teklif Al</a>
-</div>
+  <div class="overlay"></div>
+
+  <div class="container">
+    <div class="hero-content">
+      <h1>QR Kod ve Akıllı<br>Sistem Çözümleri</h1>
+      <p>Dijital dönüşümde yenilikçi, güvenli ve ölçeklenebilir teknolojilerle işletmenizi geleceğe taşıyoruz.</p>
+      <a class="btn" href="iletisim.html" target="_blank" rel="noopener noreferrer">Teklif Al</a>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="container">
+    <h2 class="section-title">Hizmetlerimiz</h2>
+    <p class="section-desc">
+      QR sistemleri, özel yazılım geliştirme ve kurumsal IT çözümleriyle uçtan uca destek.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>QR Kod Sistemleri</h3>
+        <p>Menü, yönlendirme, doğrulama ve kampanya süreçleri için hızlı ve şık QR altyapıları.</p>
+      </div>
+      <div class="card">
+        <h3>Yazılım Geliştirme</h3>
+        <p>İhtiyaca özel panel, otomasyon, entegrasyon ve web uygulamaları.</p>
+      </div>
+      <div class="card">
+        <h3>Kurumsal IT</h3>
+        <p>Ağ, güvenlik, sistem kurulumu ve teknik destek çözümleri.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <footer>
-© 2026 RAN Teknoloji
+  © 2026 RAN Teknoloji
 </footer>
 
 </body>
