@@ -7,11 +7,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
+    :root{
+      --brand:#17c7ff;
+      --brand2:#7a5cff;
+    }
     *{box-sizing:border-box;margin:0;padding:0;font-family:'Inter',sans-serif}
     body{
       min-height:100vh;
       background:radial-gradient(circle at top,#0b1b3a 0%, #050914 65%, #04001f 100%);
       color:#e5e7eb;
+      overflow-x:hidden;
     }
     header{
       position:sticky;top:0;z-index:1000;
@@ -31,7 +36,63 @@
     }
     nav a:hover{color:#38bdf8;opacity:1}
 
-    main{padding:70px 0 90px}
+    /* INNER HERO */
+    .inner-hero{
+      position: relative;
+      min-height: 44vh;
+      display:flex;
+      align-items:center;
+      padding: 52px 0 28px;
+      overflow:hidden;
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .inner-hero .hero-bg{
+      position:absolute; inset:0;
+      background: url("hero.png") right center / cover no-repeat;
+      filter: saturate(1.38) contrast(1.20) brightness(1.08);
+      transform: scale(1.03);
+      z-index:0;
+      animation: heroZoom 18s ease-in-out infinite alternate;
+      will-change: transform;
+    }
+    @keyframes heroZoom{ from{ transform: scale(1.03);} to{ transform: scale(1.07);} }
+    .inner-hero .hero-overlay{
+      position:absolute; inset:0;
+      background:
+        radial-gradient(900px 600px at 78% 40%, rgba(23,199,255,.16), transparent 60%),
+        radial-gradient(900px 600px at 70% 30%, rgba(122,92,255,.22), transparent 58%),
+        linear-gradient(90deg, rgba(7,10,20,.92) 0%, rgba(7,10,20,.68) 48%, rgba(7,10,20,.28) 100%);
+      pointer-events:none;
+      z-index:1;
+    }
+    .inner-hero::after{
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(700px 420px at 75% 55%, rgba(255,0,200,.10), transparent 60%);
+      pointer-events:none;
+      z-index:1;
+    }
+    .inner-hero .content{
+      position:relative; z-index:2;
+      max-width:780px;
+    }
+    .inner-hero h1{
+      font-size:44px;
+      font-weight:800;
+      margin-bottom:10px;
+      text-shadow:0 18px 60px rgba(0,0,0,.55);
+    }
+    .inner-hero p{
+      color:#cbd5f5;
+      line-height:1.7;
+      max-width:720px;
+    }
+    @media(max-width:768px){
+      .inner-hero .hero-bg{background-position:center}
+      .inner-hero h1{font-size:36px}
+    }
+
+    main{padding:54px 0 90px}
     .title{font-size:42px;font-weight:800;margin-bottom:12px}
     .desc{color:#cbd5f5;line-height:1.7;max-width:720px;margin-bottom:32px}
 
@@ -124,7 +185,7 @@
     <div class="logo">RAN TEKNOLOJİ</div>
     <nav>
       <a href="index.html">Ana Sayfa</a>
-      <a href="faaliyet.html" target="_blank" rel="noopener noreferrer">Hizmetler</a>
+      <a href="hizmetler.html" target="_blank" rel="noopener noreferrer">Hizmetler</a>
       <a href="projeler.html" target="_blank" rel="noopener noreferrer">Projeler</a>
       <a href="kurumsal.html" target="_blank" rel="noopener noreferrer">Kurumsal</a>
       <a href="iletisim.html">İletişim</a>
@@ -132,11 +193,19 @@
   </div>
 </header>
 
+<section class="inner-hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="container content">
+    <h1>İletişim</h1>
+    <p>Teklif, proje ya da iş birliği için bize yazın. Hızlı dönüş için WhatsApp veya telefon üzerinden de ulaşabilirsiniz.</p>
+  </div>
+</section>
+
 <main>
   <div class="container">
-    <h1 class="title">İletişim</h1>
-    <p class="desc">
-      Teklif, proje ya da iş birliği için bize yazın. GitHub Pages sunucu olmadığı için bu form şimdilik “demo”.
+    <p class="desc" style="margin-top:6px">
+      GitHub Pages sunucu olmadığı için bu form şimdilik “demo”. Yine de kullanıcıya düzgün geri bildirim verir.
     </p>
 
     <div class="grid">
@@ -196,7 +265,6 @@
 </footer>
 
 <script>
-  // GitHub Pages: backend yok. En azından “gönderildi” hissi verelim.
   const form = document.getElementById("contactForm");
   const toast = document.getElementById("toast");
 
