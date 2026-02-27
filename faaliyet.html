@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faaliyet Alanları | RAN Teknoloji</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Inter',sans-serif;
+  background:#050914;
+  color:#e5e7eb;
+}
+
+header{
+  padding:25px 60px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+header a{
+  text-decoration:none;
+  color:#38bdf8;
+  font-weight:600;
+}
+
+main{
+  max-width:1200px;
+  margin:auto;
+  padding:100px 60px;
+}
+
+h1{
+  font-size:48px;
+  margin-bottom:50px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+
+.card{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:16px;
+  padding:30px;
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  border-color:#38bdf8;
+}
+
+.card h3{
+  color:#38bdf8;
+  margin-bottom:15px;
+}
+
+footer{
+  text-align:center;
+  padding:50px;
+  border-top:1px solid rgba(255,255,255,.06);
+  color:#94a3b8;
+}
+
+@media(max-width:768px){
+  main{padding:80px 20px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html">← Ana Sayfa</a>
+</header>
+
+<main>
+  <h1>Faaliyet Alanlarımız</h1>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Yazılım Geliştirme</h3>
+      <p>Web, mobil ve özel yazılım çözümleri.</p>
+    </div>
+    <div class="card">
+      <h3>Dijital Dönüşüm</h3>
+      <p>İş süreçlerini optimize eden sistem entegrasyonları.</p>
+    </div>
+    <div class="card">
+      <h3>Kurumsal IT</h3>
+      <p>Altyapı, güvenlik ve sistem yönetimi hizmetleri.</p>
+    </div>
+    <div class="card">
+      <h3>Danışmanlık</h3>
+      <p>BT stratejisi ve süreç iyileştirme çözümleri.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  © 2026 RAN Teknoloji
+</footer>
+
+</body>
+</html>
