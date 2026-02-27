@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAN Teknoloji</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Inter',sans-serif;
+  background:#050914;
+  color:#e5e7eb;
+  line-height:1.6;
+}
+
+header{
+  position:fixed;
+  width:100%;
+  top:0;
+  background:rgba(5,9,20,.95);
+  backdrop-filter:blur(10px);
+  padding:20px 60px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  z-index:1000;
+}
+
+header strong{
+  color:#38bdf8;
+  font-size:18px;
+}
+
+nav a{
+  color:#cbd5f5;
+  margin-left:30px;
+  text-decoration:none;
+  font-weight:500;
+  transition:.3s;
+}
+
+nav a:hover{color:#38bdf8}
+
+section{
+  padding:140px 60px;
+  max-width:1400px;
+  margin:auto;
+}
+
+.hero{
+  background:radial-gradient(ellipse at top,#0b1b3a 0%,#050914 70%);
+  text-align:left;
+}
+
+.hero h1{
+  font-size:58px;
+  max-width:900px;
+  margin-bottom:25px;
+}
+
+.hero p{
+  font-size:20px;
+  max-width:700px;
+  color:#cbd5f5;
+}
+
+.btn{
+  margin-top:30px;
+  display:inline-block;
+  padding:14px 30px;
+  background:#38bdf8;
+  color:#050914;
+  text-decoration:none;
+  border-radius:8px;
+  font-weight:600;
+  transition:.3s;
+}
+
+.btn:hover{opacity:.85}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+  margin-top:60px;
+}
+
+.card{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:18px;
+  padding:30px;
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  border-color:#38bdf8;
+}
+
+.card h3{
+  color:#38bdf8;
+  margin-bottom:15px;
+}
+
+.alt{
+  background:#070c1e;
+}
+
+footer{
+  background:#030712;
+  padding:60px;
+  text-align:center;
+  border-top:1px solid rgba(255,255,255,.06);
+  color:#94a3b8;
+}
+
+@media(max-width:768px){
+  header{padding:20px}
+  section{padding:120px 20px}
+  .hero h1{font-size:38px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <strong>RAN TEKNOLOJİ</strong>
+  <nav>
+    <a href="#hizmetler">Hizmetler</a>
+    <a href="#kurumsal">Kurumsal</a>
+    <a href="#iletisim">İletişim</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Dijital Dönüşümde Güvenilir Teknoloji Ortağınız</h1>
+  <p>
+    Yazılım, dijital dönüşüm ve kurumsal IT çözümleriyle işletmelerin
+    geleceğini planlıyor, geliştiriyor ve yönetiyoruz.
+  </p>
+  <a href="#iletisim" class="btn">Teklif Al</a>
+</section>
+
+<section id="hizmetler">
+  <h2 style="font-size:42px;margin-bottom:20px;">Hizmetlerimiz</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Kurumsal Web Siteleri</h3>
+      <p>Hızlı, güvenli ve modern web çözümleri.</p>
+    </div>
+    <div class="card">
+      <h3>Dijital Dönüşüm</h3>
+      <p>İş süreçlerini optimize eden yazılım projeleri.</p>
+    </div>
+    <div class="card">
+      <h3>IT Altyapı</h3>
+      <p>Sunucu, ağ ve güvenlik çözümleri.</p>
+    </div>
+  </div>
+</section>
+
+<section id="kurumsal" class="alt">
+  <h2 style="font-size:42px;margin-bottom:20px;">Kurumsal</h2>
+  <p style="max-width:900px;color:#cbd5f5;">
+    RAN Teknoloji, yenilikçi ve sürdürülebilir çözümler üretmek amacıyla kurulmuştur.
+    Teknolojiyi iş değeri üreten sistemlere dönüştürüyoruz.
+  </p>
+</section>
+
+<section id="iletisim">
+  <h2 style="font-size:42px;margin-bottom:20px;">İletişim</h2>
+  <p style="color:#cbd5f5;">
+    info@ranteknoloji.com<br>
+    +90 543 959 44 04
+  </p>
+</section>
+
+<footer>
+  © 2026 RAN Teknoloji
+</footer>
+
+</body>
+</html>
