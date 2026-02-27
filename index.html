@@ -1,275 +1,471 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RAN Teknoloji | Kurumsal IT Çözümleri</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RAN Teknoloji | Kurumsal IT & QR Sistem Çözümleri</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  font-family:'Inter',sans-serif;
-  background:#060b18;
-  color:#fff;
-  overflow-x:hidden;
-}
+  <style>
+    :root{
+      --bg:#060814;
+      --panel: rgba(16, 21, 42, .55);
+      --panel2: rgba(18, 24, 48, .65);
+      --stroke: rgba(255,255,255,.10);
+      --stroke2: rgba(255,255,255,.14);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.72);
+      --muted2: rgba(255,255,255,.58);
+      --brand: #22d3ee;
+      --brand2: #3b82f6;
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --radius: 18px;
+      --radius2: 14px;
+      --max: 1180px;
+      --headerH: 78px;
+    }
 
-/* HEADER */
-header{
-  position:fixed;
-  top:0;
-  width:100%;
-  height:70px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 60px;
-  background:rgba(6,11,24,.7);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(255,255,255,.08);
-  z-index:100;
-}
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x:hidden;
+    }
 
-.logo{
-  font-weight:800;
-  letter-spacing:.5px;
-}
-.logo span{
-  color:#39d0ff;
-}
+    /* HEADER */
+    .header{
+      position: fixed;
+      inset: 0 0 auto 0;
+      height: var(--headerH);
+      display:flex;
+      align-items:center;
+      z-index: 50;
+      background: linear-gradient(to bottom, rgba(5,8,18,.78), rgba(5,8,18,.10));
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      backdrop-filter: blur(10px);
+    }
+    .header .wrap{
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width: 220px;
+      user-select:none;
+    }
+    .dot{
+      width:10px; height:10px;
+      border-radius:999px;
+      background: radial-gradient(circle at 30% 30%, var(--brand), #2563eb);
+      box-shadow: 0 0 22px rgba(34,211,238,.35);
+    }
+    .brand .name{
+      font-weight: 800;
+      letter-spacing: .5px;
+      font-size: 15px;
+      text-transform: uppercase;
+    }
+    .brand .name span{ color: var(--brand); }
 
-nav a{
-  text-decoration:none;
-  color:rgba(255,255,255,.8);
-  margin-left:30px;
-  font-weight:600;
-  transition:.2s;
-}
-nav a:hover{
-  color:#fff;
-}
+    nav{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+    }
+    nav a{
+      color: rgba(255,255,255,.82);
+      text-decoration:none;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: .15s ease;
+      line-height: 1;
+      white-space: nowrap;
+    }
+    nav a:hover{
+      color: #fff;
+      border-color: rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+    }
+    /* Aktif gibi mavi saçmalığını kapatıyoruz */
+    nav a:focus,
+    nav a:active{
+      outline: none;
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.12);
+      color:#fff;
+    }
 
-/* HERO */
-.hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  padding:120px 60px 80px;
-  position:relative;
-  background:linear-gradient(90deg,#060b18 0%,#090f24 45%,#1a0f3a 100%);
-  overflow:hidden;
-}
+    /* HERO */
+    .hero{
+      min-height: 100vh;
+      padding-top: var(--headerH);
+      position: relative;
+      display:flex;
+      align-items: stretch;
+      background:
+        radial-gradient(1200px 600px at 15% 10%, rgba(59,130,246,.18), transparent 55%),
+        radial-gradient(900px 500px at 85% 30%, rgba(168,85,247,.16), transparent 60%),
+        radial-gradient(800px 600px at 40% 90%, rgba(34,211,238,.10), transparent 60%),
+        linear-gradient(to bottom, rgba(6,8,20,.85), rgba(6,8,20,.92));
+      overflow:hidden;
+    }
+    /* Arka plan görsel */
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background-image: url('hero.jpg'); /* gerekirse: assets/img/hero.jpg */
+      background-size: cover;
+      background-position: center;
+      opacity: .75;
+      transform: scale(1.02);
+      filter: saturate(1.05) contrast(1.02);
+    }
+    /* Üstüne koyu overlay, yazı okunacak */
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(90deg, rgba(6,8,20,.92) 0%, rgba(6,8,20,.80) 45%, rgba(6,8,20,.68) 100%);
+      pointer-events:none;
+    }
 
-/* Background image */
-.hero::after{
-  content:"";
-  position:absolute;
-  right:-200px;
-  top:50%;
-  transform:translateY(-50%);
-  width:800px;
-  height:800px;
-  background:url('hero.jpg') no-repeat center/contain;
-  opacity:.95;
-  pointer-events:none;
-}
+    .hero .wrap{
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 22px;
+      align-items: center;
+      padding: 42px 0 56px;
+    }
 
-/* CONTENT */
-.hero-content{
-  max-width:620px;
-  position:relative;
-  z-index:2;
-}
+    .chips{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-bottom: 14px;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(10,14,30,.45);
+      border: 1px solid rgba(255,255,255,.10);
+      color: rgba(255,255,255,.86);
+      font-size: 12.5px;
+      font-weight: 600;
+      backdrop-filter: blur(10px);
+    }
+    .chip .mini{
+      width:7px; height:7px; border-radius:999px;
+      background: var(--brand);
+      box-shadow: 0 0 14px rgba(34,211,238,.35);
+    }
 
-/* BADGES */
-.badges{
-  display:flex;
-  gap:12px;
-  margin-bottom:25px;
-}
-.badge{
-  padding:8px 14px;
-  border-radius:30px;
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.12);
-  font-size:13px;
-  font-weight:600;
-}
-.badge span{
-  color:#39d0ff;
-}
+    h1{
+      margin:0;
+      font-size: clamp(34px, 4vw, 56px);
+      line-height: 1.05;
+      letter-spacing: -0.8px;
+      font-weight: 900;
+      text-shadow: 0 12px 40px rgba(0,0,0,.45);
+      max-width: 18ch;
+    }
+    .lead{
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 15.5px;
+      line-height: 1.55;
+      max-width: 62ch;
+      text-shadow: 0 10px 30px rgba(0,0,0,.40);
+    }
 
-/* TITLE */
-.hero h1{
-  font-size:52px;
-  line-height:1.1;
-  margin-bottom:20px;
-  font-weight:800;
-}
+    .actions{
+      display:flex;
+      gap: 12px;
+      align-items:center;
+      margin-top: 20px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      text-decoration:none;
+      font-weight: 800;
+      font-size: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.92);
+      transition: .15s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.09);
+      border-color: rgba(255,255,255,.18);
+    }
+    .btn.primary{
+      border-color: rgba(34,211,238,.35);
+      background: linear-gradient(135deg, rgba(34,211,238,.95), rgba(59,130,246,.88));
+      color: rgba(3,8,20,.96);
+    }
+    .btn.primary:hover{
+      filter: brightness(1.03);
+      transform: translateY(-1px);
+    }
 
-/* TEXT */
-.hero p{
-  color:rgba(255,255,255,.75);
-  line-height:1.6;
-  margin-bottom:30px;
-}
+    /* RIGHT GLASS PANEL */
+    .glass{
+      background: var(--panel);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      padding: 18px 18px 16px;
+      max-width: 520px;
+      justify-self: end;
+      align-self: center;
+    }
+    .glass h3{
+      margin:0 0 6px;
+      font-size: 15px;
+      letter-spacing: -.2px;
+    }
+    .glass p{
+      margin:0 0 14px;
+      color: var(--muted2);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .card{
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius2);
+      padding: 12px;
+      min-height: 86px;
+    }
+    .card b{
+      display:block;
+      color: var(--brand);
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+    .card span{
+      display:block;
+      font-size: 12.5px;
+      color: rgba(255,255,255,.80);
+      line-height: 1.35;
+    }
 
-/* BUTTONS */
-.buttons{
-  display:flex;
-  gap:15px;
-}
-.btn{
-  padding:14px 22px;
-  border-radius:12px;
-  font-weight:700;
-  text-decoration:none;
-  border:1px solid rgba(255,255,255,.15);
-  background:rgba(255,255,255,.08);
-  transition:.2s;
-}
-.btn:hover{
-  background:rgba(255,255,255,.15);
-}
-.btn.primary{
-  background:linear-gradient(135deg,#39d0ff,#8b5cff);
-  color:#061018;
-  border:none;
-}
+    /* Subtle watermark: çok hafif, taşma yapmaz */
+    .watermark{
+      position:absolute;
+      left: 6%;
+      top: calc(var(--headerH) + 130px);
+      font-weight: 900;
+      font-size: clamp(72px, 9vw, 140px);
+      letter-spacing: -2px;
+      color: rgba(255,255,255,.06);
+      z-index: 1;
+      user-select:none;
+      pointer-events:none;
+      filter: blur(.2px);
+    }
 
-/* GLASS CARD */
-.glass{
-  position:absolute;
-  right:120px;
-  bottom:120px;
-  width:320px;
-  padding:25px;
-  border-radius:20px;
-  background:rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.12);
-  backdrop-filter:blur(18px);
-  box-shadow:0 30px 60px rgba(0,0,0,.6);
-}
+    /* AI BOT floating */
+    .bot{
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 54px;
+      height: 54px;
+      border-radius: 999px;
+      background: rgba(13, 18, 40, .75);
+      border: 1px solid rgba(255,255,255,.14);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 18px 50px rgba(0,0,0,.50);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      z-index: 60;
+      transition: .15s ease;
+    }
+    .bot:hover{ transform: translateY(-2px); border-color: rgba(34,211,238,.30); }
+    .bot svg{ width: 26px; height: 26px; }
+    .bot .eye{ fill: var(--brand); }
 
-.glass h3{
-  font-size:15px;
-  margin-bottom:10px;
-}
-.glass p{
-  font-size:13px;
-  color:rgba(255,255,255,.7);
-  margin-bottom:15px;
-}
+    /* SECTION below hero (minimal, dert çıkarmaz) */
+    .section{
+      padding: 64px 0;
+      border-top: 1px solid rgba(255,255,255,.06);
+      background: radial-gradient(900px 500px at 20% 0%, rgba(59,130,246,.10), transparent 55%),
+                  radial-gradient(900px 500px at 80% 10%, rgba(168,85,247,.09), transparent 55%),
+                  #050713;
+    }
+    .section .wrap{
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+    }
+    .section h2{
+      margin:0 0 10px;
+      font-size: 30px;
+      letter-spacing: -0.6px;
+    }
+    .section p{
+      margin:0;
+      color: var(--muted);
+      max-width: 75ch;
+      line-height: 1.6;
+    }
 
-.grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-}
-.mini{
-  padding:10px;
-  border-radius:12px;
-  background:rgba(255,255,255,.08);
-  font-size:12px;
-}
-.mini strong{
-  color:#39d0ff;
-  display:block;
-  margin-bottom:4px;
-}
-
-/* NEXT SECTION */
-section{
-  padding:100px 60px;
-  background:#0a0f24;
-}
-section h2{
-  font-size:34px;
-  margin-bottom:15px;
-}
-section p{
-  color:rgba(255,255,255,.7);
-  max-width:700px;
-}
-
-/* ROBOT */
-.robot{
-  position:fixed;
-  bottom:25px;
-  right:25px;
-  width:55px;
-  height:55px;
-  border-radius:50%;
-  background:rgba(255,255,255,.08);
-  backdrop-filter:blur(12px);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border:1px solid rgba(255,255,255,.15);
-  cursor:pointer;
-}
-</style>
+    /* RESPONSIVE */
+    @media (max-width: 980px){
+      .hero .wrap{
+        grid-template-columns: 1fr;
+        padding: 34px 0 48px;
+      }
+      .glass{
+        max-width: 100%;
+        justify-self: stretch;
+      }
+      .watermark{ display:none; }
+      .brand{ min-width: auto; }
+    }
+    @media (max-width: 520px){
+      nav a{ padding: 9px 10px; font-size: 13px; }
+      .header{ height: 72px; }
+      :root{ --headerH: 72px; }
+      .grid{ grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <div class="logo">RAN <span>TEKNOLOJİ</span></div>
-  <nav>
-    <a href="index.html">Ana Sayfa</a>
-    <a href="hizmetler.html" target="_blank">Hizmetler</a>
-    <a href="projeler.html" target="_blank">Projeler</a>
-    <a href="kurumsal.html" target="_blank">Kurumsal</a>
-    <a href="iletisim.html" target="_blank">İletişim</a>
-  </nav>
-</header>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="wrap">
+      <div class="brand" aria-label="RAN Teknoloji">
+        <span class="dot"></span>
+        <div class="name">RAN <span>TEKNOLOJİ</span></div>
+      </div>
 
-<div class="hero">
-  <div class="hero-content">
-
-    <div class="badges">
-      <div class="badge"><span>Kurumsal</span> yaklaşım</div>
-      <div class="badge">QR & Sistem Çözümleri</div>
+      <nav aria-label="Ana Menü">
+        <a href="index.html">Ana Sayfa</a>
+        <!-- “Ayrı sekme” isteğin buydu: -->
+        <a href="hizmetler.html" target="_blank" rel="noopener noreferrer">Hizmetler</a>
+        <a href="projeler.html" target="_blank" rel="noopener noreferrer">Projeler</a>
+        <a href="kurumsal.html" target="_blank" rel="noopener noreferrer">Kurumsal</a>
+        <a href="iletisim.html" target="_blank" rel="noopener noreferrer">İletişim</a>
+      </nav>
     </div>
+  </header>
 
-    <h1>QR Kod ve Akıllı<br>Sistem Çözümleri</h1>
+  <!-- HERO -->
+  <main class="hero">
+    <div class="watermark">QR</div>
 
-    <p>
-      Dijital dönüşümde yenilikçi, güvenli ve ölçeklenebilir teknolojilerle
-      işletmenizi geleceğe taşıyoruz. Kurulumdan desteğe kadar uçtan uca hizmet.
-    </p>
+    <div class="wrap">
+      <!-- LEFT -->
+      <section>
+        <div class="chips">
+          <span class="chip"><span class="mini"></span>Kurumsal yaklaşım</span>
+          <span class="chip">QR &amp; Sistem Çözümleri</span>
+        </div>
 
-    <div class="buttons">
-      <a href="iletisim.html" class="btn primary" target="_blank">Teklif Al</a>
-      <a href="projeler.html" class="btn" target="_blank">Projeleri İncele</a>
+        <h1>QR Kod ve Akıllı Sistem Çözümleri</h1>
+        <p class="lead">
+          Dijital dönüşümde yenilikçi, güvenli ve ölçeklenebilir teknolojilerle işletmenizi geleceğe taşıyoruz.
+          Kurulumdan desteğe kadar uçtan uca hizmet.
+        </p>
+
+        <div class="actions">
+          <a class="btn primary" href="iletisim.html" target="_blank" rel="noopener noreferrer">Teklif Al</a>
+          <a class="btn" href="projeler.html" target="_blank" rel="noopener noreferrer">Projeleri İncele</a>
+        </div>
+      </section>
+
+      <!-- RIGHT -->
+      <aside class="glass" aria-label="Öne çıkan avantajlar">
+        <h3>Kurumsal yaklaşım. Net teslimat.</h3>
+        <p>Proje planı, güvenlik, performans ve sürdürülebilirlik odaklı çalışırız.</p>
+
+        <div class="grid">
+          <div class="card">
+            <b>Hızlı</b>
+            <span>Kurulum ve devreye alma</span>
+          </div>
+          <div class="card">
+            <b>Güvenli</b>
+            <span>Kurumsal standartlar</span>
+          </div>
+          <div class="card">
+            <b>Ölçekli</b>
+            <span>Büyüyen işletmelere uygun</span>
+          </div>
+          <div class="card">
+            <b>Destek</b>
+            <span>Bakım ve teknik destek</span>
+          </div>
+        </div>
+      </aside>
     </div>
+  </main>
 
-  </div>
-
-  <div class="glass">
-    <h3>Kurumsal yaklaşım. Net teslimat.</h3>
-    <p>Proje planı, güvenlik ve performans odaklı çalışırız.</p>
-
-    <div class="grid">
-      <div class="mini"><strong>Hızlı</strong>Kurulum</div>
-      <div class="mini"><strong>Güvenli</strong>Standart</div>
-      <div class="mini"><strong>Ölçekli</strong>Altyapı</div>
-      <div class="mini"><strong>Destek</strong>Bakım</div>
+  <!-- Minimal kurumsal alt bölüm (istersen sonra genişletiriz) -->
+  <section class="section">
+    <div class="wrap">
+      <h2>Neden RAN Teknoloji?</h2>
+      <p>
+        Kurumsal iş disiplini, modern tasarım ve sağlam teknik altyapıyı birleştiririz. Az konuşur, çok teslim ederiz.
+      </p>
     </div>
-  </div>
-</div>
+  </section>
 
-<section>
-  <h2>Neden RAN Teknoloji?</h2>
-  <p>
-    Kurumsal disiplin, modern tasarım ve sağlam teknik altyapıyı birleştiririz.
-    Az konuşur, çok teslim ederiz.
-  </p>
-</section>
-
-<div class="robot">🤖</div>
+  <!-- AI robot butonu (süs, ama kurumsal duruyor) -->
+  <button class="bot" type="button" aria-label="Yapay Zeka Asistanı" onclick="window.open('iletisim.html','_blank')">
+    <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+      <path d="M20 22c0-6.6 5.4-12 12-12s12 5.4 12 12v2h2c3.3 0 6 2.7 6 6v14c0 6.6-5.4 12-12 12H24c-6.6 0-12-5.4-12-12V30c0-3.3 2.7-6 6-6h2v-2Z" stroke="rgba(255,255,255,.55)" stroke-width="2"/>
+      <circle class="eye" cx="26" cy="34" r="4"/>
+      <circle class="eye" cx="38" cy="34" r="4"/>
+      <path d="M24 44c2.5 2.2 5.3 3.3 8 3.3S37.5 46.2 40 44" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/>
+      <path d="M32 8v6" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/>
+      <path d="M22 14l-4-4" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/>
+      <path d="M42 14l4-4" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
 
 </body>
 </html>
