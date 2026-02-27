@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>İletişim | RAN Teknoloji</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;font-family:'Inter',sans-serif}
+    body{
+      min-height:100vh;
+      background:radial-gradient(circle at top,#0b1b3a 0%, #050914 65%, #04001f 100%);
+      color:#e5e7eb;
+    }
+    header{
+      position:sticky;top:0;z-index:1000;
+      background:rgba(5,9,20,.92);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .container{width:90%;max-width:1100px;margin:auto}
+    .header-inner{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:18px 0;gap:14px;
+    }
+    .logo{font-weight:800;letter-spacing:.5px}
+    nav{display:flex;gap:18px;flex-wrap:wrap;justify-content:flex-end}
+    nav a{
+      text-decoration:none;color:#cbd5f5;font-weight:600;opacity:.9;transition:.2s
+    }
+    nav a:hover{color:#38bdf8;opacity:1}
+
+    main{padding:70px 0 90px}
+    .title{font-size:42px;font-weight:800;margin-bottom:12px}
+    .desc{color:#cbd5f5;line-height:1.7;max-width:720px;margin-bottom:32px}
+
+    .grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:26px;
+      align-items:start;
+    }
+    @media(max-width:900px){.grid{grid-template-columns:1fr}}
+
+    .card{
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:16px;
+      padding:24px;
+    }
+    label{display:block;margin:14px 0 8px;color:#cbd5f5;font-weight:600;font-size:14px}
+    input, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(0,0,0,.25);
+      color:#e5e7eb;
+      outline:none;
+    }
+    textarea{min-height:140px;resize:vertical}
+    input:focus, textarea:focus{border-color:rgba(56,189,248,.65)}
+    .btn{
+      margin-top:16px;
+      width:100%;
+      padding:12px 14px;
+      border:none;
+      border-radius:12px;
+      background:#38bdf8;
+      color:#050914;
+      font-weight:800;
+      cursor:pointer;
+      transition:.2s;
+    }
+    .btn:hover{filter:brightness(.95);transform:translateY(-1px)}
+    .hint{
+      margin-top:12px;
+      color:#94a3b8;
+      font-size:13px;
+      line-height:1.6;
+    }
+
+    .info a{
+      display:block;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.03);
+      color:#e5e7eb;
+      text-decoration:none;
+      margin-top:12px;
+      transition:.2s;
+    }
+    .info a:hover{border-color:rgba(56,189,248,.45);transform:translateY(-2px)}
+    .info small{display:block;color:#94a3b8;margin-top:6px}
+
+    .toast{
+      display:none;
+      margin-top:14px;
+      padding:12px 14px;
+      border-radius:12px;
+      background:rgba(34,197,94,.15);
+      border:1px solid rgba(34,197,94,.35);
+      color:#bbf7d0;
+      font-weight:600;
+      line-height:1.5;
+    }
+
+    footer{
+      padding:30px 0;
+      border-top:1px solid rgba(255,255,255,.06);
+      color:#94a3b8;
+      text-align:center;
+      font-size:14px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">RAN TEKNOLOJİ</div>
+    <nav>
+      <a href="index.html">Ana Sayfa</a>
+      <a href="faaliyet.html" target="_blank" rel="noopener noreferrer">Hizmetler</a>
+      <a href="projeler.html" target="_blank" rel="noopener noreferrer">Projeler</a>
+      <a href="kurumsal.html" target="_blank" rel="noopener noreferrer">Kurumsal</a>
+      <a href="iletisim.html">İletişim</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <h1 class="title">İletişim</h1>
+    <p class="desc">
+      Teklif, proje ya da iş birliği için bize yazın. GitHub Pages sunucu olmadığı için bu form şimdilik “demo”.
+      İstersen bir sonraki adımda Formspree veya Google Forms ile gerçek gönderime bağlarız.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <form id="contactForm">
+          <label>Ad Soyad</label>
+          <input id="name" type="text" placeholder="Ad Soyad" required>
+
+          <label>E-posta</label>
+          <input id="email" type="email" placeholder="ornek@mail.com" required>
+
+          <label>Mesaj</label>
+          <textarea id="message" placeholder="Kısaca ihtiyacınızı yazın..." required></textarea>
+
+          <button class="btn" type="submit">Gönder</button>
+
+          <div id="toast" class="toast">
+            Mesajınız kaydedildi (tarayıcınızda). Gerçek gönderim için bir sonraki adımda formu sisteme bağlayacağız.
+          </div>
+
+          <div class="hint">
+            Not: “Çalışmıyor” hissi normal. Sunucu yoksa form hiçbir yere gönderemez.
+            Bu sayfa şu an kullanıcıya geri bildirim verir ve bilgiyi tarayıcıda saklar.
+          </div>
+        </form>
+      </div>
+
+      <div class="card info">
+        <h3 style="font-size:18px;color:#38bdf8;margin-bottom:8px">Hızlı İletişim</h3>
+
+        <a href="tel:+905439594404">
+          📞 Telefon
+          <small>+90 543 959 44 04</small>
+        </a>
+
+        <a href="https://wa.me/905439594404" target="_blank" rel="noopener noreferrer">
+          💬 WhatsApp
+          <small>Hemen mesaj gönder</small>
+        </a>
+
+        <a href="mailto:info@ranteknoloji.com">
+          ✉️ E-posta
+          <small>info@ranteknoloji.com</small>
+        </a>
+
+        <a href="https://instagram.com/ranteknoloji" target="_blank" rel="noopener noreferrer">
+          📸 Instagram
+          <small>@ranteknoloji</small>
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  © 2026 RAN Teknoloji
+</footer>
+
+<script>
+  // GitHub Pages: backend yok. En azından “gönderildi” hissi verelim.
+  const form = document.getElementById("contactForm");
+  const toast = document.getElementById("toast");
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const data = {
+      name: document.getElementById("name").value.trim(),
+      email: document.getElementById("email").value.trim(),
+      message: document.getElementById("message").value.trim(),
+      date: new Date().toISOString()
+    };
+
+    localStorage.setItem("ran_contact_last", JSON.stringify(data));
+
+    toast.style.display = "block";
+    form.reset();
+
+    setTimeout(() => {
+      toast.style.display = "none";
+    }, 4500);
+  });
+</script>
+
+</body>
+</html>
