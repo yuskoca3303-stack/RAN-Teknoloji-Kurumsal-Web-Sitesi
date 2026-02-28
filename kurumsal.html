@@ -30,6 +30,16 @@
     }
     .container{ width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
 
+    .brand-bar{
+      text-align:center;
+      font-size:12px;
+      padding:8px 10px;
+      background: rgba(255,255,255,.04);
+      border-bottom:1px solid rgba(255,255,255,.06);
+      color: rgba(234,240,255,.60);
+      letter-spacing:.3px;
+    }
+
     .header{
       position: sticky; top: 0; z-index: 50; height: var(--headerH);
       display:flex; align-items:center;
@@ -143,6 +153,10 @@
 </head>
 
 <body>
+  <div class="brand-bar">
+    © <span id="y"></span> RAN Ajans & Reklam Hizmetleri – Tescilli markasıdır.
+  </div>
+
   <header class="header">
     <div class="container">
       <div class="wrap">
@@ -163,7 +177,7 @@
     <div class="hero-overlay" aria-hidden="true"></div>
     <div class="container content">
       <h1>Kurumsal</h1>
-      <p>RAN Ajans & Reklam Hizmetleri; planlama, tasarım ve uygulamayı kurumsal disiplinle yürüten reklam çözüm ortağınızdır.</p>
+      <p>Planlama, tasarım ve uygulamayı kurumsal disiplinle yürüten reklam çözüm ortağınız.</p>
     </div>
   </section>
 
@@ -171,17 +185,21 @@
     <div class="container">
       <div class="panel">
         <h2>Misyonumuz</h2>
-        <p>Markaların görünürlüğünü artıran, ölçülebilir ve sahada uygulanabilir reklam çözümlerini hızlı ve profesyonel şekilde sunmak.</p>
+        <p>Markaların görünürlüğünü artıran, ölçülebilir ve sahada uygulanabilir reklam çözümlerini profesyonel şekilde sunmak.</p>
       </div>
       <div style="height:14px"></div>
       <div class="panel">
         <h2>Vizyonumuz</h2>
-        <p>Toplu taşıma ve kampüs odaklı reklam çözümlerinde Malatya merkezli güçlü bir ajans markası olmak.</p>
+        <p>Toplu taşıma, durak ve kampüs odaklı reklam çözümlerinde Malatya merkezli güçlü bir ajans markası olmak.</p>
       </div>
     </div>
   </main>
 
-  <footer>© <span id="y"></span> RAN Ajans & Reklam Hizmetleri</footer>
-  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+  <footer>© <span id="y2"></span> RAN Ajans & Reklam Hizmetleri – Tescilli markasıdır.</footer>
+  <script>
+    const y = new Date().getFullYear();
+    document.getElementById("y").textContent = y;
+    document.getElementById("y2").textContent = y;
+  </script>
 </body>
 </html>
