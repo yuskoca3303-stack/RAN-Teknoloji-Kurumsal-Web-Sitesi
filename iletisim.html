@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>İletişim | RAN Teknoloji</title>
+  <title>İletişim | RAN Ajans</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
@@ -35,8 +35,8 @@
       text-decoration:none;color:#cbd5f5;font-weight:600;opacity:.9;transition:.2s
     }
     nav a:hover{color:#38bdf8;opacity:1}
+    nav a.active{color:#38bdf8; opacity:1;}
 
-    /* INNER HERO */
     .inner-hero{
       position: relative;
       min-height: 44vh;
@@ -49,7 +49,7 @@
     .inner-hero .hero-bg{
       position:absolute; inset:0;
       background: url("hero.png") right center / cover no-repeat;
-      filter: saturate(1.38) contrast(1.20) brightness(1.08);
+      filter: saturate(1.22) contrast(1.14) brightness(1.06);
       transform: scale(1.03);
       z-index:0;
       animation: heroZoom 18s ease-in-out infinite alternate;
@@ -72,10 +72,7 @@
       pointer-events:none;
       z-index:1;
     }
-    .inner-hero .content{
-      position:relative; z-index:2;
-      max-width:780px;
-    }
+    .inner-hero .content{ position:relative; z-index:2; max-width:780px; }
     .inner-hero h1{
       font-size:44px;
       font-weight:800;
@@ -93,7 +90,6 @@
     }
 
     main{padding:54px 0 90px}
-    .title{font-size:42px;font-weight:800;margin-bottom:12px}
     .desc{color:#cbd5f5;line-height:1.7;max-width:720px;margin-bottom:32px}
 
     .grid{
@@ -111,7 +107,7 @@
       padding:24px;
     }
     label{display:block;margin:14px 0 8px;color:#cbd5f5;font-weight:600;font-size:14px}
-    input, textarea{
+    input, textarea, select{
       width:100%;
       padding:12px 12px;
       border-radius:12px;
@@ -121,7 +117,7 @@
       outline:none;
     }
     textarea{min-height:140px;resize:vertical}
-    input:focus, textarea:focus{border-color:rgba(56,189,248,.65)}
+    input:focus, textarea:focus, select:focus{border-color:rgba(56,189,248,.65)}
     .btn{
       margin-top:16px;
       width:100%;
@@ -141,6 +137,17 @@
       font-size:13px;
       line-height:1.6;
     }
+    .toast{
+      display:none;
+      margin-top:14px;
+      padding:12px 14px;
+      border-radius:12px;
+      background:rgba(34,197,94,.15);
+      border:1px solid rgba(34,197,94,.35);
+      color:#bbf7d0;
+      font-weight:600;
+      line-height:1.5;
+    }
 
     .info a{
       display:block;
@@ -156,18 +163,6 @@
     .info a:hover{border-color:rgba(56,189,248,.45);transform:translateY(-2px)}
     .info small{display:block;color:#94a3b8;margin-top:6px}
 
-    .toast{
-      display:none;
-      margin-top:14px;
-      padding:12px 14px;
-      border-radius:12px;
-      background:rgba(34,197,94,.15);
-      border:1px solid rgba(34,197,94,.35);
-      color:#bbf7d0;
-      font-weight:600;
-      line-height:1.5;
-    }
-
     footer{
       padding:30px 0;
       border-top:1px solid rgba(255,255,255,.06);
@@ -179,16 +174,15 @@
 </head>
 
 <body>
-
 <header>
   <div class="container header-inner">
-    <div class="logo">RAN TEKNOLOJİ</div>
+    <div class="logo">RAN AJANS & REKLAM</div>
     <nav>
       <a href="index.html">Ana Sayfa</a>
-      <a href="hizmetler.html" target="_blank" rel="noopener noreferrer">Hizmetler</a>
-      <a href="projeler.html" target="_blank" rel="noopener noreferrer">Projeler</a>
-      <a href="kurumsal.html" target="_blank" rel="noopener noreferrer">Kurumsal</a>
-      <a href="iletisim.html">İletişim</a>
+      <a href="hizmetler.html">Hizmetler</a>
+      <a href="projeler.html">Projeler</a>
+      <a href="kurumsal.html">Kurumsal</a>
+      <a href="iletisim.html" class="active">İletişim</a>
     </nav>
   </div>
 </header>
@@ -198,7 +192,7 @@
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container content">
     <h1>İletişim</h1>
-    <p>Teklif, proje ya da iş birliği için bize yazın. Hızlı dönüş için WhatsApp veya telefon üzerinden de ulaşabilirsiniz.</p>
+    <p>Teklif, kampanya ya da iş birliği için bize yazın. Hızlı dönüş için WhatsApp veya telefon üzerinden de ulaşabilirsiniz.</p>
   </div>
 </section>
 
@@ -217,18 +211,27 @@
           <label>E-posta</label>
           <input id="email" type="email" placeholder="ornek@mail.com" required>
 
+          <label>Teklif Kategorisi</label>
+          <select id="category" required>
+            <option value="" selected disabled>Seçiniz...</option>
+            <option>Trambüs Giydirme</option>
+            <option>Otobüs Giydirme</option>
+            <option>Kampüs / Üniversite Çözümleri</option>
+            <option>QR Etkileşim Kampanyası</option>
+            <option>Genel Teklif</option>
+          </select>
+
           <label>Mesaj</label>
           <textarea id="message" placeholder="Kısaca ihtiyacınızı yazın..." required></textarea>
 
           <button class="btn" type="submit">Gönder</button>
 
           <div id="toast" class="toast">
-            Mesajınız kaydedildi (tarayıcınızda). Gerçek gönderim için bir sonraki adımda formu sisteme bağlayacağız.
+            Talebiniz kaydedildi (tarayıcınızda). Gerçek gönderim için formu sisteme bağlayacağız.
           </div>
 
           <div class="hint">
-            Not: “Çalışmıyor” hissi normal. Sunucu yoksa form hiçbir yere gönderemez.
-            Bu sayfa şu an kullanıcıya geri bildirim verir ve bilgiyi tarayıcıda saklar.
+            Not: Sunucu yoksa form hiçbir yere gönderemez. Bu sayfa şu an kullanıcıya geri bildirim verir ve bilgiyi tarayıcıda saklar.
           </div>
         </form>
       </div>
@@ -261,31 +264,43 @@
 </main>
 
 <footer>
-  © 2026 RAN Teknoloji
+  © <span id="y"></span> RAN Ajans & Reklam Hizmetleri
 </footer>
 
 <script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+
   const form = document.getElementById("contactForm");
   const toast = document.getElementById("toast");
+  const btn = form.querySelector("button[type='submit']");
 
   form.addEventListener("submit", function(e){
     e.preventDefault();
 
+    btn.disabled = true;
+    const oldText = btn.textContent;
+    btn.textContent = "Gönderiliyor...";
+
     const data = {
       name: document.getElementById("name").value.trim(),
       email: document.getElementById("email").value.trim(),
+      category: document.getElementById("category").value,
       message: document.getElementById("message").value.trim(),
       date: new Date().toISOString()
     };
 
     localStorage.setItem("ran_contact_last", JSON.stringify(data));
 
-    toast.style.display = "block";
-    form.reset();
-
     setTimeout(() => {
-      toast.style.display = "none";
-    }, 4500);
+      toast.style.display = "block";
+      form.reset();
+      btn.disabled = false;
+      btn.textContent = oldText;
+
+      setTimeout(() => {
+        toast.style.display = "none";
+      }, 4500);
+    }, 900);
   });
 </script>
 
