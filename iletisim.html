@@ -18,6 +18,17 @@
       color:#e5e7eb;
       overflow-x:hidden;
     }
+
+    .brand-bar{
+      text-align:center;
+      font-size:12px;
+      padding:8px 10px;
+      background: rgba(255,255,255,.04);
+      border-bottom:1px solid rgba(255,255,255,.06);
+      color: rgba(234,240,255,.60);
+      letter-spacing:.3px;
+    }
+
     header{
       position:sticky;top:0;z-index:1000;
       background:rgba(5,9,20,.92);
@@ -174,135 +185,139 @@
 </head>
 
 <body>
-<header>
-  <div class="container header-inner">
-    <div class="logo">RAN AJANS & REKLAM</div>
-    <nav>
-      <a href="index.html">Ana Sayfa</a>
-      <a href="hizmetler.html">Hizmetler</a>
-      <a href="projeler.html">Projeler</a>
-      <a href="kurumsal.html">Kurumsal</a>
-      <a href="iletisim.html" class="active">İletişim</a>
-    </nav>
+  <div class="brand-bar">
+    © <span id="y"></span> RAN Ajans & Reklam Hizmetleri – Tescilli markasıdır.
   </div>
-</header>
 
-<section class="inner-hero">
-  <div class="hero-bg" aria-hidden="true"></div>
-  <div class="hero-overlay" aria-hidden="true"></div>
-  <div class="container content">
-    <h1>İletişim</h1>
-    <p>Teklif, kampanya ya da iş birliği için bize yazın. Hızlı dönüş için WhatsApp veya telefon üzerinden de ulaşabilirsiniz.</p>
-  </div>
-</section>
+  <header>
+    <div class="container header-inner">
+      <div class="logo">RAN AJANS & REKLAM</div>
+      <nav>
+        <a href="index.html">Ana Sayfa</a>
+        <a href="hizmetler.html">Hizmetler</a>
+        <a href="projeler.html">Projeler</a>
+        <a href="kurumsal.html">Kurumsal</a>
+        <a href="iletisim.html" class="active">İletişim</a>
+      </nav>
+    </div>
+  </header>
 
-<main>
-  <div class="container">
-    <p class="desc" style="margin-top:6px">
-      GitHub Pages sunucu olmadığı için bu form şimdilik “demo”. Yine de kullanıcıya düzgün geri bildirim verir.
-    </p>
+  <section class="inner-hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="container content">
+      <h1>İletişim</h1>
+      <p>Teklif, kampanya ya da iş birliği için bize yazın. Hızlı dönüş için WhatsApp veya telefon üzerinden de ulaşabilirsiniz.</p>
+    </div>
+  </section>
 
-    <div class="grid">
-      <div class="card">
-        <form id="contactForm">
-          <label>Ad Soyad</label>
-          <input id="name" type="text" placeholder="Ad Soyad" required>
+  <main>
+    <div class="container">
+      <p class="desc" style="margin-top:6px">
+        GitHub Pages sunucu olmadığı için bu form şimdilik “demo”. Yine de kullanıcıya düzgün geri bildirim verir.
+      </p>
 
-          <label>E-posta</label>
-          <input id="email" type="email" placeholder="ornek@mail.com" required>
+      <div class="grid">
+        <div class="card">
+          <form id="contactForm">
+            <label>Ad Soyad</label>
+            <input id="name" type="text" placeholder="Ad Soyad" required>
 
-          <label>Teklif Kategorisi</label>
-          <select id="category" required>
-            <option value="" selected disabled>Seçiniz...</option>
-            <option>Trambüs Giydirme</option>
-            <option>Otobüs Giydirme</option>
-            <option>Kampüs / Üniversite Çözümleri</option>
-            <option>QR Etkileşim Kampanyası</option>
-            <option>Genel Teklif</option>
-          </select>
+            <label>E-posta</label>
+            <input id="email" type="email" placeholder="ornek@mail.com" required>
 
-          <label>Mesaj</label>
-          <textarea id="message" placeholder="Kısaca ihtiyacınızı yazın..." required></textarea>
+            <label>Teklif Kategorisi</label>
+            <select id="category" required>
+              <option value="" selected disabled>Seçiniz...</option>
+              <option>Trambüs Giydirme</option>
+              <option>Otobüs Giydirme</option>
+              <option>Durak Giydirme</option>
+              <option>Kampüs / Üniversite Çözümleri</option>
+              <option>QR Etkileşim Kampanyası</option>
+              <option>Genel Teklif</option>
+            </select>
 
-          <button class="btn" type="submit">Gönder</button>
+            <label>Mesaj</label>
+            <textarea id="message" placeholder="Kısaca ihtiyacınızı yazın..." required></textarea>
 
-          <div id="toast" class="toast">
-            Talebiniz kaydedildi (tarayıcınızda). Gerçek gönderim için formu sisteme bağlayacağız.
-          </div>
+            <button class="btn" type="submit">Gönder</button>
 
-          <div class="hint">
-            Not: Sunucu yoksa form hiçbir yere gönderemez. Bu sayfa şu an kullanıcıya geri bildirim verir ve bilgiyi tarayıcıda saklar.
-          </div>
-        </form>
-      </div>
+            <div id="toast" class="toast">
+              Talebiniz kaydedildi (tarayıcınızda). Gerçek gönderim için formu sisteme bağlayacağız.
+            </div>
 
-      <div class="card info">
-        <h3 style="font-size:18px;color:#38bdf8;margin-bottom:8px">Hızlı İletişim</h3>
+            <div class="hint">
+              Not: Sunucu yoksa form hiçbir yere gönderemez. Bu sayfa şu an kullanıcıya geri bildirim verir ve bilgiyi tarayıcıda saklar.
+            </div>
+          </form>
+        </div>
 
-        <a href="tel:+905497952395">
-          📞 Telefon
-          <small>+90 549 795 23 95</small>
-        </a>
+        <div class="card info">
+          <h3 style="font-size:18px;color:#38bdf8;margin-bottom:8px">Hızlı İletişim</h3>
 
-        <a href="https://wa.me/905439594404" target="_blank" rel="noopener noreferrer">
-          💬 WhatsApp
-          <small>Hemen mesaj gönder</small>
-        </a>
+          <a href="tel:+905497952395">
+            📞 Telefon
+            <small>+90 549 795 23 95</small>
+          </a>
 
-        <a href="mailto:info@ranteknoloji.com">
-          ✉️ E-posta
-          <small>info@ranteknoloji.com</small>
-        </a>
+          <a href="https://wa.me/905439594404" target="_blank" rel="noopener noreferrer">
+            💬 WhatsApp
+            <small>Hemen mesaj gönder</small>
+          </a>
 
-        <a href="https://instagram.com/ranteknoloji" target="_blank" rel="noopener noreferrer">
-          📸 Instagram
-          <small>@ranteknoloji</small>
-        </a>
+          <a href="mailto:info@ranteknoloji.com">
+            ✉️ E-posta
+            <small>info@ranteknoloji.com</small>
+          </a>
+
+          <a href="https://instagram.com/ranteknoloji" target="_blank" rel="noopener noreferrer">
+            📸 Instagram
+            <small>@ranteknoloji</small>
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-</main>
+  </main>
 
-<footer>
-  © <span id="y"></span> RAN Ajans & Reklam Hizmetleri
-</footer>
+  <footer>
+    © <span id="y2"></span> RAN Ajans & Reklam Hizmetleri – Tescilli markasıdır.
+  </footer>
 
-<script>
-  document.getElementById("y").textContent = new Date().getFullYear();
+  <script>
+    const y = new Date().getFullYear();
+    document.getElementById("y").textContent = y;
+    document.getElementById("y2").textContent = y;
 
-  const form = document.getElementById("contactForm");
-  const toast = document.getElementById("toast");
-  const btn = form.querySelector("button[type='submit']");
+    const form = document.getElementById("contactForm");
+    const toast = document.getElementById("toast");
+    const btn = form.querySelector("button[type='submit']");
 
-  form.addEventListener("submit", function(e){
-    e.preventDefault();
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
 
-    btn.disabled = true;
-    const oldText = btn.textContent;
-    btn.textContent = "Gönderiliyor...";
+      btn.disabled = true;
+      const oldText = btn.textContent;
+      btn.textContent = "Gönderiliyor...";
 
-    const data = {
-      name: document.getElementById("name").value.trim(),
-      email: document.getElementById("email").value.trim(),
-      category: document.getElementById("category").value,
-      message: document.getElementById("message").value.trim(),
-      date: new Date().toISOString()
-    };
+      const data = {
+        name: document.getElementById("name").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        category: document.getElementById("category").value,
+        message: document.getElementById("message").value.trim(),
+        date: new Date().toISOString()
+      };
 
-    localStorage.setItem("ran_contact_last", JSON.stringify(data));
-
-    setTimeout(() => {
-      toast.style.display = "block";
-      form.reset();
-      btn.disabled = false;
-      btn.textContent = oldText;
+      localStorage.setItem("ran_contact_last", JSON.stringify(data));
 
       setTimeout(() => {
-        toast.style.display = "none";
-      }, 4500);
-    }, 900);
-  });
-</script>
+        toast.style.display = "block";
+        form.reset();
+        btn.disabled = false;
+        btn.textContent = oldText;
 
+        setTimeout(() => toast.style.display = "none", 4500);
+      }, 900);
+    });
+  </script>
 </body>
 </html>
