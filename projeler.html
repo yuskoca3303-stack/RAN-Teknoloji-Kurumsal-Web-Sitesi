@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projeler | RAN Ajans</title>
+  <title>Projeler | RAN Ajans & Reklam Hizmetleri</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,6 +20,7 @@
       --brand2:#7a5cff;
       --headerH: 76px;
     }
+
     *{box-sizing:border-box}
     body{
       margin:0;
@@ -30,6 +31,7 @@
       color: var(--text);
       overflow-x:hidden;
     }
+
     .container{ width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
 
     .brand-bar{
@@ -43,16 +45,32 @@
     }
 
     .header{
-      position: sticky; top: 0; z-index: 50; height: var(--headerH);
-      display:flex; align-items:center;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      height: var(--headerH);
+      display:flex;
+      align-items:center;
       border-bottom: 1px solid rgba(255,255,255,.07);
       background: rgba(7,10,20,.55);
       backdrop-filter: blur(14px);
     }
-    .header .wrap{ display:flex; align-items:center; justify-content:space-between; gap: 18px; }
+
+    .header .wrap{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 18px;
+    }
+
     .logo{
-      display:flex; align-items:center; gap:10px;
-      font-weight:800; letter-spacing:.5px; text-decoration:none; color: var(--text);
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+      letter-spacing:.3px;
+      text-decoration:none;
+      color: var(--text);
       white-space:nowrap;
     }
     .logo-dot{
@@ -60,7 +78,14 @@
       background: linear-gradient(135deg, var(--brand), var(--brand2));
       box-shadow: 0 0 0 6px rgba(23,199,255,.10);
     }
-    .nav{ display:flex; align-items:center; gap:6px; flex-wrap:wrap; justify-content:flex-end; }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      gap: 6px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
     .nav a{
       color: rgba(234,240,255,.85);
       text-decoration:none;
@@ -71,8 +96,16 @@
       border: 1px solid transparent;
       transition: .18s ease;
     }
-    .nav a:hover{ background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.08); color: var(--text); }
-    .nav a.active{ background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.14); color: var(--text); }
+    .nav a:hover{
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.08);
+      color: var(--text);
+    }
+    .nav a.active{
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.14);
+      color: var(--text);
+    }
     .nav a.cta{ background:transparent; border-color:transparent; }
 
     .inner-hero{
@@ -94,6 +127,7 @@
       will-change: transform;
     }
     @keyframes heroZoom{ from{ transform: scale(1.03);} to{ transform: scale(1.07);} }
+
     .inner-hero .hero-overlay{
       position:absolute; inset:0;
       background:
@@ -110,7 +144,8 @@
       pointer-events:none;
       z-index:1;
     }
-    .inner-hero .content{ position:relative; z-index:2; max-width: 780px; }
+
+    .inner-hero .content{ position:relative; z-index:2; max-width: 820px; }
     .inner-hero h1{
       margin:0 0 10px;
       font-size: clamp(30px, 3.6vw, 48px);
@@ -118,7 +153,12 @@
       letter-spacing: -0.5px;
       text-shadow: 0 18px 60px rgba(0,0,0,.55);
     }
-    .inner-hero p{ margin:0; color: rgba(234,240,255,.78); line-height: 1.65; max-width: 75ch; }
+    .inner-hero p{
+      margin:0;
+      color: rgba(234,240,255,.78);
+      line-height: 1.65;
+      max-width: 78ch;
+    }
 
     main{ padding: 58px 0 86px; }
 
@@ -134,9 +174,35 @@
       padding: 18px;
       transition:.18s ease;
     }
-    .item:hover{ transform: translateY(-2px); border-color: rgba(255,255,255,.16); background: rgba(255,255,255,.06); }
-    .item h3{ margin:0 0 8px; font-size: 15px; font-weight: 900; }
-    .item p{ margin:0; color: rgba(234,240,255,.60); font-size: 13px; line-height:1.55; }
+    .item:hover{
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+    }
+    .item h3{
+      margin:0 0 8px;
+      font-size: 15px;
+      font-weight: 900;
+      color: rgba(234,240,255,.95);
+    }
+    .item p{
+      margin:0;
+      color: var(--muted2);
+      font-size: 13px;
+      line-height:1.55;
+    }
+
+    .note{
+      margin-top: 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      padding: 16px;
+      color: rgba(234,240,255,.70);
+      line-height: 1.65;
+      font-size: 13.5px;
+    }
+    .note b{ color: rgba(23,199,255,.95); }
 
     footer{
       padding: 28px 0;
@@ -162,8 +228,12 @@
   <header class="header">
     <div class="container">
       <div class="wrap">
-        <a class="logo" href="index.html"><span class="logo-dot"></span><span>RAN <b style="color:var(--brand);">AJANS</b></span></a>
-        <nav class="nav">
+        <a class="logo" href="index.html">
+          <span class="logo-dot"></span>
+          <span>RAN <b style="color:var(--brand)">Ajans & Reklam Hizmetleri</b></span>
+        </a>
+
+        <nav class="nav" aria-label="Ana Menü">
           <a href="index.html">Ana Sayfa</a>
           <a href="hizmetler.html">Hizmetler</a>
           <a href="projeler.html" class="active">Projeler</a>
@@ -179,7 +249,7 @@
     <div class="hero-overlay" aria-hidden="true"></div>
     <div class="container content">
       <h1>Projeler</h1>
-      <p>Toplu taşıma, durak ve kampüs odaklı reklam çözümleri. Malatya’da üniversite öğrencilerine yönelik etkileşim artıran sosyal projeler.</p>
+      <p>Toplu taşıma, kampüs ve QR etkileşim odaklı çalışmalar. Planlama, tasarım, uygulama ve raporlama dahil.</p>
     </div>
   </section>
 
@@ -187,22 +257,28 @@
     <div class="container">
       <div class="grid">
         <div class="item">
-          <h3>Üniversite Odaklı Sosyal Çözümler</h3>
-          <p>Malatya’da 55.000+ öğrenci kitlesinde etkileşimi artırmaya odaklı reklam ve sosyal görünürlük modelleri.</p>
-        </div>
-        <div class="item">
           <h3>Toplu Taşıma Kampanyaları</h3>
-          <p>Trambüs, otobüs ve durak alanlarında kampanya planlama, uygulama ve süre yönetimi.</p>
+          <p>Trambüs/otobüs/durak giydirme ile şehir genelinde güçlü görünürlük.</p>
         </div>
         <div class="item">
-          <h3>QR Etkileşim Kampanyaları</h3>
-          <p>QR ile hızlı yönlendirme, kampanya ölçümleme ve etkileşim artırma çözümleri.</p>
+          <h3>Üniversite & Kampüs Çözümleri</h3>
+          <p>Öğrencilere yönelik etkileşim kampanyaları. Hedef kitleye net erişim.</p>
         </div>
+        <div class="item">
+          <h3>QR Etkileşim Sistemleri</h3>
+          <p>QR ile ölçülebilir iletişim: yönlendirme, kayıt, kampanya katılımı, takip.</p>
+        </div>
+      </div>
+
+      <div class="note">
+        <b>Not:</b> Örnek görseller ve ölçü bilgileri (m² / cm) “görsel seti” hazırlandığında bu sayfaya eklenir.
+        Şimdilik içerik yerleşimi ve kurumsal dil hazır.
       </div>
     </div>
   </main>
 
   <footer>© <span id="y2"></span> RAN Ajans & Reklam Hizmetleri – Tescilli markasıdır.</footer>
+
   <script>
     const y = new Date().getFullYear();
     document.getElementById("y").textContent = y;
