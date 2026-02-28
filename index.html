@@ -36,6 +36,18 @@
       overflow-x:hidden;
     }
 
+    /* ÜST MARKA ŞERİDİ */
+    .brand-bar{
+      text-align:center;
+      font-size:12px;
+      padding:8px 10px;
+      background: rgba(255,255,255,.04);
+      border-bottom:1px solid rgba(255,255,255,.06);
+      color: rgba(234,240,255,.60);
+      letter-spacing:.3px;
+    }
+
+    /* HEADER */
     .header{
       position: sticky;
       top: 0;
@@ -104,6 +116,7 @@
     }
     .nav a.cta{ background:transparent; border-color:transparent; }
 
+    /* HERO */
     .hero{
       position: relative;
       min-height: calc(100vh - var(--headerH));
@@ -145,10 +158,13 @@
       z-index:1;
     }
 
+    /* SOLA KAYDIRILDI */
     .hero-inner{
       position:relative;
       z-index:2;
-      max-width: 760px;
+      max-width: 720px;
+      padding-left: 10px;
+      margin-left: -20px;
     }
 
     .badge-row{
@@ -275,11 +291,16 @@
     }
     @media (max-width: 768px){
       .hero-bg{ background-position: center; }
+      .hero-inner{ margin-left: 0; padding-left: 0; }
     }
   </style>
 </head>
 
 <body>
+  <div class="brand-bar">
+    © <span id="y"></span> RAN Ajans & Reklam Hizmetleri – Tescilli markasıdır.
+  </div>
+
   <header class="header">
     <div class="container">
       <div class="wrap">
@@ -326,7 +347,7 @@
     <div class="container">
       <h2 class="section-title">Reklam Alanlarımız</h2>
       <p class="section-sub">
-        Trambüs ve otobüs giydirme, kampüs içi görünürlük alanları ve QR ile etkileşim çözümleri.
+        Trambüs ve otobüs giydirme, durak giydirme, kampüs içi görünürlük alanları ve QR ile etkileşim çözümleri.
         Hedef kitleye doğrudan temas eden, ölçüleri net, uygulaması profesyonel çözümler sunarız.
       </p>
 
@@ -340,16 +361,19 @@
           <p>Geniş rota kapsaması. Görsel tasarım ve uygulama süreçleri uçtan uca yönetilir.</p>
         </div>
         <div class="card">
-          <h3>Kampüs & Öğrenci Çözümleri</h3>
-          <p>Malatya’da üniversite odaklı sosyal çözümlerle etkileşimi artıran reklam modelleri.</p>
+          <h3>Durak Giydirme</h3>
+          <p>Yaya trafiğinin yoğun olduğu noktalarda uzun süreli görünürlük. Tasarım + uygulama dahil.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <footer>© <span id="y"></span> RAN Ajans & Reklam Hizmetleri</footer>
+  <footer>© <span id="y2"></span> RAN Ajans & Reklam Hizmetleri – Tescilli markasıdır.</footer>
+
   <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
+    const y = new Date().getFullYear();
+    document.getElementById("y").textContent = y;
+    document.getElementById("y2").textContent = y;
   </script>
 </body>
 </html>
