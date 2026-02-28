@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hizmetler | RAN Ajans</title>
+  <title>Hizmetler | RAN Ajans & Reklam Hizmetleri</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,7 +62,7 @@
     }
     .logo{
       display:flex; align-items:center; gap:10px;
-      font-weight:800; letter-spacing:.5px; text-decoration:none; color: var(--text);
+      font-weight:800; letter-spacing:.3px; text-decoration:none; color: var(--text);
       white-space:nowrap;
     }
     .logo-dot{
@@ -132,69 +132,36 @@
 
     main{ padding: 58px 0 86px; }
 
-    .grid{
+    .cards{
       display:grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
     }
-    .item{
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      overflow:hidden;
-      transition: .18s ease;
-    }
-    .item:hover{ transform: translateY(-2px); border-color: rgba(255,255,255,.16); background: rgba(255,255,255,.06); }
-    .item img{
-      width:100%;
-      height: 180px;
-      object-fit: cover;
-      display:block;
-      filter: saturate(1.08) contrast(1.06);
-    }
-    .pad{ padding: 16px 16px 18px; }
-    .item h3{ margin:0 0 8px; font-size: 15px; font-weight: 900; }
-    .meta{
-      display:flex; gap:10px; flex-wrap:wrap;
-      margin: 0 0 10px;
-    }
-    .pill{
-      font-size: 11px;
-      font-weight:800;
-      padding: 4px 8px;
-      border-radius: 999px;
-      background: rgba(23,199,255,.10);
-      border: 1px solid rgba(23,199,255,.22);
-      color: rgba(23,199,255,.95);
-    }
-    .item p{ margin:0; color: rgba(234,240,255,.60); font-size: 13px; line-height:1.55; }
-
-    .cta-bar{
-      margin-top: 22px;
+    .card{
       border-radius: 18px;
       border: 1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.04);
       padding: 18px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 14px;
-      flex-wrap:wrap;
+      transition: .18s ease;
+      text-align:left;
     }
-    .btn{
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: linear-gradient(135deg, rgba(23,199,255,.95), rgba(122,92,255,.9));
-      color: #07101a;
-      padding: 10px 14px;
+    .card:hover{
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+    }
+    .card h3{
+      margin:0 0 8px;
+      font-size: 15px;
       font-weight:900;
-      text-decoration:none;
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      transition:.18s ease;
+      color: rgba(234,240,255,.95);
     }
-    .btn:hover{ filter: brightness(1.03); transform: translateY(-1px); }
+    .card p{
+      margin:0;
+      color: var(--muted2);
+      font-size: 13px;
+      line-height: 1.55;
+    }
 
     footer{
       padding: 28px 0;
@@ -204,8 +171,8 @@
       font-size: 14px;
     }
 
-    @media (max-width: 1100px){ .grid{ grid-template-columns: repeat(2, 1fr);} }
-    @media (max-width: 980px){ .grid{ grid-template-columns: 1fr; } }
+    @media (max-width: 1100px){ .cards{grid-template-columns: repeat(2, 1fr);} }
+    @media (max-width: 980px){ .cards{grid-template-columns: 1fr;} }
     @media (max-width: 768px){
       .inner-hero .hero-bg{ background-position:center; }
       .inner-hero{ min-height:46vh; }
@@ -223,7 +190,7 @@
       <div class="wrap">
         <a class="logo" href="index.html">
           <span class="logo-dot"></span>
-          <span>RAN <b style="color:var(--brand)">AJANS</b></span>
+          <span>RAN <b style="color:var(--brand)">Ajans & Reklam Hizmetleri</b></span>
         </a>
 
         <nav class="nav" aria-label="Ana Menü">
@@ -242,68 +209,29 @@
     <div class="hero-overlay" aria-hidden="true"></div>
     <div class="container content">
       <h1>Hizmetler</h1>
-      <p>Toplu taşıma reklamları, durak giydirme, kampüs görünürlük alanları ve QR etkileşim çözümleri.</p>
+      <p>Trambüs, otobüs ve durak giydirme. Kampüs görünürlük çözümleri ve QR etkileşim kampanyaları.</p>
     </div>
   </section>
 
   <main>
     <div class="container">
-      <div class="grid">
-        <article class="item">
-          <img src="img/trambus.jpg" alt="Trambüs Giydirme">
-          <div class="pad">
-            <h3>Trambüs Giydirme</h3>
-            <div class="meta">
-              <span class="pill">Ölçü: 12m x 2.5m</span>
-              <span class="pill">Uygulama: Folyo</span>
-            </div>
-            <p>Şehir içi sürekli dolaşım sayesinde yüksek görünürlük. Tasarım, baskı ve uygulama süreçleri dahil.</p>
-          </div>
-        </article>
-
-        <article class="item">
-          <img src="img/otobus.jpg" alt="Otobüs Giydirme">
-          <div class="pad">
-            <h3>Otobüs Giydirme</h3>
-            <div class="meta">
-              <span class="pill">Ölçü: 10m x 2.5m</span>
-              <span class="pill">Uygulama: Folyo</span>
-            </div>
-            <p>Geniş rota kapsaması ile hedef kitleye temas. Kampanya planı + uygulama + takip.</p>
-          </div>
-        </article>
-
-        <article class="item">
-          <img src="img/durak.jpg" alt="Durak Giydirme">
-          <div class="pad">
-            <h3>Durak Giydirme</h3>
-            <div class="meta">
-              <span class="pill">Alan: Durak Paneli</span>
-              <span class="pill">Uygulama: Folyo</span>
-            </div>
-            <p>Yaya trafiğinin yoğun olduğu noktalarda uzun süreli görünürlük. Tasarım + uygulama dahil.</p>
-          </div>
-        </article>
-
-        <article class="item">
-          <img src="img/reklam-alanlari.jpg" alt="Reklam Alanlarımız">
-          <div class="pad">
-            <h3>Kampüs & QR Etkileşim</h3>
-            <div class="meta">
-              <span class="pill">Kampüs / Sosyal Alan</span>
-              <span class="pill">QR Yönlendirme</span>
-            </div>
-            <p>Üniversite odaklı sosyal çözümler ve QR kampanyalarıyla etkileşimi artıran reklam modelleri.</p>
-          </div>
-        </article>
-      </div>
-
-      <div class="cta-bar">
-        <div>
-          <b>Teklif almak için tıklayın</b><br>
-          <span style="color: rgba(234,240,255,.65); font-size:13px;">İhtiyacınızı ve lokasyonu yazın, hızlı dönüş yapalım.</span>
+      <div class="cards">
+        <div class="card">
+          <h3>Trambüs Giydirme</h3>
+          <p>Şehir içi sürekli dolaşım ile yüksek görünürlük. Tasarım + uygulama süreçleri.</p>
         </div>
-        <a class="btn" href="iletisim.html">Teklif Talebi Oluştur</a>
+        <div class="card">
+          <h3>Otobüs Giydirme</h3>
+          <p>Geniş rota kapsaması. Kampanya planı + uygulama + takip.</p>
+        </div>
+        <div class="card">
+          <h3>Durak Giydirme</h3>
+          <p>Yoğun yaya trafiğinde uzun süreli görünürlük. Tasarım + uygulama dahil.</p>
+        </div>
+        <div class="card">
+          <h3>Kampüs & QR Etkileşim</h3>
+          <p>Üniversite odaklı görünürlük ve QR yönlendirme ile ölçülebilir etkileşim.</p>
+        </div>
       </div>
     </div>
   </main>
