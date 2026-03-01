@@ -10,6 +10,16 @@
     :root{
       --brand:#17c7ff;
       --brand2:#7a5cff;
+
+      /* Dropdown fix renkleri */
+      --field-bg: rgba(0,0,0,.25);
+      --field-border: rgba(255,255,255,.10);
+      --field-text: #e5e7eb;
+
+      --dd-bg: rgba(10,16,35,.98);      /* açılan liste koyu */
+      --dd-text: rgba(234,240,255,.92); /* yazı açık */
+      --dd-hover: rgba(56,189,248,.18);
+      --dd-selected: rgba(56,189,248,.28);
     }
     *{box-sizing:border-box;margin:0;padding:0;font-family:'Inter',sans-serif}
     body{
@@ -118,17 +128,46 @@
       padding:24px;
     }
     label{display:block;margin:14px 0 8px;color:#cbd5f5;font-weight:600;font-size:14px}
+
+    /* Input/textarea/select ortak */
     input, textarea, select{
       width:100%;
       padding:12px 12px;
       border-radius:12px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(0,0,0,.25);
-      color:#e5e7eb;
+      border:1px solid var(--field-border);
+      background:var(--field-bg);
+      color:var(--field-text);
       outline:none;
     }
     textarea{min-height:140px;resize:vertical}
     input:focus, textarea:focus, select:focus{border-color:rgba(56,189,248,.65)}
+
+    /* ===== DROPDOWN OKUNURLUK FIX (asıl mesele) ===== */
+    select{
+      color-scheme: dark; /* tarayıcıya “dark tema” diye işaret */
+      background-color: var(--field-bg);
+      color: var(--field-text);
+    }
+
+    /* Açılan liste seçenekleri (Windows/Chrome için kritik) */
+    select option{
+      background-color: var(--dd-bg);
+      color: var(--dd-text);
+    }
+
+    /* Seçilmiş option (bazı tarayıcılar dikkate alır) */
+    select option:checked{
+      background-color: var(--dd-selected);
+      color: var(--dd-text);
+    }
+
+    /* Hover bazen çalışır bazen çalışmaz (tarayıcıya bağlı) */
+    select option:hover{
+      background-color: var(--dd-hover);
+      color: var(--dd-text);
+    }
+    /* ===== /DROPDOWN FIX ===== */
+
     .btn{
       margin-top:16px;
       width:100%;
