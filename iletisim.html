@@ -1,254 +1,323 @@
-<!-- =========================
-FILE: iletisim.html
-========================= -->
 <!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>İletişim | RAN Ajans & Reklam Hizmetleri</title>
-  <meta name="description" content="RAN Ajans & Reklam Hizmetleri iletişim ve hızlı teklif formu. Detayları yazın, aynı gün dönüş yapalım." />
-  <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="./iletisim.html" />
-
-  <meta property="og:title" content="İletişim | RAN Ajans & Reklam Hizmetleri" />
-  <meta property="og:description" content="Hızlı teklif formu. Aynı gün dönüş." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="./iletisim.html" />
-  <meta property="og:image" content="./hero.png" />
-  <meta property="og:locale" content="tr_TR" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <title>İletişim | RAN Ajans</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#0b0f17; --text:#eaf0ff; --muted: rgba(234,240,255,.72); --muted2: rgba(234,240,255,.55);
-      --line: rgba(234,240,255,.14); --shadow: 0 14px 40px rgba(0,0,0,.35);
-      --radius:18px; --radius2:26px; --btn: rgba(255,255,255,.12); --btn2: rgba(255,255,255,.18);
-      --field: rgba(255,255,255,.06);
-      --field2: rgba(255,255,255,.09);
+      --brand:#17c7ff;
+      --brand2:#7a5cff;
     }
-    *{box-sizing:border-box}
+    *{box-sizing:border-box;margin:0;padding:0;font-family:'Inter',sans-serif}
     body{
-      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background: radial-gradient(1200px 600px at 70% -10%, rgba(255,255,255,.12), transparent 55%),
-                  radial-gradient(900px 600px at 0% 10%, rgba(255,255,255,.08), transparent 55%),
-                  var(--bg);
-      color:var(--text); line-height:1.5; overflow-x:hidden;
+      min-height:100vh;
+      background:radial-gradient(circle at top,#0b1b3a 0%, #050914 65%, #04001f 100%);
+      color:#e5e7eb;
+      overflow-x:hidden;
     }
-    a{color:inherit; text-decoration:none}
-    .container{width:min(1120px, 92vw); margin:0 auto}
 
-    .brand-bar{border-bottom:1px solid var(--line); background: rgba(15,22,36,.55); backdrop-filter: blur(10px); position:sticky; top:0; z-index:50;}
-    .brand-inner{display:flex; align-items:center; justify-content:space-between; gap:14px; padding:14px 0;}
-    .brand{display:flex; align-items:center; gap:12px; min-width: 220px;}
-    .brand-badge{width:40px;height:40px;border-radius:14px;background: linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,255,255,.05)); border:1px solid var(--line); box-shadow: var(--shadow); display:grid; place-items:center; font-weight:800;}
-    .brand-title strong{font-size:14px} .brand-title span{display:block; font-size:12px; color:var(--muted2); margin-top:2px}
+    .brand-bar{
+      text-align:center;
+      font-size:12px;
+      padding:8px 10px;
+      background: rgba(255,255,255,.04);
+      border-bottom:1px solid rgba(255,255,255,.06);
+      color: rgba(234,240,255,.60);
+      letter-spacing:.3px;
+    }
 
-    .nav{display:flex; align-items:center; gap:10px;}
-    .nav a{padding:10px 12px;border-radius:12px;color:var(--muted);font-weight:600;font-size:13px;border:1px solid transparent;transition:.15s ease;}
-    .nav a:hover{background: rgba(255,255,255,.06);border-color: var(--line);color: var(--text);}
-    .nav a.active{background: rgba(255,255,255,.10);border-color: rgba(255,255,255,.18);color: var(--text);}
-    .btn{display:inline-flex; align-items:center; justify-content:center; padding:10px 14px; border-radius:14px; border:1px solid rgba(255,255,255,.16); background: var(--btn); font-weight:800; font-size:13px; transition:.15s ease; box-shadow: 0 10px 24px rgba(0,0,0,.18); cursor:pointer;}
-    .btn:hover{background: var(--btn2)}
-    .btn.primary{background: rgba(255,255,255,.92); color:#0b0f17; border-color: rgba(255,255,255,.60);}
-    .btn.primary:hover{background: rgba(255,255,255,.98)}
-    .nav-cta{display:flex; gap:10px; margin-left:6px}
+    header{
+      position:sticky;top:0;z-index:1000;
+      background:rgba(5,9,20,.92);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .container{width:90%;max-width:1100px;margin:auto}
+    .header-inner{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:18px 0;gap:14px;
+    }
+    .logo{font-weight:800;letter-spacing:.5px}
+    nav{display:flex;gap:18px;flex-wrap:wrap;justify-content:flex-end}
+    nav a{
+      text-decoration:none;color:#cbd5f5;font-weight:600;opacity:.9;transition:.2s
+    }
+    nav a:hover{color:#38bdf8;opacity:1}
+    nav a.active{color:#38bdf8; opacity:1;}
 
-    .burger{display:none; width:42px; height:42px; border-radius:14px; border:1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.08); cursor:pointer;}
-    .burger svg{width:22px;height:22px}
-    .mobile{display:none; border-top:1px solid var(--line); padding:10px 0 16px;}
-    .mobile a{display:block; padding:12px 12px; border-radius:14px; border:1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.05); color:var(--muted); font-weight:700; margin-top:10px;}
-    .mobile a.active{color:var(--text); background: rgba(255,255,255,.10)}
-    .mobile.open{display:block}
+    .inner-hero{
+      position: relative;
+      min-height: 44vh;
+      display:flex;
+      align-items:center;
+      padding: 52px 0 28px;
+      overflow:hidden;
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .inner-hero .hero-bg{
+      position:absolute; inset:0;
+      background: url("hero.png") right center / cover no-repeat;
+      filter: saturate(1.22) contrast(1.14) brightness(1.06);
+      transform: scale(1.03);
+      z-index:0;
+      animation: heroZoom 18s ease-in-out infinite alternate;
+      will-change: transform;
+    }
+    @keyframes heroZoom{ from{ transform: scale(1.03);} to{ transform: scale(1.07);} }
+    .inner-hero .hero-overlay{
+      position:absolute; inset:0;
+      background:
+        radial-gradient(900px 600px at 78% 40%, rgba(23,199,255,.16), transparent 60%),
+        radial-gradient(900px 600px at 70% 30%, rgba(122,92,255,.22), transparent 58%),
+        linear-gradient(90deg, rgba(7,10,20,.92) 0%, rgba(7,10,20,.68) 48%, rgba(7,10,20,.28) 100%);
+      pointer-events:none;
+      z-index:1;
+    }
+    .inner-hero::after{
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(700px 420px at 75% 55%, rgba(255,0,200,.10), transparent 60%);
+      pointer-events:none;
+      z-index:1;
+    }
+    .inner-hero .content{ position:relative; z-index:2; max-width:780px; }
+    .inner-hero h1{
+      font-size:44px;
+      font-weight:800;
+      margin-bottom:10px;
+      text-shadow:0 18px 60px rgba(0,0,0,.55);
+    }
+    .inner-hero p{
+      color:#cbd5f5;
+      line-height:1.7;
+      max-width:720px;
+    }
+    @media(max-width:768px){
+      .inner-hero .hero-bg{background-position:center}
+      .inner-hero h1{font-size:36px}
+    }
 
-    .pagehead{padding: 26px 0 10px;}
-    .pagecard{border-radius: var(--radius2); border:1px solid rgba(255,255,255,.14); background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03)); box-shadow: var(--shadow); padding: 18px;}
-    .pagecard h1{margin:0; font-size: 26px; letter-spacing:-.4px}
-    .pagecard p{margin:8px 0 0; color:var(--muted); font-size: 13px; max-width: 72ch}
+    main{padding:54px 0 90px}
+    .desc{color:#cbd5f5;line-height:1.7;max-width:720px;margin-bottom:32px}
 
-    section{padding: 18px 0 34px}
-    .grid{display:grid; grid-template-columns: 1fr 1fr; gap:14px;}
+    .grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:26px;
+      align-items:start;
+    }
+    @media(max-width:900px){.grid{grid-template-columns:1fr}}
+
     .card{
-      padding:16px; border-radius: var(--radius2);
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.05);
-      box-shadow: 0 10px 24px rgba(0,0,0,.16);
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:16px;
+      padding:24px;
     }
-    .card h3{margin:0 0 10px; font-size: 16px}
-    .info p{margin: 8px 0; color: var(--muted); font-size: 13px}
-    .info b{color: var(--text)}
-    .form-row{display:grid; grid-template-columns: 1fr 1fr; gap:10px}
-    label{display:block; font-size: 12px; font-weight:800; color: rgba(234,240,255,.82); margin-bottom:6px}
-    input, textarea{
+    label{display:block;margin:14px 0 8px;color:#cbd5f5;font-weight:600;font-size:14px}
+    input, textarea, select{
       width:100%;
-      border-radius: 14px;
-      border:1px solid rgba(255,255,255,.14);
-      background: var(--field);
-      color: var(--text);
-      padding: 12px 12px;
+      padding:12px 12px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(0,0,0,.25);
+      color:#e5e7eb;
       outline:none;
-      font-family: inherit;
     }
-    input:focus, textarea:focus{background: var(--field2); border-color: rgba(255,255,255,.24)}
-    textarea{min-height: 120px; resize: vertical}
-    .hint{color: var(--muted2); font-size: 12px; margin-top: 8px}
-    .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top: 12px}
+    textarea{min-height:140px;resize:vertical}
+    input:focus, textarea:focus, select:focus{border-color:rgba(56,189,248,.65)}
+    .btn{
+      margin-top:16px;
+      width:100%;
+      padding:12px 14px;
+      border:none;
+      border-radius:12px;
+      background:#38bdf8;
+      color:#050914;
+      font-weight:800;
+      cursor:pointer;
+      transition:.2s;
+    }
+    .btn:hover{filter:brightness(.95);transform:translateY(-1px)}
+    .hint{
+      margin-top:12px;
+      color:#94a3b8;
+      font-size:13px;
+      line-height:1.6;
+    }
+    .toast{
+      display:none;
+      margin-top:14px;
+      padding:12px 14px;
+      border-radius:12px;
+      background:rgba(34,197,94,.15);
+      border:1px solid rgba(34,197,94,.35);
+      color:#bbf7d0;
+      font-weight:600;
+      line-height:1.5;
+    }
 
-    footer{border-top:1px solid var(--line); padding:18px 0; color: var(--muted2); background: rgba(15,22,36,.30);}
-    .footer-inner{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; font-size:12px}
+    .info a{
+      display:block;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.03);
+      color:#e5e7eb;
+      text-decoration:none;
+      margin-top:12px;
+      transition:.2s;
+    }
+    .info a:hover{border-color:rgba(56,189,248,.45);transform:translateY(-2px)}
+    .info small{display:block;color:#94a3b8;margin-top:6px}
 
-    @media (max-width: 920px){
-      .nav{display:none}
-      .burger{display:grid; place-items:center}
-      .grid{grid-template-columns:1fr}
-      .form-row{grid-template-columns:1fr}
+    footer{
+      padding:30px 0;
+      border-top:1px solid rgba(255,255,255,.06);
+      color:#94a3b8;
+      text-align:center;
+      font-size:14px;
     }
   </style>
 </head>
 
 <body>
-  <header class="brand-bar">
-    <div class="container">
-      <div class="brand-inner">
-        <a class="brand" href="./index.html">
-          <div class="brand-badge">R</div>
-          <div class="brand-title">
-            <strong>RAN Ajans & Reklam Hizmetleri</strong>
-            <span>Kurumsal Reklam Uygulamaları</span>
-          </div>
-        </a>
+  <div class="brand-bar">
+    © <span id="y"></span> RAN Ajans & Reklam Hizmetleri – Tescilli markasıdır.
+  </div>
 
-        <nav class="nav">
-          <a href="./index.html">Ana Sayfa</a>
-          <a href="./hizmetler.html">Hizmetler</a>
-          <a href="./projeler.html">Projeler</a>
-          <a href="./kurumsal.html">Kurumsal</a>
-          <a class="active" href="./iletisim.html">İletişim</a>
-          <div class="nav-cta">
-            <a class="btn" href="./projeler.html">Projeleri İncele</a>
-            <a class="btn primary" href="#teklif">Teklif Al</a>
-          </div>
-        </nav>
-
-        <button class="burger" id="burger" aria-label="Menüyü aç/kapat">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M4 7h16M4 12h16M4 17h16" stroke="rgba(255,255,255,.86)" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </button>
-      </div>
-
-      <div class="mobile" id="mobileMenu">
-        <a href="./index.html">Ana Sayfa</a>
-        <a href="./hizmetler.html">Hizmetler</a>
-        <a href="./projeler.html">Projeler</a>
-        <a href="./kurumsal.html">Kurumsal</a>
-        <a class="active" href="./iletisim.html">İletişim</a>
-        <a href="#teklif">Teklif Al</a>
-      </div>
+  <header>
+    <div class="container header-inner">
+      <div class="logo">RAN AJANS & REKLAM</div>
+      <nav>
+        <a href="index.html">Ana Sayfa</a>
+        <a href="hizmetler.html">Hizmetler</a>
+        <a href="projeler.html">Projeler</a>
+        <a href="kurumsal.html">Kurumsal</a>
+        <a href="iletisim.html" class="active">İletişim</a>
+      </nav>
     </div>
   </header>
 
-  <div class="container pagehead">
-    <div class="pagecard">
+  <section class="inner-hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="container content">
       <h1>İletişim</h1>
-      <p>Detayları yazın, aynı gün dönüş yapalım. (İnsanlar bazen hızlı olabiliyor, biz de dahil.)</p>
-    </div>
-  </div>
-
-  <section id="teklif">
-    <div class="container">
-      <div class="grid">
-        <div class="card info">
-          <h3>İletişim Bilgileri</h3>
-          <p><b>Şehir:</b> Malatya</p>
-          <p><b>Telefon:</b> +90 (___) ___ __ __</p>
-          <p><b>E-posta:</b> info@_____.com</p>
-          <p class="hint">Bu alanları kendi gerçek bilgilerinizle güncelleyin.</p>
-        </div>
-
-        <div class="card">
-          <h3>Hızlı Teklif Formu</h3>
-
-          <!-- Bu form şu an demo. İstersen Google Form / WhatsApp / mailto ile bağlarız. -->
-          <form onsubmit="return sendDemo(event)">
-            <div class="form-row">
-              <div>
-                <label>Ad Soyad</label>
-                <input required type="text" id="name" placeholder="Adınız Soyadınız" />
-              </div>
-              <div>
-                <label>Telefon</label>
-                <input required type="tel" id="phone" placeholder="05xx xxx xx xx" />
-              </div>
-            </div>
-
-            <div style="margin-top:10px" class="form-row">
-              <div>
-                <label>Hizmet</label>
-                <input required type="text" id="service" placeholder="Trambüs / Otobüs / Durak / QR" />
-              </div>
-              <div>
-                <label>Şehir</label>
-                <input type="text" id="city" placeholder="Malatya" />
-              </div>
-            </div>
-
-            <div style="margin-top:10px">
-              <label>Detay</label>
-              <textarea required id="details" placeholder="Ölçü, adet, tarih, mesaj, rota gibi detayları yazın..."></textarea>
-              <div class="hint">Gönder’e basınca WhatsApp’a yönlendirecek şekilde de ayarlayabiliriz.</div>
-            </div>
-
-            <div class="actions">
-              <button class="btn primary" type="submit">Gönder</button>
-              <a class="btn" href="./projeler.html">Projeleri Gör</a>
-            </div>
-          </form>
-        </div>
-      </div>
+      <p>Teklif, kampanya ya da iş birliği için bize yazın. Hızlı dönüş için WhatsApp veya telefon üzerinden de ulaşabilirsiniz.</p>
     </div>
   </section>
 
-  <footer>
+  <main>
     <div class="container">
-      <div class="footer-inner">
-        <div>© <span id="year"></span> RAN Ajans & Reklam Hizmetleri – Tescilli markasıdır.</div>
-        <div>Malatya • Türkiye</div>
+      <p class="desc" style="margin-top:6px">
+        GitHub Pages sunucu olmadığı için bu form şimdilik “demo”. Yine de kullanıcıya düzgün geri bildirim verir.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <form id="contactForm">
+            <label>Ad Soyad</label>
+            <input id="name" type="text" placeholder="Ad Soyad" required>
+
+            <label>E-posta</label>
+            <input id="email" type="email" placeholder="ornek@mail.com" required>
+
+            <label>Teklif Kategorisi</label>
+            <select id="category" required>
+              <option value="" selected disabled>Seçiniz...</option>
+              <option>Trambüs Giydirme</option>
+              <option>Otobüs Giydirme</option>
+              <option>Durak Giydirme</option>
+              <option>Kampüs / Üniversite Çözümleri</option>
+              <option>QR Etkileşim Kampanyası</option>
+              <option>Genel Teklif</option>
+            </select>
+
+            <label>Mesaj</label>
+            <textarea id="message" placeholder="Kısaca ihtiyacınızı yazın..." required></textarea>
+
+            <button class="btn" type="submit">Gönder</button>
+
+            <div id="toast" class="toast">
+              Talebiniz kaydedildi (tarayıcınızda). Gerçek gönderim için formu sisteme bağlayacağız.
+            </div>
+
+            <div class="hint">
+              Not: Sunucu yoksa form hiçbir yere gönderemez. Bu sayfa şu an kullanıcıya geri bildirim verir ve bilgiyi tarayıcıda saklar.
+            </div>
+          </form>
+        </div>
+
+        <div class="card info">
+          <h3 style="font-size:18px;color:#38bdf8;margin-bottom:8px">Hızlı İletişim</h3>
+
+          <a href="tel:+905497952395">
+            📞 Telefon
+            <small>+90 549 795 23 95</small>
+          </a>
+
+          <a href="https://wa.me/905439594404" target="_blank" rel="noopener noreferrer">
+            💬 WhatsApp
+            <small>Hemen mesaj gönder</small>
+          </a>
+
+          <a href="mailto:info@ranteknoloji.com">
+            ✉️ E-posta
+            <small>info@ranteknoloji.com</small>
+          </a>
+
+          <a href="https://instagram.com/ranteknoloji" target="_blank" rel="noopener noreferrer">
+            📸 Instagram
+            <small>@ranteknoloji</small>
+          </a>
+        </div>
       </div>
     </div>
+  </main>
+
+  <footer>
+    © <span id="y2"></span> RAN Ajans & Reklam Hizmetleri – Tescilli markasıdır.
   </footer>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-    const burger = document.getElementById("burger");
-    const mobileMenu = document.getElementById("mobileMenu");
-    burger?.addEventListener("click", () => mobileMenu.classList.toggle("open"));
+    const y = new Date().getFullYear();
+    document.getElementById("y").textContent = y;
+    document.getElementById("y2").textContent = y;
 
-    function sendDemo(e){
+    const form = document.getElementById("contactForm");
+    const toast = document.getElementById("toast");
+    const btn = form.querySelector("button[type='submit']");
+
+    form.addEventListener("submit", function(e){
       e.preventDefault();
-      const name = document.getElementById("name").value.trim();
-      const phone = document.getElementById("phone").value.trim();
-      const service = document.getElementById("service").value.trim();
-      const city = document.getElementById("city").value.trim();
-      const details = document.getElementById("details").value.trim();
 
-      // Demo: mailto. İstersen WhatsApp linki yaparız.
-      const subject = encodeURIComponent("Teklif Talebi - " + service);
-      const body = encodeURIComponent(
-        "Ad Soyad: " + name + "\n" +
-        "Telefon: " + phone + "\n" +
-        "Hizmet: " + service + "\n" +
-        "Şehir: " + city + "\n\n" +
-        "Detay:\n" + details
-      );
+      btn.disabled = true;
+      const oldText = btn.textContent;
+      btn.textContent = "Gönderiliyor...";
 
-      window.location.href = "mailto:info@_____.com?subject=" + subject + "&body=" + body;
-      return false;
-    }
+      const data = {
+        name: document.getElementById("name").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        category: document.getElementById("category").value,
+        message: document.getElementById("message").value.trim(),
+        date: new Date().toISOString()
+      };
+
+      localStorage.setItem("ran_contact_last", JSON.stringify(data));
+
+      setTimeout(() => {
+        toast.style.display = "block";
+        form.reset();
+        btn.disabled = false;
+        btn.textContent = oldText;
+
+        setTimeout(() => toast.style.display = "none", 4500);
+      }, 900);
+    });
   </script>
 </body>
 </html>
