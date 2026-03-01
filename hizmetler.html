@@ -1,23 +1,9 @@
-<!-- =========================
-FILE: hizmetler.html
-========================= -->
 <!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Hizmetler | RAN Ajans & Reklam Hizmetleri</title>
-  <meta name="description" content="Trambüs, otobüs ve durak giydirme hizmetleri. Kurumsal tasarım, baskı ve uygulama süreçleri." />
-  <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="./hizmetler.html" />
-
-  <meta property="og:title" content="Hizmetler | RAN Ajans & Reklam Hizmetleri" />
-  <meta property="og:description" content="Trambüs, otobüs ve durak giydirme. Tasarım, baskı, uygulama." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="./hizmetler.html" />
-  <meta property="og:image" content="./hero.png" />
-  <meta property="og:locale" content="tr_TR" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,202 +11,237 @@ FILE: hizmetler.html
 
   <style>
     :root{
-      --bg:#0b0f17; --text:#eaf0ff; --muted: rgba(234,240,255,.72); --muted2: rgba(234,240,255,.55);
-      --line: rgba(234,240,255,.14); --shadow: 0 14px 40px rgba(0,0,0,.35);
-      --radius:18px; --radius2:26px; --btn: rgba(255,255,255,.12); --btn2: rgba(255,255,255,.18);
+      --bg: #070a14;
+      --bg2:#0a0f22;
+      --text:#eaf0ff;
+      --muted: rgba(234,240,255,.78);
+      --muted2: rgba(234,240,255,.55);
+      --brand: #17c7ff;
+      --brand2:#7a5cff;
+      --headerH: 76px;
     }
+
     *{box-sizing:border-box}
     body{
-      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background: radial-gradient(1200px 600px at 70% -10%, rgba(255,255,255,.12), transparent 55%),
-                  radial-gradient(900px 600px at 0% 10%, rgba(255,255,255,.08), transparent 55%),
-                  var(--bg);
-      color:var(--text); line-height:1.5; overflow-x:hidden;
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 700px at 65% 25%, rgba(122,92,255,.18), transparent 55%),
+                  radial-gradient(900px 650px at 20% 35%, rgba(23,199,255,.12), transparent 55%),
+                  linear-gradient(180deg, var(--bg), var(--bg2));
+      color: var(--text);
+      overflow-x:hidden;
     }
-    a{color:inherit; text-decoration:none}
-    .container{width:min(1120px, 92vw); margin:0 auto}
+    .container{ width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
 
-    .brand-bar{border-bottom:1px solid var(--line); background: rgba(15,22,36,.55); backdrop-filter: blur(10px); position:sticky; top:0; z-index:50;}
-    .brand-inner{display:flex; align-items:center; justify-content:space-between; gap:14px; padding:14px 0;}
-    .brand{display:flex; align-items:center; gap:12px; min-width: 220px;}
-    .brand-badge{width:40px;height:40px;border-radius:14px;background: linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,255,255,.05)); border:1px solid var(--line); box-shadow: var(--shadow); display:grid; place-items:center; font-weight:800;}
-    .brand-title strong{font-size:14px} .brand-title span{display:block; font-size:12px; color:var(--muted2); margin-top:2px}
-
-    .nav{display:flex; align-items:center; gap:10px;}
-    .nav a{padding:10px 12px;border-radius:12px;color:var(--muted);font-weight:600;font-size:13px;border:1px solid transparent;transition:.15s ease;}
-    .nav a:hover{background: rgba(255,255,255,.06);border-color: var(--line);color: var(--text);}
-    .nav a.active{background: rgba(255,255,255,.10);border-color: rgba(255,255,255,.18);color: var(--text);}
-    .btn{display:inline-flex; align-items:center; justify-content:center; padding:10px 14px; border-radius:14px; border:1px solid rgba(255,255,255,.16); background: var(--btn); font-weight:800; font-size:13px; transition:.15s ease; box-shadow: 0 10px 24px rgba(0,0,0,.18);}
-    .btn:hover{background: var(--btn2)}
-    .btn.primary{background: rgba(255,255,255,.92); color:#0b0f17; border-color: rgba(255,255,255,.60);}
-    .btn.primary:hover{background: rgba(255,255,255,.98)}
-    .nav-cta{display:flex; gap:10px; margin-left:6px}
-
-    .burger{display:none; width:42px; height:42px; border-radius:14px; border:1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.08); cursor:pointer;}
-    .burger svg{width:22px;height:22px}
-    .mobile{display:none; border-top:1px solid var(--line); padding:10px 0 16px;}
-    .mobile a{display:block; padding:12px 12px; border-radius:14px; border:1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.05); color:var(--muted); font-weight:700; margin-top:10px;}
-    .mobile a.active{color:var(--text); background: rgba(255,255,255,.10)}
-    .mobile.open{display:block}
-
-    .pagehead{padding: 26px 0 10px;}
-    .pagecard{
-      border-radius: var(--radius2);
-      border:1px solid rgba(255,255,255,.14);
-      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
-      box-shadow: var(--shadow);
-      padding: 18px;
+    .brand-bar{
+      text-align:center;
+      font-size:12px;
+      padding:8px 10px;
+      background: rgba(255,255,255,.04);
+      border-bottom:1px solid rgba(255,255,255,.06);
+      color: rgba(234,240,255,.60);
+      letter-spacing:.3px;
     }
-    .pagecard h1{margin:0; font-size: 26px; letter-spacing:-.4px}
-    .pagecard p{margin:8px 0 0; color:var(--muted); font-size: 13px; max-width: 72ch}
 
-    section{padding: 18px 0 34px}
-    .grid{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px;}
+    .header{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      height: var(--headerH);
+      display:flex;
+      align-items:center;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      background: rgba(7,10,20,.55);
+      backdrop-filter: blur(14px);
+    }
+    .header .wrap{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 18px;
+    }
+    .logo{
+      display:flex; align-items:center; gap:10px;
+      font-weight:800; letter-spacing:.3px; text-decoration:none; color: var(--text);
+      white-space:nowrap;
+    }
+    .logo-dot{
+      width:10px;height:10px;border-radius:999px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: 0 0 0 6px rgba(23,199,255,.10);
+    }
+    .nav{ display:flex; align-items:center; gap:6px; flex-wrap:wrap; justify-content:flex-end; }
+    .nav a{
+      color: rgba(234,240,255,.85);
+      text-decoration:none;
+      font-weight:600;
+      font-size: 14px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      transition: .18s ease;
+    }
+    .nav a:hover{ background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.08); color: var(--text); }
+    .nav a.active{ background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.14); color: var(--text); }
+    .nav a.cta{ background:transparent; border-color:transparent; }
+
+    .inner-hero{
+      position: relative;
+      min-height: 52vh;
+      display:flex;
+      align-items:center;
+      padding: 46px 0 34px;
+      overflow:hidden;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .inner-hero .hero-bg{
+      position:absolute; inset:0;
+      background: url("hero.png") right center / cover no-repeat;
+      filter: saturate(1.22) contrast(1.14) brightness(1.06);
+      transform: scale(1.03);
+      z-index:0;
+      animation: heroZoom 18s ease-in-out infinite alternate;
+      will-change: transform;
+    }
+    @keyframes heroZoom{ from{ transform: scale(1.03);} to{ transform: scale(1.07);} }
+    .inner-hero .hero-overlay{
+      position:absolute; inset:0;
+      background:
+        radial-gradient(900px 600px at 78% 40%, rgba(23,199,255,.16), transparent 60%),
+        radial-gradient(900px 600px at 70% 30%, rgba(122,92,255,.22), transparent 58%),
+        linear-gradient(90deg, rgba(7,10,20,.94) 0%, rgba(7,10,20,.70) 48%, rgba(7,10,20,.28) 100%);
+      pointer-events:none;
+      z-index:1;
+    }
+    .inner-hero::after{
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(700px 420px at 75% 55%, rgba(255,0,200,.11), transparent 60%);
+      pointer-events:none;
+      z-index:1;
+    }
+    .inner-hero .content{ position:relative; z-index:2; max-width: 760px; }
+    .inner-hero h1{
+      margin:0 0 10px;
+      font-size: clamp(30px, 3.6vw, 48px);
+      line-height: 1.12;
+      letter-spacing: -0.5px;
+      text-shadow: 0 18px 60px rgba(0,0,0,.55);
+    }
+    .inner-hero p{ margin:0; color: rgba(234,240,255,.78); line-height: 1.65; max-width: 75ch; }
+
+    main{ padding: 58px 0 86px; }
+
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
     .card{
-      padding:16px; border-radius: var(--radius);
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.05);
-      box-shadow: 0 10px 24px rgba(0,0,0,.16);
-      transition:.15s ease;
-      min-height: 160px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      padding: 18px;
+      transition: .18s ease;
+      text-align:left;
     }
-    .card:hover{transform: translateY(-2px); background: rgba(255,255,255,.07)}
-    .card h3{margin:0 0 8px; font-size: 15px}
-    .card p{margin:0; color: var(--muted); font-size: 13px}
-    .list{margin: 10px 0 0; padding-left: 18px; color: rgba(234,240,255,.72); font-size: 12.5px}
-    .list li{margin: 6px 0}
-    .cta{
-      border-radius: var(--radius2);
-      border:1px solid rgba(255,255,255,.16);
-      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
-      box-shadow: var(--shadow);
-      padding: 16px;
-      display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;
+    .card:hover{
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
     }
-    .cta h3{margin:0; font-size: 18px}
-    .cta p{margin:6px 0 0; color:var(--muted); font-size: 13px}
+    .card h3{
+      margin:0 0 8px;
+      font-size: 15px;
+      font-weight:900;
+      color: rgba(234,240,255,.95);
+    }
+    .card p{
+      margin:0;
+      color: var(--muted2);
+      font-size: 13px;
+      line-height: 1.55;
+    }
 
-    footer{border-top:1px solid var(--line); padding:18px 0; color: var(--muted2); background: rgba(15,22,36,.30);}
-    .footer-inner{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; font-size:12px}
+    footer{
+      padding: 28px 0;
+      border-top: 1px solid rgba(255,255,255,.06);
+      color: rgba(234,240,255,.55);
+      text-align:center;
+      font-size: 14px;
+    }
 
-    @media (max-width: 920px){
-      .nav{display:none}
-      .burger{display:grid; place-items:center}
-      .grid{grid-template-columns:1fr}
+    @media (max-width: 1100px){ .cards{grid-template-columns: repeat(2, 1fr);} }
+    @media (max-width: 980px){ .cards{grid-template-columns: 1fr;} }
+    @media (max-width: 768px){
+      .inner-hero .hero-bg{ background-position:center; }
+      .inner-hero{ min-height:46vh; }
     }
   </style>
 </head>
 
 <body>
-  <header class="brand-bar">
+  <div class="brand-bar">
+    © <span id="y"></span> RAN Ajans & Reklam Hizmetleri – Tescilli markasıdır.
+  </div>
+
+  <header class="header">
     <div class="container">
-      <div class="brand-inner">
-        <a class="brand" href="./index.html">
-          <div class="brand-badge">R</div>
-          <div class="brand-title">
-            <strong>RAN Ajans & Reklam Hizmetleri</strong>
-            <span>Kurumsal Reklam Uygulamaları</span>
-          </div>
+      <div class="wrap">
+        <a class="logo" href="index.html">
+          <span class="logo-dot"></span>
+          <span>RAN <b style="color:var(--brand)">Ajans & Reklam Hizmetleri</b></span>
         </a>
 
-        <nav class="nav">
-          <a href="./index.html">Ana Sayfa</a>
-          <a class="active" href="./hizmetler.html">Hizmetler</a>
-          <a href="./projeler.html">Projeler</a>
-          <a href="./kurumsal.html">Kurumsal</a>
-          <a href="./iletisim.html">İletişim</a>
-          <div class="nav-cta">
-            <a class="btn" href="./projeler.html">Projeleri İncele</a>
-            <a class="btn primary" href="./iletisim.html#teklif">Teklif Al</a>
-          </div>
+        <nav class="nav" aria-label="Ana Menü">
+          <a href="index.html">Ana Sayfa</a>
+          <a href="hizmetler.html" class="active">Hizmetler</a>
+          <a href="projeler.html">Projeler</a>
+          <a href="kurumsal.html">Kurumsal</a>
+          <a class="cta" href="iletisim.html">İletişim</a>
         </nav>
-
-        <button class="burger" id="burger" aria-label="Menüyü aç/kapat">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M4 7h16M4 12h16M4 17h16" stroke="rgba(255,255,255,.86)" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </button>
-      </div>
-
-      <div class="mobile" id="mobileMenu">
-        <a href="./index.html">Ana Sayfa</a>
-        <a class="active" href="./hizmetler.html">Hizmetler</a>
-        <a href="./projeler.html">Projeler</a>
-        <a href="./kurumsal.html">Kurumsal</a>
-        <a href="./iletisim.html">İletişim</a>
-        <a href="./iletisim.html#teklif">Teklif Al</a>
       </div>
     </div>
   </header>
 
-  <div class="container pagehead">
-    <div class="pagecard">
+  <section class="inner-hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="container content">
       <h1>Hizmetler</h1>
-      <p>Trambüs, otobüs ve durak giydirme süreçlerini tasarım, baskı ve sahada uygulama dahil yönetiyoruz. Kurumsal görünüme takıntılıyız, evet.</p>
-    </div>
-  </div>
-
-  <section>
-    <div class="container">
-      <div class="grid">
-        <div class="card">
-          <h3>Trambüs Giydirme</h3>
-          <p>Şehir içi yüksek görünürlük. Kampanya mesajınızı doğru ölçü ve tasarımla taşır.</p>
-          <ul class="list">
-            <li>Keşif, ölçülendirme</li>
-            <li>Tasarım ve onay süreci</li>
-            <li>Baskı ve montaj</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Otobüs Giydirme</h3>
-          <p>Geniş erişim, yüksek tekrar. Rota planına göre güçlü sonuç.</p>
-          <ul class="list">
-            <li>Rota bazlı planlama</li>
-            <li>Kurumsal tasarım dili</li>
-            <li>Uygulama sonrası raporlama</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Durak Giydirme</h3>
-          <p>Bekleme alanı dikkat alanıdır. Net mesaj, temiz tasarım, sağlam uygulama.</p>
-          <ul class="list">
-            <li>Yer seçimi desteği</li>
-            <li>Dayanıklı malzeme</li>
-            <li>Uygulama ve teslim</li>
-          </ul>
-        </div>
-      </div>
-
-      <div style="margin-top:14px" class="cta">
-        <div>
-          <h3>Hızlı teklif ister misiniz?</h3>
-          <p>Ölçü ve iş detayını yazın, aynı gün dönüş yapalım.</p>
-        </div>
-        <div style="display:flex; gap:10px; flex-wrap:wrap">
-          <a class="btn" href="./projeler.html">Örnek Projeler</a>
-          <a class="btn primary" href="./iletisim.html#teklif">Teklif Al</a>
-        </div>
-      </div>
+      <p>Trambüs, otobüs ve durak giydirme. Kampüs görünürlük çözümleri ve QR etkileşim kampanyaları.</p>
     </div>
   </section>
 
-  <footer>
+  <main>
     <div class="container">
-      <div class="footer-inner">
-        <div>© <span id="year"></span> RAN Ajans & Reklam Hizmetleri – Tescilli markasıdır.</div>
-        <div>Malatya • Türkiye</div>
+      <div class="cards">
+        <div class="card">
+          <h3>Trambüs Giydirme</h3>
+          <p>Şehir içi sürekli dolaşım ile yüksek görünürlük. Tasarım + uygulama süreçleri.</p>
+        </div>
+        <div class="card">
+          <h3>Otobüs Giydirme</h3>
+          <p>Geniş rota kapsaması. Kampanya planı + uygulama + takip.</p>
+        </div>
+        <div class="card">
+          <h3>Durak Giydirme</h3>
+          <p>Yoğun yaya trafiğinde uzun süreli görünürlük. Tasarım + uygulama dahil.</p>
+        </div>
+        <div class="card">
+          <h3>Kampüs & QR Etkileşim</h3>
+          <p>Üniversite odaklı görünürlük ve QR yönlendirme ile ölçülebilir etkileşim.</p>
+        </div>
       </div>
     </div>
-  </footer>
+  </main>
+
+  <footer>© <span id="y2"></span> RAN Ajans & Reklam Hizmetleri – Tescilli markasıdır.</footer>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-    const burger = document.getElementById("burger");
-    const mobileMenu = document.getElementById("mobileMenu");
-    burger?.addEventListener("click", () => mobileMenu.classList.toggle("open"));
+    const y = new Date().getFullYear();
+    document.getElementById("y").textContent = y;
+    document.getElementById("y2").textContent = y;
   </script>
 </body>
 </html>
