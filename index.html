@@ -1,9 +1,30 @@
+<!-- =========================
+FILE: index.html
+========================= -->
 <!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RAN Ajans & Reklam Hizmetleri</title>
+
+  <title>RAN Ajans & Reklam Hizmetleri | QR, Araç Giydirme, Durak & Otobüs Reklamları</title>
+  <meta name="description" content="RAN Ajans & Reklam Hizmetleri: QR çözümleri, trambüs/otobüs/durak giydirme ve kurumsal reklam uygulamaları. Hızlı teklif alın." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="./index.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="RAN Ajans & Reklam Hizmetleri" />
+  <meta property="og:description" content="QR çözümleri ve reklam uygulamaları: araç giydirme, durak/otobüs/trambüs reklamları. Hızlı teklif alın." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="./index.html" />
+  <meta property="og:image" content="./hero.png" />
+  <meta property="og:locale" content="tr_TR" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="RAN Ajans & Reklam Hizmetleri" />
+  <meta name="twitter:description" content="QR çözümleri ve reklam uygulamaları: araç giydirme, durak/otobüs/trambüs reklamları." />
+  <meta name="twitter:image" content="./hero.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,365 +32,697 @@
 
   <style>
     :root{
-      --bg: #070a14;
-      --bg2:#0a0f22;
+      --bg:#0b0f17;
+      --panel:#0f1624;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.08);
       --text:#eaf0ff;
-      --muted: rgba(234,240,255,.78);
+      --muted: rgba(234,240,255,.72);
       --muted2: rgba(234,240,255,.55);
-      --brand: #17c7ff;
-      --brand2:#7a5cff;
-      --shadow: 0 18px 55px rgba(0,0,0,.55);
+      --line: rgba(234,240,255,.14);
+      --shadow: 0 14px 40px rgba(0,0,0,.35);
       --radius: 18px;
-      --radius2: 14px;
-      --headerH: 76px;
+      --radius2: 26px;
+      --focus: rgba(255,255,255,.16);
+      --btn: rgba(255,255,255,.12);
+      --btn2: rgba(255,255,255,.18);
+      --ok: rgba(124,255,196,.18);
+      --warn: rgba(255,214,102,.18);
     }
-
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: radial-gradient(1200px 700px at 65% 25%, rgba(122,92,255,.18), transparent 55%),
-                  radial-gradient(900px 650px at 20% 35%, rgba(23,199,255,.12), transparent 55%),
-                  linear-gradient(180deg, var(--bg), var(--bg2));
-      color: var(--text);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background: radial-gradient(1200px 600px at 70% -10%, rgba(255,255,255,.12), transparent 55%),
+                  radial-gradient(900px 600px at 0% 10%, rgba(255,255,255,.08), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.5;
       overflow-x:hidden;
     }
+    a{color:inherit; text-decoration:none}
+    .container{width:min(1120px, 92vw); margin:0 auto}
 
-    /* ÜST MARKA ŞERİDİ */
+    /* Brand bar */
     .brand-bar{
-      text-align:center;
-      font-size:12px;
-      padding:8px 10px;
-      background: rgba(255,255,255,.04);
-      border-bottom:1px solid rgba(255,255,255,.06);
-      color: rgba(234,240,255,.60);
-      letter-spacing:.3px;
+      border-bottom:1px solid var(--line);
+      background: rgba(15,22,36,.55);
+      backdrop-filter: blur(10px);
+      position:sticky;
+      top:0;
+      z-index:50;
     }
-
-    /* HEADER */
-    .header{
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      height: var(--headerH);
-      display:flex;
-      align-items:center;
-      border-bottom: 1px solid rgba(255,255,255,.07);
-      background: rgba(7,10,20,.55);
-      backdrop-filter: blur(14px);
-    }
-    .container{
-      width: min(1180px, calc(100% - 48px));
-      margin: 0 auto;
-    }
-    .header .wrap{
+    .brand-inner{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap: 18px;
+      gap:14px;
+      padding:14px 0;
     }
-
-    .logo{
+    .brand{
       display:flex;
       align-items:center;
-      gap:10px;
+      gap:12px;
+      min-width: 220px;
+    }
+    .brand-badge{
+      width:40px; height:40px;
+      border-radius:14px;
+      background: linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,255,255,.05));
+      border:1px solid var(--line);
+      box-shadow: var(--shadow);
+      display:grid;
+      place-items:center;
       font-weight:800;
-      letter-spacing:.3px;
-      text-decoration:none;
-      color: var(--text);
-      white-space:nowrap;
+      letter-spacing:.5px;
     }
-    .logo-dot{
-      width:10px;height:10px;border-radius:999px;
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      box-shadow: 0 0 0 6px rgba(23,199,255,.10);
+    .brand-title{
+      display:flex; flex-direction:column; gap:2px;
     }
-    .logo span b{color: var(--brand); font-weight:800}
+    .brand-title strong{font-size:14px; letter-spacing:.2px}
+    .brand-title span{font-size:12px; color:var(--muted2)}
 
+    /* Nav */
     .nav{
       display:flex;
       align-items:center;
-      gap: 6px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
+      gap:10px;
     }
     .nav a{
-      color: rgba(234,240,255,.85);
-      text-decoration:none;
+      padding:10px 12px;
+      border-radius:12px;
+      color:var(--muted);
       font-weight:600;
-      font-size: 14px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid transparent;
-      transition: .18s ease;
+      font-size:13px;
+      border:1px solid transparent;
+      transition:.15s ease;
     }
     .nav a:hover{
       background: rgba(255,255,255,.06);
-      border-color: rgba(255,255,255,.08);
+      border-color: var(--line);
       color: var(--text);
     }
     .nav a.active{
-      background: rgba(255,255,255,.08);
-      border-color: rgba(255,255,255,.14);
+      background: rgba(255,255,255,.10);
+      border-color: rgba(255,255,255,.18);
       color: var(--text);
     }
-    .nav a.cta{ background:transparent; border-color:transparent; }
-
-    /* HERO */
-    .hero{
-      position: relative;
-      min-height: calc(100vh - var(--headerH));
+    .nav-cta{
       display:flex;
       align-items:center;
-      padding: 44px 0 56px;
-      overflow:hidden;
+      gap:10px;
+      margin-left: 6px;
     }
-    .hero-bg{
-      position:absolute; inset:0;
-      background: url("hero.png") right center / cover no-repeat;
-      filter: saturate(1.22) contrast(1.14) brightness(1.06);
-      opacity: 1;
-      transform: scale(1.03);
-      z-index:0;
-      animation: heroZoom 18s ease-in-out infinite alternate;
-      will-change: transform;
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.16);
+      background: var(--btn);
+      color: var(--text);
+      font-weight:800;
+      font-size:13px;
+      transition:.15s ease;
+      box-shadow: 0 10px 24px rgba(0,0,0,.18);
+      cursor:pointer;
+      user-select:none;
     }
-    @keyframes heroZoom{
-      from{ transform: scale(1.03); }
-      to  { transform: scale(1.08); }
+    .btn:hover{ background: var(--btn2) }
+    .btn.primary{
+      background: rgba(255,255,255,.92);
+      color:#0b0f17;
+      border-color: rgba(255,255,255,.60);
     }
-    .hero-overlay{
-      position:absolute; inset:0;
-      background:
-        radial-gradient(900px 600px at 78% 40%, rgba(23,199,255,.16), transparent 60%),
-        radial-gradient(900px 600px at 70% 30%, rgba(122,92,255,.22), transparent 58%),
-        linear-gradient(90deg, rgba(7,10,20,.94) 0%, rgba(7,10,20,.70) 48%, rgba(7,10,20,.28) 100%);
-      pointer-events:none;
-      z-index:1;
-    }
-    .hero::after{
-      content:"";
-      position:absolute; inset:0;
-      background: radial-gradient(700px 420px at 75% 55%, rgba(255,0,200,.11), transparent 60%);
-      pointer-events:none;
-      z-index:1;
-    }
+    .btn.primary:hover{ background: rgba(255,255,255,.98) }
 
-    .hero-inner{
+    .burger{
+      display:none;
+      width:42px; height:42px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.08);
+      cursor:pointer;
+    }
+    .burger svg{width:22px;height:22px}
+    .mobile{
+      display:none;
+      border-top:1px solid var(--line);
+      padding: 10px 0 16px;
+    }
+    .mobile a{
+      display:block;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      color:var(--muted);
+      font-weight:700;
+      margin-top:10px;
+    }
+    .mobile a.active{ color:var(--text); background: rgba(255,255,255,.10) }
+
+    /* Hero */
+    .hero{
+      padding: 34px 0 14px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+    .hero-card{
+      border-radius: var(--radius2);
+      border: 1px solid rgba(255,255,255,.16);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03)),
+        radial-gradient(900px 420px at 10% 0%, rgba(255,255,255,.16), transparent 55%);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+      padding: 26px 26px 22px;
+    }
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(90deg, rgba(11,15,23,.55), rgba(11,15,23,.15)),
+        url("./hero.png") center/cover no-repeat;
+      opacity:.95;
+      filter: saturate(1.18) contrast(1.06);
+    }
+    .hero-content{
       position:relative;
       z-index:2;
-      max-width: 720px;
-      margin-left: 40px;
+      max-width: 560px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 12px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.08);
+      color: var(--muted);
+      font-weight:700;
+      font-size:12px;
+    }
+    .hero h1{
+      margin:14px 0 10px;
+      font-size: 34px;
+      line-height:1.12;
+      letter-spacing:-.6px;
+    }
+    .hero p{
+      margin:0 0 18px;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 54ch;
+    }
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 8px;
+    }
+    .hero-note{
+      margin-top: 14px;
+      color: rgba(255,255,255,.72);
+      font-size: 12px;
     }
 
-    .badge-row{
+    /* Side card */
+    .side{
+      border-radius: var(--radius2);
+      border: 1px solid rgba(255,255,255,.14);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      box-shadow: var(--shadow);
+      padding: 18px;
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+    }
+    .side h3{
+      margin:0;
+      font-size: 16px;
+      letter-spacing:-.2px;
+    }
+    .checklist{
+      display:grid;
+      gap:10px;
+    }
+    .check{
       display:flex;
       gap:10px;
-      align-items:center;
-      flex-wrap:wrap;
+      align-items:flex-start;
+      padding:12px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+    }
+    .dot{
+      width:10px;height:10px;border-radius: 999px;
+      margin-top: 5px;
+      background: rgba(255,255,255,.66);
+      box-shadow: 0 0 0 4px rgba(255,255,255,.08);
+      flex:0 0 auto;
+    }
+    .check strong{display:block; font-size:13px}
+    .check span{display:block; font-size:12px; color: var(--muted2); margin-top:2px}
+
+    /* Stats strip */
+    .stats{
+      padding: 18px 0 0;
+    }
+    .stats-wrap{
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      border-radius: var(--radius2);
+      box-shadow: 0 10px 30px rgba(0,0,0,.22);
+      padding: 14px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .stat{
+      padding: 14px 14px;
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.06);
+    }
+    .stat b{display:block; font-size: 18px; letter-spacing:-.3px}
+    .stat small{display:block; margin-top:4px; color: var(--muted); font-weight:600}
+
+    /* Sections */
+    section{padding: 34px 0}
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:16px;
       margin-bottom: 14px;
     }
-    .badge{
+    .section-head h2{
+      margin:0;
+      font-size: 22px;
+      letter-spacing:-.3px;
+    }
+    .section-head p{
+      margin:0;
+      color: var(--muted);
+      font-size: 13px;
+      max-width: 58ch;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .card{
+      padding: 16px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      box-shadow: 0 10px 24px rgba(0,0,0,.16);
+      transition:.15s ease;
+      min-height: 140px;
+    }
+    .card:hover{ transform: translateY(-2px); background: rgba(255,255,255,.07) }
+    .card h3{margin: 0 0 8px; font-size: 15px}
+    .card p{margin:0; color: var(--muted); font-size: 13px}
+    .tagrow{display:flex; gap:8px; flex-wrap:wrap; margin-top: 12px}
+    .tag{
+      padding:6px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: var(--muted);
       font-size: 12px;
       font-weight:700;
-      padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      color: rgba(234,240,255,.88);
-      backdrop-filter: blur(10px);
-    }
-    .badge b{color: var(--brand); font-weight:800}
-
-    h1{
-      margin: 0 0 10px;
-      font-size: clamp(34px, 4.2vw, 56px);
-      line-height: 1.08;
-      letter-spacing: -0.6px;
-      text-shadow: 0 18px 60px rgba(0,0,0,.55);
-    }
-    .lead{
-      margin: 0 0 22px;
-      max-width: 62ch;
-      color: var(--muted);
-      font-size: 15.5px;
-      line-height: 1.6;
     }
 
-    .btn-row{
+    /* Logo band */
+    .logos{
+      padding: 0 0 34px;
+    }
+    .logo-band{
+      border-radius: var(--radius2);
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      padding: 14px;
+      overflow:hidden;
+      position:relative;
+    }
+    .logo-row{
       display:flex;
       gap:12px;
       flex-wrap:wrap;
       align-items:center;
+      justify-content:space-between;
     }
-    .btn{
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      padding: 12px 16px;
-      border-radius: 14px;
-      font-weight:800;
-      text-decoration:none;
-      font-size: 14px;
-      transition: .18s ease;
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      backdrop-filter: blur(10px);
-    }
-    .btn:hover{
-      transform: translateY(-1px);
-      background: rgba(255,255,255,.09);
-      border-color: rgba(255,255,255,.14);
-    }
-    .btn.primary{
-      background: linear-gradient(135deg, rgba(23,199,255,.95), rgba(122,92,255,.9));
-      border-color: rgba(255,255,255,.08);
-      box-shadow: 0 14px 40px rgba(23,199,255,.18);
-      color: #07101a;
-    }
-
-    section{ padding: 62px 0 80px; }
-    .section-title{
-      font-size: 34px;
-      margin: 0 0 10px;
-      letter-spacing: -0.4px;
-    }
-    .section-sub{
-      margin: 0 0 28px;
-      color: var(--muted);
-      max-width: 75ch;
-      line-height: 1.6;
-      font-size: 15px;
-    }
-
-    .cards{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-    .card{
+    .logo-pill{
+      flex:1 1 140px;
+      min-width: 140px;
+      padding: 12px 14px;
       border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.10);
+      border:1px dashed rgba(255,255,255,.18);
       background: rgba(255,255,255,.04);
-      padding: 18px;
-      transition: .18s ease;
-    }
-    .card:hover{
-      transform: translateY(-2px);
-      border-color: rgba(255,255,255,.16);
-      background: rgba(255,255,255,.06);
-    }
-    .card h3{
-      margin:0 0 8px;
-      font-size: 15px;
-      font-weight:900;
-      color: rgba(234,240,255,.95);
-    }
-    .card p{
-      margin:0;
-      color: var(--muted2);
-      font-size: 13px;
-      line-height: 1.55;
-    }
-
-    footer{
-      padding: 28px 0;
-      border-top: 1px solid rgba(255,255,255,.06);
-      color: rgba(234,240,255,.55);
+      color: rgba(255,255,255,.78);
+      font-weight:800;
       text-align:center;
-      font-size: 14px;
+      font-size: 12px;
+      letter-spacing:.3px;
     }
 
-    @media (max-width: 980px){
-      .cards{grid-template-columns: 1fr;}
-      .hero-inner{ margin-left: 0; }
+    /* CTA block */
+    .cta{
+      padding: 0 0 44px;
     }
-    @media (max-width: 768px){
-      .hero-bg{ background-position: center; }
-      .hero-inner{ margin-left: 0; }
+    .cta-box{
+      border-radius: var(--radius2);
+      border:1px solid rgba(255,255,255,.16);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      box-shadow: var(--shadow);
+      padding: 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+    }
+    .cta-box h3{margin:0; font-size: 18px; letter-spacing:-.2px}
+    .cta-box p{margin:6px 0 0; color: var(--muted); font-size: 13px}
+    .cta-actions{display:flex; gap:10px; flex-wrap:wrap}
+
+    /* Footer */
+    footer{
+      border-top:1px solid var(--line);
+      padding: 18px 0;
+      color: var(--muted2);
+      background: rgba(15,22,36,.30);
+    }
+    .footer-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      font-size: 12px;
+    }
+
+    /* Floating assistant */
+    .float-assist{
+      position:fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 80;
+      display:flex;
+      gap: 10px;
+      align-items:flex-end;
+    }
+    .assist-pop{
+      max-width: 260px;
+      padding: 12px 12px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(15,22,36,.78);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+      color: var(--muted);
+      font-size: 12px;
+      display:none;
+    }
+    .assist-pop b{color: var(--text)}
+    .assist-btn{
+      width: 54px;
+      height: 54px;
+      border-radius: 20px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.10);
+      box-shadow: var(--shadow);
+      cursor:pointer;
+      display:grid;
+      place-items:center;
+    }
+    .assist-btn:hover{ background: rgba(255,255,255,.16) }
+
+    /* Responsive */
+    @media (max-width: 920px){
+      .hero-grid{grid-template-columns: 1fr; }
+      .grid{grid-template-columns: 1fr; }
+      .stats-wrap{grid-template-columns: 1fr; }
+      .nav{display:none}
+      .burger{display:grid; place-items:center}
+      .mobile{display:none}
+      .mobile.open{display:block}
     }
   </style>
 </head>
 
 <body>
-  <div class="brand-bar">
-    © <span id="y"></span> RAN Ajans & Reklam Hizmetleri – Tescilli markasıdır.
-  </div>
-
-  <header class="header">
+  <!-- Top brand / nav -->
+  <header class="brand-bar">
     <div class="container">
-      <div class="wrap">
-        <a class="logo" href="index.html">
-          <span class="logo-dot"></span>
-          <span>RAN <b>Ajans & Reklam Hizmetleri</b></span>
+      <div class="brand-inner">
+        <a class="brand" href="./index.html" aria-label="Ana sayfa">
+          <div class="brand-badge">R</div>
+          <div class="brand-title">
+            <strong>RAN Ajans & Reklam Hizmetleri</strong>
+            <span>Kurumsal Reklam Uygulamaları</span>
+          </div>
         </a>
 
-        <nav class="nav" aria-label="Ana Menü">
-          <a href="index.html" class="active">Ana Sayfa</a>
-          <a href="hizmetler.html">Hizmetler</a>
-          <a href="projeler.html">Projeler</a>
-          <a href="kurumsal.html">Kurumsal</a>
-          <a class="cta" href="iletisim.html">İletişim</a>
+        <nav class="nav" aria-label="Ana menü">
+          <a class="active" href="./index.html">Ana Sayfa</a>
+          <a href="./hizmetler.html">Hizmetler</a>
+          <a href="./projeler.html">Projeler</a>
+          <a href="./kurumsal.html">Kurumsal</a>
+          <a href="./iletisim.html">İletişim</a>
+          <div class="nav-cta">
+            <a class="btn" href="./projeler.html">Projeleri İncele</a>
+            <a class="btn primary" href="./iletisim.html#teklif">Teklif Al</a>
+          </div>
         </nav>
+
+        <button class="burger" id="burger" aria-label="Menüyü aç/kapat">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="rgba(255,255,255,.86)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="mobile" id="mobileMenu">
+        <a class="active" href="./index.html">Ana Sayfa</a>
+        <a href="./hizmetler.html">Hizmetler</a>
+        <a href="./projeler.html">Projeler</a>
+        <a href="./kurumsal.html">Kurumsal</a>
+        <a href="./iletisim.html">İletişim</a>
+        <a href="./iletisim.html#teklif">Teklif Al</a>
       </div>
     </div>
   </header>
 
-  <main class="hero">
-    <div class="hero-bg" aria-hidden="true"></div>
-    <div class="hero-overlay" aria-hidden="true"></div>
+  <!-- Hero -->
+  <div class="container hero">
+    <div class="hero-grid">
+      <div class="hero-card">
+        <div class="hero-content">
+          <span class="pill">QR • Araç Giydirme • Durak/Trambüs/Otobüs Reklamları</span>
+          <h1>QR ile markanızın iletişimini artırmak ister misiniz?</h1>
+          <p>
+            Kurumsal tasarım, baskı ve uygulama süreçlerini tek noktadan yönetiyoruz.
+            Sahada sağlam duran işler, masada temiz raporlama. Evet, bu ikisi aynı anda olabiliyor.
+          </p>
 
-    <div class="container hero-inner">
-      <div class="badge-row">
-        <span class="badge"><b>Reklam</b> & Marka</span>
-        <span class="badge">Toplu Taşıma • Üniversite • QR</span>
+          <div class="hero-actions">
+            <a class="btn primary" href="./projeler.html">Projeleri İncele</a>
+            <a class="btn" href="./hizmetler.html">Detayları İncele</a>
+            <a class="btn" href="./iletisim.html#teklif">Hızlı Teklif</a>
+          </div>
+
+          <div class="hero-note">Yanıt süresi: genelde aynı gün. (Bazen insanlar da hızlı olabiliyor.)</div>
+        </div>
       </div>
 
-      <h1>QR ile markanızın<br/>iletişimini artırmak ister misiniz?</h1>
-      <p class="lead">
-        RAN Ajans & Reklam Hizmetleri; toplu taşıma reklamları, kampüs odaklı çözümler ve QR etkileşim sistemleriyle
-        markanızın görünürlüğünü büyütür.
-      </p>
+      <aside class="side">
+        <h3>Nasıl çalışıyoruz?</h3>
+        <div class="checklist">
+          <div class="check">
+            <span class="dot"></span>
+            <div>
+              <strong>Keşif & Plan</strong>
+              <span>Alan, ölçü, hedef kitle ve mesaj.</span>
+            </div>
+          </div>
+          <div class="check">
+            <span class="dot"></span>
+            <div>
+              <strong>Tasarım & Onay</strong>
+              <span>Kurumsal görsel dil + revize.</span>
+            </div>
+          </div>
+          <div class="check">
+            <span class="dot"></span>
+            <div>
+              <strong>Baskı & Uygulama</strong>
+              <span>Saha uygulaması, teslim ve rapor.</span>
+            </div>
+          </div>
+        </div>
+        <a class="btn primary" href="./iletisim.html#teklif" style="width:100%">Teklif Al</a>
+      </aside>
+    </div>
 
-      <div class="btn-row">
-        <a class="btn primary" href="projeler.html">Projeleri İncele</a>
-        <a class="btn" href="hizmetler.html">Detayları İncele</a>
+    <!-- Stats strip -->
+    <div class="stats">
+      <div class="stats-wrap">
+        <div class="stat">
+          <b>Hızlı teklif</b>
+          <small>Standart işler için aynı gün dönüş</small>
+        </div>
+        <div class="stat">
+          <b>Uygulama garantisi</b>
+          <small>Planlı montaj, temiz teslim</small>
+        </div>
+        <div class="stat">
+          <b>Kurumsal görünüm</b>
+          <small>Tasarım + baskı + saha uyumu</small>
+        </div>
       </div>
     </div>
-  </main>
+  </div>
 
+  <!-- Hizmetler preview -->
   <section>
     <div class="container">
-      <h2 class="section-title">Reklam Alanlarımız</h2>
-      <p class="section-sub">
-        Trambüs, otobüs ve durak giydirme çözümleri. Kampüs odaklı görünürlük alanları ve QR ile ölçülebilir etkileşim.
-      </p>
+      <div class="section-head">
+        <div>
+          <h2>Hizmetler</h2>
+          <p>Fark edilmek zor değil. Yanlış yerde, yanlış biçimde ısrar etmek zor. Biz onu yapmıyoruz.</p>
+        </div>
+        <a class="btn" href="./hizmetler.html">Tüm Hizmetler</a>
+      </div>
 
-      <div class="cards">
+      <div class="grid">
         <div class="card">
           <h3>Trambüs Giydirme</h3>
-          <p>Şehir içi sürekli dolaşım ile yüksek görünürlük. Tasarım + uygulama + raporlama.</p>
+          <p>Şehir içi görünürlük için güçlü alan. Tasarımdan uygulamaya anahtar teslim.</p>
+          <div class="tagrow">
+            <span class="tag">Tasarım</span><span class="tag">Baskı</span><span class="tag">Montaj</span>
+          </div>
         </div>
         <div class="card">
           <h3>Otobüs Giydirme</h3>
-          <p>Geniş rota kapsaması. Uçtan uca kampanya yönetimi.</p>
+          <p>Geniş erişim, yüksek tekrar. Kampanya ölçüleri ve saha planı ile.</p>
+          <div class="tagrow">
+            <span class="tag">Rota</span><span class="tag">Kapsama</span><span class="tag">Rapor</span>
+          </div>
         </div>
         <div class="card">
           <h3>Durak Giydirme</h3>
-          <p>Yoğun yaya trafiğinde uzun süreli görünürlük. Tasarım + uygulama dahil.</p>
+          <p>Bekleme anı, dikkat anıdır. Net mesaj, temiz tasarım, sağlam uygulama.</p>
+          <div class="tagrow">
+            <span class="tag">Outdoor</span><span class="tag">Yerel hedefleme</span><span class="tag">Kurumsal</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <footer>© <span id="y2"></span> RAN Ajans & Reklam Hizmetleri – Tescilli markasıdır.</footer>
+  <!-- Referans band -->
+  <div class="logos">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Referanslar</h2>
+          <p>Logoları gerçek markalarla doldurunca daha havalı oluyor, biliyorum. Şimdilik yer tutucu.</p>
+        </div>
+      </div>
+
+      <div class="logo-band">
+        <div class="logo-row">
+          <div class="logo-pill">MARKA 1</div>
+          <div class="logo-pill">MARKA 2</div>
+          <div class="logo-pill">MARKA 3</div>
+          <div class="logo-pill">MARKA 4</div>
+          <div class="logo-pill">MARKA 5</div>
+          <div class="logo-pill">MARKA 6</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <div class="container">
+      <div class="cta-box">
+        <div>
+          <h3>Bir kampanya planlayalım</h3>
+          <p>Ölçü, rota, tasarım ve uygulama. Teklif formunu doldur, aynı gün dönüş yapalım.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn" href="./projeler.html">Örnek Projeler</a>
+          <a class="btn primary" href="./iletisim.html#teklif">Teklif Al</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>© <span id="year"></span> RAN Ajans & Reklam Hizmetleri – Tescilli markasıdır.</div>
+        <div>Malatya • Türkiye</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating assistant button -->
+  <div class="float-assist" aria-label="Yardım asistanı">
+    <div class="assist-pop" id="assistPop">
+      <b>Hızlı yardım:</b><br/>
+      “Teklif Al” ile ölçü ve iş detayını yaz. Ben de seni <b>İletişim</b> sayfasına ışınlayayım.
+    </div>
+    <button class="assist-btn" id="assistBtn" aria-label="Asistan">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M8 9h8M9 13h6" stroke="rgba(255,255,255,.86)" stroke-width="2" stroke-linecap="round"/>
+        <path d="M12 2c4.4 0 8 3 8 7v3c0 2.2-1.8 4-4 4h-1l-3 3-3-3H8c-2.2 0-4-1.8-4-4V9c0-4 3.6-7 8-7Z" stroke="rgba(255,255,255,.86)" stroke-width="1.6" />
+      </svg>
+    </button>
+  </div>
 
   <script>
-    const y = new Date().getFullYear();
-    document.getElementById("y").textContent = y;
-    document.getElementById("y2").textContent = y;
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Mobile menu
+    const burger = document.getElementById("burger");
+    const mobileMenu = document.getElementById("mobileMenu");
+    burger?.addEventListener("click", () => {
+      mobileMenu.classList.toggle("open");
+    });
+
+    // Assistant pop
+    const assistBtn = document.getElementById("assistBtn");
+    const assistPop = document.getElementById("assistPop");
+    let popOpen = false;
+    assistBtn?.addEventListener("click", () => {
+      popOpen = !popOpen;
+      assistPop.style.display = popOpen ? "block" : "none";
+      if (popOpen) {
+        setTimeout(() => { assistPop.style.display = "none"; popOpen = false; }, 5000);
+      }
+    });
+    assistBtn?.addEventListener("dblclick", () => {
+      // Quick action: go to teklif
+      window.location.href = "./iletisim.html#teklif";
+    });
   </script>
 </body>
 </html>
