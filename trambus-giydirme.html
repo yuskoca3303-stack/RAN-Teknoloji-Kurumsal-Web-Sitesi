@@ -100,15 +100,16 @@
     .hero .content{ position:relative; z-index:2; max-width: 880px; padding-bottom: 10px; }
 
     /* 2 YAN FOTO: YAZILARIN ÜSTÜNDE */
-    .hero-gallery{
+ .hero-gallery{
   display:grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 
-  padding-left: 110px;   /* SOL BOŞLUK */
-  padding-right: 110px;  /* SAĞ BOŞLUK */
-
-  margin-bottom: 20px;
+  margin: 0;        /* HER YER SIFIR */
+  padding: 0;       /* HER YER SIFIR */
+  width: 100%;      /* TAM GENİŞLİK */
+  max-width: none;  /* SINIR YOK */
+}
 }
 }
     }
