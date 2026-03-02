@@ -1,172 +1,340 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Trambüs Giydirme | RAN Ajans & Reklam Hizmetleri</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trambüs Giydirme | RAN Ajans & Reklam Hizmetleri</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<style>
-:root{
---bg:#070a14;
---text:#eaf0ff;
---brand:#17c7ff;
---brand2:#7a5cff;
-}
+  <style>
+    :root{
+      --bg:#070a14; --bg2:#0a0f22;
+      --text:#eaf0ff;
+      --muted: rgba(234,240,255,.78);
+      --muted2: rgba(234,240,255,.55);
+      --brand:#17c7ff; --brand2:#7a5cff;
+      --headerH:76px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 700px at 65% 25%, rgba(122,92,255,.18), transparent 55%),
+                  radial-gradient(900px 650px at 20% 35%, rgba(23,199,255,.12), transparent 55%),
+                  linear-gradient(180deg, var(--bg), var(--bg2));
+      color: var(--text);
+      overflow-x:hidden;
+    }
+    .container{ width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
 
-*{box-sizing:border-box}
-body{
-margin:0;
-font-family:Inter,sans-serif;
-background:#070a14;
-color:var(--text);
-}
+    .brand-bar{
+      text-align:center; font-size:12px; padding:8px 10px;
+      background: rgba(255,255,255,.04);
+      border-bottom:1px solid rgba(255,255,255,.06);
+      color: rgba(234,240,255,.60);
+      letter-spacing:.3px;
+    }
 
-.container{width:min(1180px,calc(100% - 48px));margin:0 auto;}
+    .header{
+      position: sticky; top:0; z-index:50;
+      height: var(--headerH);
+      display:flex; align-items:center;
+      border-bottom:1px solid rgba(255,255,255,.07);
+      background: rgba(7,10,20,.55);
+      backdrop-filter: blur(14px);
+    }
+    .header .wrap{ display:flex; align-items:center; justify-content:space-between; gap:18px; }
+    .logo{
+      display:flex; align-items:center; gap:10px;
+      font-weight:800; letter-spacing:.3px; text-decoration:none; color: var(--text);
+      white-space:nowrap;
+    }
+    .logo-dot{
+      width:10px;height:10px;border-radius:999px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: 0 0 0 6px rgba(23,199,255,.10);
+    }
+    .nav{ display:flex; align-items:center; gap:6px; flex-wrap:wrap; justify-content:flex-end; }
+    .nav a{
+      color: rgba(234,240,255,.85);
+      text-decoration:none; font-weight:600; font-size:14px;
+      padding:10px 12px; border-radius:12px;
+      border:1px solid transparent;
+      transition:.18s ease;
+    }
+    .nav a:hover{ background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.08); color: var(--text); }
+    .nav a.active{ background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.14); color: var(--text); }
+    .nav a.cta{ background:transparent; border-color:transparent; }
 
-.hero{
-position:relative;
-min-height:60vh;
-display:flex;
-align-items:flex-end;
-padding:60px 0 40px;
-overflow:hidden;
-}
+    .hero{
+      position:relative;
+      min-height: 46vh;
+      display:flex;
+      align-items:flex-end;
+      padding: 40px 0 28px;
+      overflow:hidden;
+      border-bottom:1px solid rgba(255,255,255,.07);
+    }
 
-.hero .bg{
-position:absolute;inset:0;
-background:url("img/trambus.jpg") center/cover no-repeat;
-filter:blur(14px) brightness(.8);
-transform:scale(1.15);
-}
+    /* ARKA PLAN: BLUR */
+    .hero .bg{
+      position:absolute; inset:0;
+      background: url("img/trambus.jpg") center/cover no-repeat;
+      filter: blur(10px) saturate(1.08) contrast(1.06) brightness(1.02);
+      transform: scale(1.14);
+      z-index:0;
+    }
 
-.hero .overlay{
-position:absolute;inset:0;
-background:linear-gradient(180deg,rgba(7,10,20,.6),rgba(7,10,20,.95));
-}
+    .hero .overlay{
+      position:absolute; inset:0;
+      background:
+        radial-gradient(900px 600px at 75% 40%, rgba(23,199,255,.16), transparent 60%),
+        radial-gradient(900px 600px at 68% 28%, rgba(122,92,255,.22), transparent 58%),
+        linear-gradient(90deg, rgba(7,10,20,.92) 0%, rgba(7,10,20,.68) 52%, rgba(7,10,20,.40) 100%);
+      z-index:1;
+    }
 
-.hero .content{
-position:relative;
-z-index:2;
-max-width:820px;
-animation:fadeUp .8s ease forwards;
-opacity:0;
-}
+    .hero .content{ position:relative; z-index:2; max-width: 820px; padding-bottom: 10px; }
 
-@keyframes fadeUp{
-to{opacity:1;transform:translateY(0);}
-from{opacity:0;transform:translateY(20px);}
-}
+    /* 3 KARE FOTO: YAZILARIN ÜSTÜNDE */
+    .hero-gallery{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 0 0 16px;
+    }
+    .hero-gallery .gitem{
+      aspect-ratio: 1 / 1;
+      border-radius: 16px;
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      box-shadow: 0 14px 60px rgba(0,0,0,.45);
+    }
+    .hero-gallery img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+      filter: saturate(1.06) contrast(1.05);
+      transform: scale(1.02);
+      transition: transform .22s ease;
+    }
+    .hero-gallery .gitem:hover img{ transform: scale(1.06); }
 
-.hero-gallery{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:14px;
-margin-bottom:20px;
-}
+    .kicker{
+      display:inline-flex; gap:10px; align-items:center;
+      font-size:12px; font-weight:800;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color: rgba(234,240,255,.88);
+      backdrop-filter: blur(10px);
+    }
+    h1{
+      margin: 14px 0 8px;
+      font-size: clamp(30px, 3.7vw, 50px);
+      letter-spacing:-.5px;
+      line-height:1.1;
+      text-shadow: 0 18px 60px rgba(0,0,0,.55);
+    }
+    .lead{ margin:0; color: var(--muted); line-height:1.65; max-width: 80ch; }
 
-.gitem{
-position:relative;
-border-radius:18px;
-overflow:hidden;
-cursor:pointer;
-box-shadow:0 20px 60px rgba(0,0,0,.5);
-transition:.3s ease;
-}
+    main{ padding: 54px 0 86px; }
 
-.gitem img{
-width:100%;
-height:100%;
-object-fit:cover;
-display:block;
-transition:.4s ease;
-}
+    .grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 16px;
+      align-items:start;
+    }
 
-.gitem::after{
-content:"+";
-position:absolute;
-inset:0;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:42px;
-font-weight:800;
-color:white;
-background:rgba(0,0,0,.0);
-transition:.3s ease;
-}
+    .box{
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      padding: 18px;
+    }
+    .box h2{
+      margin:0 0 10px;
+      font-size: 16px;
+      font-weight: 900;
+    }
+    .box p{
+      margin:0;
+      color: var(--muted2);
+      line-height:1.65;
+      font-size: 14px;
+    }
+    .list{ margin: 10px 0 0; padding-left: 18px; color: rgba(234,240,255,.75); }
+    .list li{ margin: 8px 0; line-height:1.55; }
 
-.gitem:hover{
-transform:translateY(-4px);
-box-shadow:0 0 0 2px rgba(23,199,255,.6),
-0 30px 80px rgba(23,199,255,.25);
-}
+    .pill{
+      display:flex; gap:10px; align-items:flex-start;
+      padding: 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      margin-top: 12px;
+    }
+    .pill b{ color: rgba(234,240,255,.92); }
+    .pill span{ color: rgba(234,240,255,.62); font-size: 13px; line-height:1.55; }
 
-.gitem:hover img{transform:scale(1.1);}
-.gitem:hover::after{background:rgba(0,0,0,.35);}
+    .actions{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top: 14px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      border-radius: 14px;
+      padding: 12px 14px;
+      font-weight: 900;
+      font-size: 14px;
+      text-decoration:none;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      transition:.18s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.14); }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(23,199,255,.95), rgba(122,92,255,.9));
+      color:#07101a;
+      box-shadow: 0 14px 40px rgba(23,199,255,.18);
+    }
 
-h1{
-margin:14px 0 8px;
-font-size:48px;
-}
+    footer{
+      padding: 28px 0;
+      border-top: 1px solid rgba(255,255,255,.06);
+      color: rgba(234,240,255,.55);
+      text-align:center;
+      font-size: 14px;
+    }
 
-.lead{
-color:rgba(234,240,255,.75);
-line-height:1.6;
-}
-
-.stats{
-margin-top:40px;
-display:flex;
-gap:30px;
-flex-wrap:wrap;
-}
-
-.stat{
-background:rgba(255,255,255,.05);
-padding:14px 18px;
-border-radius:14px;
-border:1px solid rgba(255,255,255,.08);
-font-weight:600;
-}
-
-@media(max-width:900px){
-.hero-gallery{grid-template-columns:1fr 1fr;}
-}
-@media(max-width:600px){
-.hero-gallery{grid-template-columns:1fr;}
-h1{font-size:34px;}
-}
-</style>
+    @media (max-width: 980px){
+      .grid{ grid-template-columns: 1fr; }
+      .hero{ min-height: 40vh; }
+      .hero-gallery{ grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px){
+      .hero-gallery{ grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 
 <body>
+  <div class="brand-bar">
+    © <span id="y"></span> RAN Ajans & Reklam Hizmetleri – Tescilli markasıdır.
+  </div>
 
-<section class="hero">
-<div class="bg"></div>
-<div class="overlay"></div>
+  <header class="header">
+    <div class="container">
+      <div class="wrap">
+        <a class="logo" href="index.html">
+          <span class="logo-dot"></span>
+          <span>RAN <b style="color:var(--brand)">Ajans & Reklam Hizmetleri</b></span>
+        </a>
 
-<div class="container content">
+        <nav class="nav" aria-label="Ana Menü">
+          <a href="index.html">Ana Sayfa</a>
+          <a href="hizmetler.html" class="active">Hizmetler</a>
+          <a href="projeler.html">Projeler</a>
+          <a href="kurumsal.html">Kurumsal</a>
+          <a class="cta" href="iletisim.html">İletişim</a>
+        </nav>
+      </div>
+    </div>
+  </header>
 
-<div class="hero-gallery">
-<div class="gitem"><img src="img/imgtr1.jpg"></div>
-<div class="gitem"><img src="img/imgtr2.jpg"></div>
-<div class="gitem"><img src="img/imgtr3.jpg"></div>
-</div>
+  <section class="hero">
+    <div class="bg" aria-hidden="true"></div>
+    <div class="overlay" aria-hidden="true"></div>
 
-<h1>Trambüs Giydirme</h1>
-<p class="lead">Şehir içi sürekli dolaşım ile yüksek görünürlük. Tasarım, uygulama ve kampanya takibini tek yerden yürütün.</p>
+    <div class="container content">
 
-<div class="stats">
-<div class="stat">15+ Aktif Araç</div>
-<div class="stat">30+ Kampanya</div>
-<div class="stat">100.000+ Günlük Görünürlük</div>
-</div>
+      <!-- 3 KARE FOTO -->
+      <div class="hero-gallery" aria-label="Trambüs görsel galerisi">
+        <img src="img/imgtr1.jpg" alt="Trambüs Uygulama Örneği 1">
+<img src="img/imgtr2.jpg" alt="Trambüs Uygulama Örneği 2">
+<img src="img/imgtr3.jpg" alt="Trambüs Uygulama Örneği 3">
+      </div>
 
-</div>
-</section>
+      <span class="kicker">Hizmet Detayı</span>
+      <h1>Trambüs Giydirme</h1>
+      <p class="lead">Şehir içi sürekli dolaşım ile yüksek görünürlük. Tasarım, uygulama ve kampanya takibini tek yerden yürütün.</p>
+    </div>
+  </section>
 
+  <main>
+    <div class="container">
+      <div class="grid">
+
+        <div class="box">
+          <h2>Kategoriler</h2>
+          <div class="pill">
+            <div>
+              <b>Hizmet Kapsamı</b><br/>
+              <span>Tasarım, baskı, uygulama ve kampanya süreci yönetimi.</span>
+            </div>
+          </div>
+          <div class="pill">
+            <div>
+              <b>Uygulama Süreci</b><br/>
+              <span>Keşif → tasarım onayı → baskı → uygulama → kontrol.</span>
+            </div>
+          </div>
+          <div class="pill">
+            <div>
+              <b>Raporlama</b><br/>
+              <span>Görsel kayıt, süre takibi ve (varsa) QR ölçüm raporu.</span>
+            </div>
+          </div>
+          <div class="pill">
+            <div>
+              <b>Önerilen Kampanya Süresi</b><br/>
+              <span>Minimum 2-4 hafta, hedefe göre aylık planlama.</span>
+            </div>
+          </div>
+
+          <div class="actions">
+            <a class="btn primary" href="iletisim.html">Teklif Al</a>
+            <a class="btn" href="hizmetler.html">Hizmetlere Dön</a>
+          </div>
+        </div>
+
+        <div class="box">
+          <h2>Öne Çıkanlar</h2>
+          <ul class="list">
+            <li>Yüksek görünürlük: şehir içi sürekli hareket.</li>
+            <li>Tasarım + uygulama tek elden yönetim.</li>
+            <li>Marka tutarlılığı ve kaliteli baskı.</li>
+            <li>İsteğe bağlı QR ile ölçülebilir etkileşim.</li>
+          </ul>
+
+          <div class="pill">
+            <div>
+              <b>Kullanım Alanları</b><br/>
+              <span>Ürün lansmanı, kampanya duyurusu, marka bilinirliği.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>© <span id="y2"></span> RAN Ajans & Reklam Hizmetleri – Tescilli markasıdır.</footer>
+
+  <script>
+    const y = new Date().getFullYear();
+    document.getElementById("y").textContent = y;
+    document.getElementById("y2").textContent = y;
+  </script>
 </body>
 </html>
+
+
