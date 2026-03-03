@@ -125,11 +125,16 @@
 
     .hero-bg{
       position:absolute; inset:0;
-      background: url("hero.png") right center / cover no-repeat;
-      filter: saturate(1.22) contrast(1.14) brightness(1.06);
+
+      /* ✅ KAREKODU SAĞA YANAŞTIRDIK */
+      background: url("hero.png") 90% center / cover no-repeat;
+
+      /* ✅ DAHA CANLI */
+      filter: saturate(1.55) contrast(1.32) brightness(1.16);
+
       transform: scale(1.03);
       z-index:0;
-      animation: heroZoom 18s ease-in-out infinite alternate;
+      animation: heroZoom 24s ease-in-out infinite alternate;
     }
 
     @keyframes heroZoom{
@@ -140,9 +145,10 @@
     .hero-overlay{
       position:absolute; inset:0;
       background:
-        radial-gradient(900px 600px at 78% 40%, rgba(23,199,255,.16), transparent 60%),
-        radial-gradient(900px 600px at 70% 30%, rgba(122,92,255,.22), transparent 58%),
-        linear-gradient(90deg, rgba(7,10,20,.94) 0%, rgba(7,10,20,.70) 48%, rgba(7,10,20,.28) 100%);
+        radial-gradient(900px 600px at 78% 40%, rgba(23,199,255,.14), transparent 60%),
+        radial-gradient(900px 600px at 70% 30%, rgba(122,92,255,.20), transparent 58%),
+        /* ✅ sağ tarafı azıcık açtık ki karekod boğulmasın */
+        linear-gradient(90deg, rgba(7,10,20,.94) 0%, rgba(7,10,20,.70) 48%, rgba(7,10,20,.22) 100%);
       z-index:1;
     }
 
@@ -150,8 +156,8 @@
     .hero-inner{
       position:relative;
       z-index:2;
-      max-width: 620px;     /* 720 -> 620 */
-      margin-left: 170px;    /* 10  -> 90  */
+      max-width: 620px;
+      margin-left: 170px;
     }
 
     h1{
@@ -167,7 +173,6 @@
       line-height: 1.6;
     }
 
-    /* ✅ BUTON SOLA */
     .btn-row{
       display:flex;
       justify-content:flex-start;
@@ -210,6 +215,11 @@
         max-width: 100%;
       }
       .btn.cta-left{ margin-left: 0; }
+
+      /* Mobilde de karekod sağda kalsın ama çok taşmasın */
+      .hero-bg{
+        background-position: 85% center;
+      }
     }
   </style>
 </head>
