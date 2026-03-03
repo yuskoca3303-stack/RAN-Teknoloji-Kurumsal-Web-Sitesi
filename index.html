@@ -124,7 +124,6 @@
       overflow:hidden;
     }
 
-    /* ✅ FOTOĞRAF DAHA CANLI */
     .hero-bg{
       position:absolute;
       inset:0;
@@ -140,7 +139,6 @@
       to  { transform: scale(1.08); }
     }
 
-    /* ✅ OVERLAY KARARTMASI AZALTILDI */
     .hero-overlay{
       position:absolute; inset:0;
       background:
@@ -150,11 +148,12 @@
       z-index:1;
     }
 
+    /* ✅ HİZALAMA: QR BLOĞU NEREDEYSE LOGO DA ORADA */
     .hero-inner{
       position:relative;
       z-index:2;
       max-width: 620px;
-      margin-left: 170px;
+      margin-left: 0;            /* 170px -> 0 */
     }
 
     h1{
@@ -221,7 +220,8 @@
       <div class="wrap">
         <a class="logo" href="index.html">
           <span class="logo-dot"></span>
-          <span>RAN <b style="color:var(--brand)">Ajans & Reklam Hizmetleri</b></span>
+          <!-- ✅ TEK RENK -->
+          <span>RAN Ajans & Reklam Hizmetleri</span>
         </a>
 
         <nav class="nav">
