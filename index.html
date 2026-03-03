@@ -146,12 +146,37 @@
       z-index:1;
     }
 
+    /* ✅ QR KATMANI (AYRI DOSYA) */
+    .qr-float-wrap{
+      position:absolute;
+      z-index:2;              /* yazı ile aynı katmanda */
+      right: 8%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: min(300px, 34vw);
+      pointer-events:none;     /* tıklanmasın, yazıyı etkilemesin */
+      filter: drop-shadow(0 22px 40px rgba(23,199,255,.22));
+    }
+
+    .qr-spin{
+      width: 100%;
+      height: auto;
+      transform-style: preserve-3d;
+      animation: qrSpin3d 9.5s linear infinite;
+      will-change: transform;
+    }
+
+    @keyframes qrSpin3d{
+      0%   { transform: rotateY(0deg) rotateX(2deg); }
+      100% { transform: rotateY(360deg) rotateX(2deg); }
+    }
+
     /* ✅ METNİ SAĞA AL + DARALT (QR'ı engellemesin) */
     .hero-inner{
       position:relative;
       z-index:2;
-      max-width: 620px;     /* 720 -> 620 */
-      margin-left: 170px;    /* 10  -> 90  */
+      max-width: 620px;
+      margin-left: 170px;
     }
 
     h1{
@@ -210,6 +235,25 @@
         max-width: 100%;
       }
       .btn.cta-left{ margin-left: 0; }
+
+      .qr-float-wrap{
+        right: 5%;
+        top: 28%;
+        transform: translateY(0);
+        width: min(240px, 52vw);
+        opacity: .92;
+      }
+      .qr-spin{
+        animation-duration: 12s; /* mobilde daha yavaş */
+      }
+    }
+
+    @media (max-width: 520px){
+      .qr-float-wrap{
+        top: 18%;
+        width: min(210px, 62vw);
+        opacity: .88;
+      }
     }
   </style>
 </head>
@@ -242,6 +286,12 @@
   <main class="hero">
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
+
+    <!-- ✅ DÖNEN QR (AYRI DOSYA) -->
+    <div class="qr-float-wrap" aria-hidden="true">
+      <!-- BURADAKİ DOSYA ADINI SENDEKİ QR DOSYASIYLA DEĞİŞTİR -->
+      <img class="qr-spin" src="img/qr.png" alt="">
+    </div>
 
     <div class="container hero-inner">
       <h1>QR ile markanızın<br/>etkileşimini artırmak ister misiniz?</h1>
