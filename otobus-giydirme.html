@@ -110,7 +110,7 @@
       padding: 0;
     }
     .hero-gallery .gitem{
-      aspect-ratio: 16 / 9;      /* 2 foto için daha iyi */
+      aspect-ratio: 16 / 9;
       border-radius: 16px;
       overflow:hidden;
       border: 1px solid rgba(255,255,255,.14);
@@ -149,59 +149,28 @@
 
     main{ padding: 54px 0 86px; }
 
-    .grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 16px;
-      align-items:start;
-    }
-
-    .box{
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      padding: 18px;
-    }
-    .box h2{
-      margin:0 0 10px;
-      font-size: 16px;
-      font-weight: 900;
-    }
-    .box p{
-      margin:0;
-      color: var(--muted2);
-      line-height:1.65;
-      font-size: 14px;
-    }
-    .list{ margin: 10px 0 0; padding-left: 18px; color: rgba(234,240,255,.75); }
-    .list li{ margin: 8px 0; line-height:1.55; }
-
-    .pill{
-      display:flex; gap:10px; align-items:flex-start;
-      padding: 12px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-      margin-top: 12px;
-    }
-    .pill b{ color: rgba(234,240,255,.92); }
-    .pill span{ color: rgba(234,240,255,.62); font-size: 13px; line-height:1.55; }
-
+    /* grid duruyor ama artık tek kutu yok, sadece butonları ortalayacağız */
     .actions{
-      display:flex; gap:10px; flex-wrap:wrap;
-      margin-top: 14px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      justify-content:center;
+      margin-top: 0;
     }
+
+    /* ✅ BUTONLAR BÜYÜTÜLDÜ (sadece bu değişti) */
     .btn{
-      display:inline-flex; align-items:center; gap:10px;
-      border-radius: 14px;
-      padding: 12px 14px;
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      border-radius: 16px;
+      padding: 16px 24px;          /* büyüdü */
       font-weight: 900;
-      font-size: 14px;
+      font-size: 16px;             /* büyüdü */
       text-decoration:none;
       border:1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.06);
       color: var(--text);
       transition:.18s ease;
+      min-height: 52px;            /* tıklaması rahat */
     }
     .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.14); }
     .btn.primary{
@@ -219,7 +188,6 @@
     }
 
     @media (max-width: 980px){
-      .grid{ grid-template-columns: 1fr; }
       .hero{ min-height: 40vh; }
       .hero-gallery{ grid-template-columns: 1fr; }
     }
@@ -269,59 +237,10 @@
 
   <main>
     <div class="container">
-      <div class="grid">
-
-        <div class="box">
-          <h2>Kategoriler</h2>
-
-          <div class="pill">
-            <div>
-              <b>Hizmet Kapsamı</b><br/>
-              <span>Otobüs içi ve dışı uygulamalar, rota planı ve kampanya yönetimi.</span>
-            </div>
-          </div>
-          <div class="pill">
-            <div>
-              <b>Kampanya Planlama</b><br/>
-              <span>Hedef kitleye göre rota seçimi, süre ve yoğunluk planı.</span>
-            </div>
-          </div>
-          <div class="pill">
-            <div>
-              <b>Uygulama & Kontrol</b><br/>
-              <span>Baskı kalitesi, uygulama standartları ve saha kontrolü.</span>
-            </div>
-          </div>
-          <div class="pill">
-            <div>
-              <b>Raporlama</b><br/>
-              <span>Görsel kayıt, uygulama listesi ve kampanya takip notları.</span>
-            </div>
-          </div>
-
-          <div class="actions">
-            <a class="btn primary" href="iletisim.html">Teklif Al</a>
-            <a class="btn" href="hizmetler.html">Hizmetlere Dön</a>
-          </div>
-        </div>
-
-        <div class="box">
-          <h2>Öne Çıkanlar</h2>
-          <ul class="list">
-            <li>Geniş erişim: çoklu rota ve mahalle kapsaması.</li>
-            <li>Kampanya planı ile doğru hedefleme.</li>
-            <li>Dayanıklı malzeme, temiz uygulama.</li>
-            <li>İsteğe bağlı QR ile ölçülebilir etkileşim.</li>
-          </ul>
-
-          <div class="pill">
-            <div>
-              <b>Uygun Sektörler</b><br/>
-              <span>Perakende, etkinlik, eğitim, restoran, yerel markalar.</span>
-            </div>
-          </div>
-        </div>
-
+      <!-- ✅ SADECE BUTONLAR KALDI -->
+      <div class="actions">
+        <a class="btn primary" href="iletisim.html">Teklif Al</a>
+        <a class="btn" href="hizmetler.html">Hizmetlere Dön</a>
       </div>
     </div>
   </main>
