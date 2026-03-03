@@ -127,7 +127,7 @@
     .hero-bg{
       position:absolute;
       inset:0;
-      background: url("hero.png") right 30% / cover no-repeat;
+      background: url("hero.png") right 30% / cover no-repeat; /* ✅ QR biraz aşağı */
       filter: saturate(1.38) contrast(1.16) brightness(1.14);
       transform: scale(1.03);
       z-index:0;
@@ -148,12 +148,11 @@
       z-index:1;
     }
 
-    /* ✅ HİZALAMA: QR BLOĞU NEREDEYSE LOGO DA ORADA */
     .hero-inner{
       position:relative;
       z-index:2;
       max-width: 620px;
-      margin-left: 0;            /* 170px -> 0 */
+      margin-left: 170px;
     }
 
     h1{
@@ -220,8 +219,7 @@
       <div class="wrap">
         <a class="logo" href="index.html">
           <span class="logo-dot"></span>
-          <!-- ✅ TEK RENK -->
-          <span>RAN Ajans & Reklam Hizmetleri</span>
+          <span>RAN <b style="color:var(--brand)">Ajans & Reklam Hizmetleri</b></span>
         </a>
 
         <nav class="nav">
