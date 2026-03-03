@@ -124,36 +124,36 @@
     }
 
     .hero-bg{
-  position:absolute; 
-  inset:0;
+      position:absolute;
+      inset:0;
 
-  background-image: url("hero.png");
-  background-size: cover;
-  background-repeat: no-repeat;
+      background-image: url("hero.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: right center; /* SAĞA TAM SIFIR */
 
-  /* TAM SAĞA SIFIR */
-  background-position: right center;
+      filter: saturate(1.35) contrast(1.18) brightness(1.08);
 
-  filter: saturate(1.35) contrast(1.18) brightness(1.08);
+      transform: scale(1.03);
+      z-index:0;
+      animation: heroZoom 24s ease-in-out infinite alternate;
+    }
 
-  transform: scale(1.03);
-  z-index:0;
-  animation: heroZoom 24s ease-in-out infinite alternate;
-}
-}
+    @keyframes heroZoom{
+      from{ transform: scale(1.03); }
+      to  { transform: scale(1.08); }
     }
 
     .hero-overlay{
-      position:absolute; inset:0;
+      position:absolute; 
+      inset:0;
       background:
         radial-gradient(900px 600px at 78% 40%, rgba(23,199,255,.14), transparent 60%),
         radial-gradient(900px 600px at 70% 30%, rgba(122,92,255,.20), transparent 58%),
-        /* ✅ sağ tarafı azıcık açtık ki karekod boğulmasın */
         linear-gradient(90deg, rgba(7,10,20,.94) 0%, rgba(7,10,20,.70) 48%, rgba(7,10,20,.22) 100%);
       z-index:1;
     }
 
-    /* ✅ METNİ SAĞA AL + DARALT (QR'ı engellemesin) */
     .hero-inner{
       position:relative;
       z-index:2;
@@ -209,7 +209,6 @@
       font-size: 14px;
     }
 
-    /* ✅ Mobilde normale dön */
     @media (max-width: 980px){
       .hero-inner{
         margin-left: 0;
@@ -217,64 +216,11 @@
       }
       .btn.cta-left{ margin-left: 0; }
 
-      /* Mobilde de karekod sağda kalsın ama çok taşmasın */
       .hero-bg{
-        background-position: 85% center;
+        background-position: right center;
       }
     }
   </style>
 </head>
 
 <body>
-
-  <div class="brand-bar">
-    © <span id="y"></span> RAN Ajans & Reklam Hizmetleri – Tescilli markasıdır.
-  </div>
-
-  <header class="header">
-    <div class="container">
-      <div class="wrap">
-        <a class="logo" href="index.html">
-          <span class="logo-dot"></span>
-          <span>RAN <b style="color:var(--brand)">Ajans & Reklam Hizmetleri</b></span>
-        </a>
-
-        <nav class="nav">
-          <a href="index.html" class="active">Ana Sayfa</a>
-          <a href="hizmetler.html">Hizmetler</a>
-          <a href="projeler.html">Projeler</a>
-          <a href="kurumsal.html">Kurumsal</a>
-          <a href="iletisim.html">İletişim</a>
-        </nav>
-      </div>
-    </div>
-  </header>
-
-  <main class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-overlay"></div>
-
-    <div class="container hero-inner">
-      <h1>QR ile markanızın<br/>etkileşimini artırmak ister misiniz?</h1>
-      <p class="lead">
-        RAN Ajans & Reklam Hizmetleri; toplu taşıma reklamları, kampüs odaklı çözümler ve QR etkileşim sistemleriyle markanızın bilinirliğine değer katar.
-      </p>
-
-      <div class="btn-row">
-        <a class="btn cta-left" href="hizmetler.html">Etkileşim Alanlarımız</a>
-      </div>
-    </div>
-  </main>
-
-  <footer>
-    © <span id="y2"></span> RAN Ajans & Reklam Hizmetleri – Tescilli markasıdır.
-  </footer>
-
-  <script>
-    const y = new Date().getFullYear();
-    document.getElementById("y").textContent = y;
-    document.getElementById("y2").textContent = y;
-  </script>
-
-</body>
-</html>
