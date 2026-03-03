@@ -79,7 +79,6 @@
       border-bottom:1px solid rgba(255,255,255,.07);
     }
 
-    /* ARKA PLAN: BLUR */
     .hero .bg{
       position:absolute; inset:0;
       background: url("img/trambus.jpg") center/cover no-repeat;
@@ -99,16 +98,15 @@
 
     .hero .content{ position:relative; z-index:3; max-width: 880px; padding-bottom: 10px; }
 
-    /* ✅ 2 YAN FOTO: SAĞ-SOL FULL (container boşluğunu kırar) */
     .hero-gallery{
       position: relative;
-      z-index: 2;                 /* overlay'nin üstünde */
-      width: 100vw;               /* ekranın tamamı */
-      margin-left: calc(-50vw + 50%); /* container etkisini kır */
+      z-index: 2;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px;                  /* iki görsel arası boşluk kalsın */
-      padding: 0;                 /* sağ-sol boşluk yok */
+      gap: 20px;
+      padding: 0;
       margin-bottom: 14px;
     }
 
@@ -158,37 +156,6 @@
       gap: 16px;
       align-items:start;
     }
-
-    .box{
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      padding: 18px;
-    }
-    .box h2{
-      margin:0 0 10px;
-      font-size: 16px;
-      font-weight: 900;
-    }
-    .box p{
-      margin:0;
-      color: var(--muted2);
-      line-height:1.65;
-      font-size: 14px;
-    }
-    .list{ margin: 10px 0 0; padding-left: 18px; color: rgba(234,240,255,.75); }
-    .list li{ margin: 8px 0; line-height:1.55; }
-
-    .pill{
-      display:flex; gap:10px; align-items:flex-start;
-      padding: 12px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-      margin-top: 12px;
-    }
-    .pill b{ color: rgba(234,240,255,.92); }
-    .pill span{ color: rgba(234,240,255,.62); font-size: 13px; line-height:1.55; }
 
     .actions{
       display:flex; gap:10px; flex-wrap:wrap;
@@ -258,8 +225,6 @@
     <div class="overlay" aria-hidden="true"></div>
 
     <div class="container content">
-
-      <!-- ✅ 2 YAN FOTO -->
       <div class="hero-gallery" aria-label="Trambüs görsel galerisi">
         <div class="gitem">
           <img src="img/imgtr1.jpg" alt="Trambüs Uygulama Örneği 1">
@@ -279,11 +244,22 @@
     <div class="container">
       <div class="grid">
 
-          <div class="actions">
-            <a class="btn primary" href="iletisim.html">Teklif Al</a>
-            <a class="btn" href="hizmetler.html">Hizmetlere Dön</a>
+        <!-- Sol taraf (boş bırakmak istersen sil) -->
+        <div></div>
 
-  <footer>© <span id="y2"></span> RAN Ajans & Reklam Hizmetleri – Tescilli markasıdır.</footer>
+        <!-- Sağ taraf aksiyonlar -->
+        <div class="actions">
+          <a class="btn primary" href="iletisim.html">Teklif Al</a>
+          <a class="btn" href="hizmetler.html">Hizmetlere Dön</a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    © <span id="y2"></span> RAN Ajans & Reklam Hizmetleri – Tescilli markasıdır.
+  </footer>
 
   <script>
     const y = new Date().getFullYear();
