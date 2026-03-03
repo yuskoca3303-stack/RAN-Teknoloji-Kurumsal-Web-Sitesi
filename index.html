@@ -18,9 +18,6 @@
       --brand: #17c7ff;
       --brand2:#7a5cff;
       --headerH: 76px;
-
-      /* ✅ SADECE LOGO YAZISI SOLA KAYDIRMA (40px yerine 20/60 deneyebilirsin) */
-      --logoShift: 40px;
     }
 
     *{box-sizing:border-box}
@@ -63,6 +60,12 @@
       margin: 0 auto;
     }
 
+    /* ✅ SADECE HEADER: container'ı sola yasla (yazı sola kayar) */
+    .header .container{
+      margin-left: 0;
+      margin-right: auto;
+    }
+
     .header .wrap{
       display:flex;
       align-items:center;
@@ -79,9 +82,6 @@
       text-decoration:none;
       color: var(--text);
       white-space:nowrap;
-
-      /* ✅ SADECE LOGO SOLA KAYSIN (MENÜYE DOKUNMA) */
-      transform: translateX(calc(var(--logoShift) * -1));
     }
 
     .logo-dot{
@@ -206,8 +206,10 @@
     }
 
     @media (max-width: 980px){
-      /* Mobilde kaydırmayı kapat ki taşma olmasın */
-      .logo{ transform: none; }
+      /* Mobilde header yine düzgün kalsın */
+      .header .container{
+        margin: 0 auto;
+      }
 
       .hero-inner{
         margin-left: 0;
