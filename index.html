@@ -62,7 +62,7 @@
 
     /* ✅ SADECE HEADER: container'ı sola yasla (yazı sola kayar) */
     .header .container{
-      margin-left: 5px; /* düzeltildi: birim olmadan olmaz */
+      margin-left: 5px;
       margin-right: auto;
     }
 
@@ -82,6 +82,7 @@
       text-decoration:none;
       color: var(--text);
       white-space:nowrap;
+      margin-left:10px; /* ✅ çok az sağa */
     }
 
     .logo-dot{
@@ -133,7 +134,6 @@
     .hero-bg{
       position:absolute;
       inset:0;
-      /* ✅ düzeltildi: hero görseli img klasöründe ve jpg */
       background: url("img/hero.jpg") right 30% / cover no-repeat;
       filter: saturate(1.38) contrast(1.16) brightness(1.14);
       transform: scale(1.03);
@@ -207,9 +207,12 @@
     }
 
     @media (max-width: 980px){
-      /* Mobilde header yine düzgün kalsın */
       .header .container{
         margin: 0 auto;
+      }
+
+      .logo{
+        margin-left:0; /* mobilde kaydırmayı kaldır */
       }
 
       .hero-inner{
@@ -231,7 +234,7 @@
       <div class="wrap">
         <a class="logo" href="index.html">
           <span class="logo-dot"></span>
-          <span>RAN <b style="color:var(--brand)">Ajans & Reklam Hizmetleri</b></span>
+          <span>RAN Ajans & Reklam Hizmetleri</span>
         </a>
 
         <nav class="nav">
